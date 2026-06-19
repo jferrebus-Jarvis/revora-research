@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "business_name": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "has_website": {
+      "type": "boolean"
+    },
+    "website_url": {
+      "type": "string"
+    },
+    "google_maps_url": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "review_count": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "New",
+        "Demo Built",
+        "Contacted",
+        "In Talks",
+        "Closed",
+        "Not Interested"
+      ]
+    },
+    "demo_url": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    }
+  },
+  "required": [],
+  "name": "Lead"
+}
