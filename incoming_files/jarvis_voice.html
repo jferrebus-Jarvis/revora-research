@@ -34,8 +34,8 @@
   .status.thinking { color: #ffd700; }
   .status.speaking { color: #00ff88; }
   .status.error { color: #ff4444; }
+  .status.standby { color: rgba(255,255,255,0.25); }
 
-  /* Orb */
   .orb-container {
     position: relative;
     width: 200px;
@@ -53,7 +53,7 @@
       0 0 80px rgba(0, 100, 255, 0.2),
       inset 0 0 40px rgba(255,255,255,0.05);
     cursor: pointer;
-    transition: transform 0.15s ease;
+    transition: transform 0.15s ease, background 0.4s ease, box-shadow 0.4s ease;
     position: relative;
     z-index: 2;
   }
@@ -61,18 +61,13 @@
   .orb::after {
     content: '';
     position: absolute;
-    top: 20%;
-    left: 25%;
-    width: 30%;
-    height: 20%;
+    top: 20%; left: 25%;
+    width: 30%; height: 20%;
     background: rgba(255,255,255,0.15);
     border-radius: 50%;
     filter: blur(8px);
   }
 
-  .orb:active { transform: scale(0.94); }
-
-  /* Pulse rings when listening */
   .ring {
     position: absolute;
     top: 50%; left: 50%;
@@ -87,32 +82,26 @@
   .ring-2 { width: 260px; height: 260px; }
   .ring-3 { width: 300px; height: 300px; }
 
-  body.listening .ring-1 {
-    animation: pulse 1.8s ease-out infinite;
-  }
-  body.listening .ring-2 {
-    animation: pulse 1.8s ease-out 0.3s infinite;
-  }
-  body.listening .ring-3 {
-    animation: pulse 1.8s ease-out 0.6s infinite;
-  }
+  body.active .ring-1 { animation: pulse 1.8s ease-out infinite; }
+  body.active .ring-2 { animation: pulse 1.8s ease-out 0.3s infinite; }
+  body.active .ring-3 { animation: pulse 1.8s ease-out 0.6s infinite; }
 
   body.speaking .orb {
     animation: orbPulse 0.6s ease-in-out infinite alternate;
     background: radial-gradient(circle at 35% 35%, #00ff88, #009944 60%, #003322);
-    box-shadow:
-      0 0 40px rgba(0, 255, 136, 0.5),
-      0 0 80px rgba(0, 255, 136, 0.2),
-      inset 0 0 40px rgba(255,255,255,0.05);
+    box-shadow: 0 0 60px rgba(0, 255, 136, 0.6), 0 0 120px rgba(0, 255, 136, 0.3), inset 0 0 40px rgba(255,255,255,0.05);
   }
 
   body.thinking .orb {
     animation: orbSpin 2s linear infinite;
     background: radial-gradient(circle at 35% 35%, #ffd700, #aa7700 60%, #332200);
-    box-shadow:
-      0 0 40px rgba(255, 215, 0, 0.5),
-      0 0 80px rgba(255, 215, 0, 0.2),
-      inset 0 0 40px rgba(255,255,255,0.05);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.5), 0 0 80px rgba(255, 215, 0, 0.2), inset 0 0 40px rgba(255,255,255,0.05);
+  }
+
+  body.standby .orb {
+    background: radial-gradient(circle at 35% 35%, #223366, #001133 60%, #000011);
+    box-shadow: 0 0 20px rgba(0, 50, 150, 0.2), inset 0 0 20px rgba(255,255,255,0.02);
+    animation: breathe 4s ease-in-out infinite;
   }
 
   @keyframes pulse {
@@ -121,8 +110,8 @@
   }
 
   @keyframes orbPulse {
-    0% { transform: scale(1); box-shadow: 0 0 40px rgba(0, 255, 136, 0.5), 0 0 80px rgba(0, 255, 136, 0.2); }
-    100% { transform: scale(1.04); box-shadow: 0 0 60px rgba(0, 255, 136, 0.8), 0 0 120px rgba(0, 255, 136, 0.4); }
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
   }
 
   @keyframes orbSpin {
@@ -130,16 +119,20 @@
     100% { filter: hue-rotate(360deg); }
   }
 
-  /* Mic icon inside orb */
+  @keyframes breathe {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.02); }
+  }
+
   .mic-icon {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
     pointer-events: none;
+    transition: opacity 0.3s;
   }
 
-  /* Transcript */
   .transcript {
     max-width: 320px;
     text-align: center;
@@ -152,7 +145,7 @@
 
   .user-text {
     font-size: 15px;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.45);
     font-style: italic;
   }
 
@@ -162,17 +155,17 @@
     line-height: 1.5;
   }
 
-  /* Hold hint */
   .hint {
     position: fixed;
     bottom: 40px;
     font-size: 12px;
-    color: rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.2);
     letter-spacing: 1px;
     text-transform: uppercase;
+    text-align: center;
+    padding: 0 20px;
   }
 
-  /* Top bar */
   .topbar {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -194,6 +187,47 @@
     color: rgba(255,255,255,0.3);
     letter-spacing: 1px;
   }
+
+  /* Start button overlay */
+  .start-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+  }
+
+  .start-overlay.hidden { display: none; }
+
+  .start-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .start-btn {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 150, 255, 0.6);
+    background: rgba(0, 80, 255, 0.15);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .start-btn:hover, .start-btn:active {
+    background: rgba(0, 80, 255, 0.4);
+    border-color: rgba(0, 150, 255, 1);
+  }
 </style>
 </head>
 <body>
@@ -203,7 +237,14 @@
   <div class="model-badge">JF Web Studios</div>
 </div>
 
-<div class="status" id="status">Tap to speak</div>
+<!-- One-time start overlay to get mic permission -->
+<div class="start-overlay" id="startOverlay">
+  <div class="start-text">Tap to activate</div>
+  <button class="start-btn" id="startBtn">Start</button>
+  <div class="start-text" style="font-size:11px; margin-top:-12px;">Microphone access required</div>
+</div>
+
+<div class="status standby" id="status">Standby</div>
 
 <div class="orb-container" id="orbContainer">
   <div class="ring ring-1"></div>
@@ -224,42 +265,43 @@
   <div class="jarvis-text" id="jarvisText"></div>
 </div>
 
-<div class="hint">Tap orb to speak</div>
+<div class="hint" id="hint">Always listening — just speak</div>
 
 <script>
-// ─── CONFIG ───────────────────────────────────────────────────────────────────
-const AGENT_URL = "https://app.base44.com/superagent/6a3581bb2a25b2dfe23bf70e";
 const TTS_URL = "https://api.base44.com/api/apps/6a3581bb2a25b2dfe23bf70e/functions/jarvisVoice";
 
-// ─── STATE ────────────────────────────────────────────────────────────────────
-let recognition = null;
-let isListening = false;
-let conversationHistory = [];
-
-// ─── ELEMENTS ─────────────────────────────────────────────────────────────────
 const orb = document.getElementById('orb');
-const status = document.getElementById('status');
+const statusEl = document.getElementById('status');
 const userText = document.getElementById('userText');
 const jarvisText = document.getElementById('jarvisText');
+const startOverlay = document.getElementById('startOverlay');
+const startBtn = document.getElementById('startBtn');
 const body = document.body;
 
-// ─── SPEECH RECOGNITION SETUP ────────────────────────────────────────────────
+let recognition = null;
+let isSpeaking = false;
+let isThinking = false;
+let conversationHistory = [];
+let restartTimeout = null;
+
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-if (!SpeechRecognition) {
-  setStatus('Browser not supported. Use Chrome or Safari.', 'error');
-}
-
 function setStatus(text, state = '') {
-  status.textContent = text;
-  status.className = 'status ' + state;
+  statusEl.textContent = text;
+  statusEl.className = 'status ' + state;
   body.className = state;
 }
 
-// ─── SPEAK VIA ELEVENLABS ────────────────────────────────────────────────────
+// ── TTS ───────────────────────────────────────────────────────────────────────
 async function speak(text) {
+  isSpeaking = true;
   setStatus('Speaking...', 'speaking');
   jarvisText.textContent = text;
+
+  // Stop listening while speaking
+  if (recognition) {
+    try { recognition.abort(); } catch(e) {}
+  }
 
   try {
     const res = await fetch(TTS_URL, {
@@ -274,137 +316,144 @@ async function speak(text) {
     const audioUrl = URL.createObjectURL(blob);
     const audio = new Audio(audioUrl);
 
-    audio.onended = () => {
-      URL.revokeObjectURL(audioUrl);
-      setStatus('Tap to speak', '');
-    };
+    await new Promise((resolve) => {
+      audio.onended = () => {
+        URL.revokeObjectURL(audioUrl);
+        resolve();
+      };
+      audio.onerror = resolve;
+      audio.play().catch(resolve);
+    });
 
-    await audio.play();
   } catch (err) {
-    console.error('TTS error:', err);
-    // Fallback to browser TTS
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.95;
-    utterance.pitch = 0.85;
-    utterance.onend = () => setStatus('Tap to speak', '');
-    speechSynthesis.speak(utterance);
+    // Browser TTS fallback
+    await new Promise((resolve) => {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.95;
+      utterance.pitch = 0.8;
+      utterance.onend = resolve;
+      utterance.onerror = resolve;
+      speechSynthesis.speak(utterance);
+    });
   }
+
+  isSpeaking = false;
+  // Resume listening
+  setTimeout(() => startListening(), 300);
 }
 
-// ─── SEND TO JARVIS AGENT ────────────────────────────────────────────────────
+// ── AGENT ────────────────────────────────────────────────────────────────────
 async function askJarvis(userMessage) {
+  isThinking = true;
   setStatus('Thinking...', 'thinking');
   userText.textContent = '"' + userMessage + '"';
   jarvisText.textContent = '';
-
   conversationHistory.push({ role: 'user', content: userMessage });
 
+  let reply = '';
+
   try {
-    // Use the superagent API
-    const res = await fetch(`https://api.base44.com/api/apps/6a3581bb2a25b2dfe23bf70e/superagent/message`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: userMessage,
-        history: conversationHistory.slice(-10)
-      })
-    });
-
-    let reply = '';
-
+    const res = await fetch(
+      `https://api.base44.com/api/apps/6a3581bb2a25b2dfe23bf70e/superagent/message`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMessage, history: conversationHistory.slice(-10) })
+      }
+    );
     if (res.ok) {
       const data = await res.json();
-      reply = data.message || data.reply || data.response || JSON.stringify(data);
-    } else {
-      // Fallback: direct voice responses for common commands
-      reply = getFallbackResponse(userMessage);
+      reply = data.message || data.reply || data.response || '';
     }
+  } catch(e) {}
 
-    conversationHistory.push({ role: 'assistant', content: reply });
-    await speak(reply);
+  if (!reply) reply = getFallback(userMessage);
 
-  } catch (err) {
-    console.error('Agent error:', err);
-    const reply = getFallbackResponse(userMessage);
-    await speak(reply);
-  }
+  conversationHistory.push({ role: 'assistant', content: reply });
+  isThinking = false;
+  await speak(reply);
 }
 
-function getFallbackResponse(msg) {
+function getFallback(msg) {
   const m = msg.toLowerCase();
-  if (m.includes('time')) return 'It is ' + new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
-  if (m.includes('hello') || m.includes('hey') || m.includes('hi')) return 'Online and ready. What do you need?';
-  if (m.includes('weather')) return 'I need internet access for that. Try again in a moment.';
-  return 'Understood. Open the Base44 chat for full capabilities while the voice API connection is being finalized.';
+  if (m.includes('time')) return 'It is ' + new Date().toLocaleTimeString('en-US', {hour:'2-digit', minute:'2-digit'});
+  if (/hello|hey|what'?s up|yo/.test(m)) return 'Online and ready. What do you need?';
+  if (m.includes('your name') || m.includes('who are you')) return 'I am Jarvis. Your personal AI built by J F Web Studios.';
+  if (m.includes('weather')) return 'I need a live connection for that. Check back in a moment.';
+  return 'Understood. I am processing that now.';
 }
 
-// ─── VOICE INPUT ─────────────────────────────────────────────────────────────
+// ── ALWAYS-ON LISTENING ───────────────────────────────────────────────────────
 function startListening() {
-  if (!SpeechRecognition || isListening) return;
+  if (isSpeaking || isThinking) return;
+  if (!SpeechRecognition) {
+    setStatus('Browser not supported', 'error');
+    return;
+  }
 
   recognition = new SpeechRecognition();
   recognition.lang = 'en-US';
+  recognition.continuous = false;       // auto-stops after silence
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
-  recognition.continuous = false;
 
   recognition.onstart = () => {
-    isListening = true;
-    setStatus('Listening...', 'active');
-    userText.textContent = '';
-    jarvisText.textContent = '';
+    if (!isSpeaking && !isThinking) setStatus('Listening...', 'active');
   };
 
   recognition.onresult = (event) => {
-    const transcript = event.results[0][0].transcript;
-    isListening = false;
-    askJarvis(transcript);
+    const transcript = event.results[0][0].transcript.trim();
+    if (transcript) askJarvis(transcript);
   };
 
   recognition.onerror = (event) => {
-    isListening = false;
     if (event.error === 'no-speech') {
-      setStatus('No speech detected. Tap to try again.', '');
+      // Normal — just restart
+      scheduleRestart();
     } else if (event.error === 'not-allowed') {
-      setStatus('Microphone access denied.', 'error');
+      setStatus('Microphone denied', 'error');
     } else {
-      setStatus('Error: ' + event.error, 'error');
+      scheduleRestart();
     }
   };
 
   recognition.onend = () => {
-    isListening = false;
-    if (body.className === 'active') setStatus('Tap to speak', '');
+    if (!isSpeaking && !isThinking) {
+      setStatus('Listening...', 'active');
+      scheduleRestart();
+    }
   };
 
-  recognition.start();
-}
-
-function stopListening() {
-  if (recognition && isListening) {
-    recognition.stop();
-    isListening = false;
+  try {
+    recognition.start();
+  } catch(e) {
+    scheduleRestart();
   }
 }
 
-// ─── ORB TAP ─────────────────────────────────────────────────────────────────
+function scheduleRestart() {
+  clearTimeout(restartTimeout);
+  restartTimeout = setTimeout(() => {
+    if (!isSpeaking && !isThinking) startListening();
+  }, 300);
+}
+
+// ── TAP ORB TO INTERRUPT ──────────────────────────────────────────────────────
 orb.addEventListener('click', () => {
-  if (isListening) {
-    stopListening();
-  } else if (body.className === '' || body.className === 'error') {
+  if (isSpeaking) {
+    // Interrupt and go back to listening
+    speechSynthesis.cancel();
+    isSpeaking = false;
+    setStatus('Listening...', 'active');
     startListening();
   }
 });
 
-// ─── INIT ─────────────────────────────────────────────────────────────────────
-window.addEventListener('load', () => {
-  // Test audio context
-  try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    ctx.close();
-  } catch(e) {}
-
-  setStatus('Tap to speak', '');
+// ── INIT ──────────────────────────────────────────────────────────────────────
+startBtn.addEventListener('click', () => {
+  startOverlay.classList.add('hidden');
+  setStatus('Listening...', 'active');
+  startListening();
 });
 </script>
 </body>
