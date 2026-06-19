@@ -1,6 +1,7 @@
 import { createClientFromRequest } from "npm:@base44/sdk@0.8.31";
 
-const VOICE_ID = "IKne3meq5aSn9XLyUdCD"; // Charlie — Deep, Confident, Energetic
+// George — Warm, Captivating, British. Closest to real Jarvis.
+const VOICE_ID = "JBFqnCBsd6RMkjVDRZzb";
 
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
@@ -51,11 +52,11 @@ Deno.serve(async (req: Request) => {
       },
       body: JSON.stringify({
         text,
-        model_id: "eleven_turbo_v2_5",
+        model_id: "eleven_multilingual_v2",
         voice_settings: {
-          stability: 0.45,
-          similarity_boost: 0.85,
-          style: 0.3,
+          stability: 0.35,          // lower = more expressive, natural variation
+          similarity_boost: 0.90,   // stays true to George's voice
+          style: 0.40,              // adds character and warmth
           use_speaker_boost: true,
         },
       }),

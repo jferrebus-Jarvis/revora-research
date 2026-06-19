@@ -29,12 +29,12 @@
     height: 20px;
     transition: color 0.3s;
   }
-
-  .status.active { color: #00d4ff; }
+  .status.active   { color: #00d4ff; }
   .status.thinking { color: #ffd700; }
   .status.speaking { color: #00ff88; }
-  .status.error { color: #ff4444; }
-  .status.standby { color: rgba(255,255,255,0.25); }
+  .status.error    { color: #ff4444; }
+  .status.standby  { color: rgba(255,255,255,0.2); }
+  .status.wake     { color: #ffffff; font-weight: 600; }
 
   .orb-container {
     position: relative;
@@ -48,12 +48,9 @@
     height: 200px;
     border-radius: 50%;
     background: radial-gradient(circle at 35% 35%, #1a6fff, #0033aa 60%, #000055);
-    box-shadow:
-      0 0 40px rgba(0, 100, 255, 0.4),
-      0 0 80px rgba(0, 100, 255, 0.2),
-      inset 0 0 40px rgba(255,255,255,0.05);
+    box-shadow: 0 0 40px rgba(0,100,255,0.4), 0 0 80px rgba(0,100,255,0.2), inset 0 0 40px rgba(255,255,255,0.05);
     cursor: pointer;
-    transition: transform 0.15s ease, background 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.15s ease, background 0.5s ease, box-shadow 0.5s ease;
     position: relative;
     z-index: 2;
   }
@@ -73,11 +70,10 @@
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 1px solid rgba(0, 150, 255, 0.3);
+    border: 1px solid rgba(0,150,255,0.3);
     opacity: 0;
     pointer-events: none;
   }
-
   .ring-1 { width: 220px; height: 220px; }
   .ring-2 { width: 260px; height: 260px; }
   .ring-3 { width: 300px; height: 300px; }
@@ -86,51 +82,61 @@
   body.active .ring-2 { animation: pulse 1.8s ease-out 0.3s infinite; }
   body.active .ring-3 { animation: pulse 1.8s ease-out 0.6s infinite; }
 
+  body.wake .ring-1 { animation: pulse 1.2s ease-out infinite; border-color: rgba(255,255,255,0.5); }
+  body.wake .ring-2 { animation: pulse 1.2s ease-out 0.2s infinite; border-color: rgba(255,255,255,0.3); }
+  body.wake .ring-3 { animation: pulse 1.2s ease-out 0.4s infinite; border-color: rgba(255,255,255,0.1); }
+
+  body.wake .orb {
+    background: radial-gradient(circle at 35% 35%, #88ccff, #2266cc 60%, #001144);
+    box-shadow: 0 0 80px rgba(100,180,255,0.8), 0 0 160px rgba(100,180,255,0.4), inset 0 0 40px rgba(255,255,255,0.15);
+    animation: wakeGlow 0.8s ease-in-out infinite alternate;
+  }
+
   body.speaking .orb {
     animation: orbPulse 0.6s ease-in-out infinite alternate;
     background: radial-gradient(circle at 35% 35%, #00ff88, #009944 60%, #003322);
-    box-shadow: 0 0 60px rgba(0, 255, 136, 0.6), 0 0 120px rgba(0, 255, 136, 0.3), inset 0 0 40px rgba(255,255,255,0.05);
+    box-shadow: 0 0 60px rgba(0,255,136,0.6), 0 0 120px rgba(0,255,136,0.3), inset 0 0 40px rgba(255,255,255,0.05);
   }
 
   body.thinking .orb {
     animation: orbSpin 2s linear infinite;
     background: radial-gradient(circle at 35% 35%, #ffd700, #aa7700 60%, #332200);
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.5), 0 0 80px rgba(255, 215, 0, 0.2), inset 0 0 40px rgba(255,255,255,0.05);
+    box-shadow: 0 0 40px rgba(255,215,0,0.5), 0 0 80px rgba(255,215,0,0.2);
   }
 
   body.standby .orb {
     background: radial-gradient(circle at 35% 35%, #223366, #001133 60%, #000011);
-    box-shadow: 0 0 20px rgba(0, 50, 150, 0.2), inset 0 0 20px rgba(255,255,255,0.02);
+    box-shadow: 0 0 20px rgba(0,50,150,0.2);
     animation: breathe 4s ease-in-out infinite;
   }
 
   @keyframes pulse {
-    0% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.15); }
+    0%   { opacity: 0.6; transform: translate(-50%,-50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%,-50%) scale(1.15); }
   }
-
   @keyframes orbPulse {
-    0% { transform: scale(1); }
+    0%   { transform: scale(1); }
     100% { transform: scale(1.05); }
   }
-
   @keyframes orbSpin {
-    0% { filter: hue-rotate(0deg); }
+    0%   { filter: hue-rotate(0deg); }
     100% { filter: hue-rotate(360deg); }
   }
-
   @keyframes breathe {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.02); }
+    0%,100% { opacity: 0.5; transform: scale(1); }
+    50%     { opacity: 0.8; transform: scale(1.02); }
+  }
+  @keyframes wakeGlow {
+    0%   { box-shadow: 0 0 60px rgba(100,180,255,0.7), 0 0 120px rgba(100,180,255,0.3); }
+    100% { box-shadow: 0 0 100px rgba(100,180,255,1), 0 0 200px rgba(100,180,255,0.6); }
   }
 
   .mic-icon {
     position: absolute;
     top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%);
     z-index: 3;
     pointer-events: none;
-    transition: opacity 0.3s;
   }
 
   .transcript {
@@ -143,23 +149,14 @@
     padding: 0 20px;
   }
 
-  .user-text {
-    font-size: 15px;
-    color: rgba(255,255,255,0.45);
-    font-style: italic;
-  }
-
-  .jarvis-text {
-    font-size: 16px;
-    color: #fff;
-    line-height: 1.5;
-  }
+  .user-text   { font-size: 15px; color: rgba(255,255,255,0.4); font-style: italic; }
+  .jarvis-text { font-size: 16px; color: #fff; line-height: 1.6; }
 
   .hint {
     position: fixed;
     bottom: 40px;
     font-size: 12px;
-    color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.18);
     letter-spacing: 1px;
     text-transform: uppercase;
     text-align: center;
@@ -175,87 +172,71 @@
     align-items: center;
   }
 
-  .logo {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: rgba(255,255,255,0.8);
-  }
+  .logo       { font-size: 18px; font-weight: 700; letter-spacing: 4px; color: rgba(255,255,255,0.8); }
+  .model-badge { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
 
-  .model-badge {
-    font-size: 11px;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 1px;
-  }
-
-  /* Start button overlay */
   .start-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 24px;
     z-index: 100;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
   }
-
   .start-overlay.hidden { display: none; }
 
-  .start-text {
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+  .start-title { font-size: 22px; font-weight: 700; letter-spacing: 6px; color: #fff; }
+  .start-sub   { font-size: 13px; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; text-align: center; line-height: 1.8; }
 
   .start-btn {
-    width: 80px; height: 80px;
+    width: 90px; height: 90px;
     border-radius: 50%;
-    border: 2px solid rgba(0, 150, 255, 0.6);
-    background: rgba(0, 80, 255, 0.15);
+    border: 2px solid rgba(0,150,255,0.6);
+    background: rgba(0,80,255,0.15);
     color: #fff;
     font-size: 13px;
     letter-spacing: 2px;
     cursor: pointer;
     text-transform: uppercase;
     transition: all 0.2s;
+    margin-top: 8px;
   }
-
   .start-btn:hover, .start-btn:active {
-    background: rgba(0, 80, 255, 0.4);
-    border-color: rgba(0, 150, 255, 1);
+    background: rgba(0,80,255,0.4);
+    border-color: rgba(0,150,255,1);
+    transform: scale(1.05);
   }
 </style>
 </head>
-<body>
+<body class="standby">
 
 <div class="topbar">
   <div class="logo">JARVIS</div>
   <div class="model-badge">JF Web Studios</div>
 </div>
 
-<!-- One-time start overlay to get mic permission -->
 <div class="start-overlay" id="startOverlay">
-  <div class="start-text">Tap to activate</div>
+  <div class="start-title">JARVIS</div>
+  <div class="start-sub">Say "Hey Jarvis, wake up"<br>to activate at any time</div>
   <button class="start-btn" id="startBtn">Start</button>
-  <div class="start-text" style="font-size:11px; margin-top:-12px;">Microphone access required</div>
+  <div class="start-sub" style="font-size:11px;">Microphone access required</div>
 </div>
 
 <div class="status standby" id="status">Standby</div>
 
-<div class="orb-container" id="orbContainer">
+<div class="orb-container">
   <div class="ring ring-1"></div>
   <div class="ring ring-2"></div>
   <div class="ring ring-3"></div>
   <div class="orb" id="orb">
     <svg class="mic-icon" width="48" height="48" viewBox="0 0 24 24" fill="none">
-      <rect x="9" y="2" width="6" height="11" rx="3" fill="rgba(255,255,255,0.8)"/>
-      <path d="M5 10a7 7 0 0 0 14 0" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="12" y1="17" x2="12" y2="21" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="9" y1="21" x2="15" y2="21" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="9" y="2" width="6" height="11" rx="3" fill="rgba(255,255,255,0.7)"/>
+      <path d="M5 10a7 7 0 0 0 14 0" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="12" y1="17" x2="12" y2="21" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="9" y1="21" x2="15" y2="21" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/>
     </svg>
   </div>
 </div>
@@ -265,43 +246,67 @@
   <div class="jarvis-text" id="jarvisText"></div>
 </div>
 
-<div class="hint" id="hint">Always listening — just speak</div>
+<div class="hint">Say "Hey Jarvis" anytime · Tap orb to interrupt</div>
 
 <script>
 const TTS_URL = "https://api.base44.com/api/apps/6a3581bb2a25b2dfe23bf70e/functions/jarvisVoice";
 
-const orb = document.getElementById('orb');
-const statusEl = document.getElementById('status');
-const userText = document.getElementById('userText');
+const orb        = document.getElementById('orb');
+const statusEl   = document.getElementById('status');
+const userText   = document.getElementById('userText');
 const jarvisText = document.getElementById('jarvisText');
 const startOverlay = document.getElementById('startOverlay');
-const startBtn = document.getElementById('startBtn');
-const body = document.body;
+const startBtn   = document.getElementById('startBtn');
 
-let recognition = null;
-let isSpeaking = false;
-let isThinking = false;
+let recognition       = null;
+let isSpeaking        = false;
+let isThinking        = false;
+let isAwake           = false;   // true after wake word, until sleep
+let restartTimeout    = null;
+let currentAudio      = null;
 let conversationHistory = [];
-let restartTimeout = null;
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-function setStatus(text, state = '') {
-  statusEl.textContent = text;
-  statusEl.className = 'status ' + state;
-  body.className = state;
+// ── WAKE WORD & SLEEP ────────────────────────────────────────────────────────
+const WAKE_PHRASES  = ['hey jarvis', 'jarvis wake up', 'hey jarvis wake up', 'wake up jarvis', 'jarvis'];
+const SLEEP_PHRASES = ['go to sleep', 'sleep jarvis', 'jarvis sleep', 'goodbye jarvis', 'shut down'];
+
+// The exact Iron Man line
+const WAKE_RESPONSE = "Good evening, Mr. Stark. All systems are online. Welcome home.";
+const SLEEP_RESPONSE = "Of course. Powering down. I'll be here when you need me.";
+
+function isWakeWord(transcript) {
+  const t = transcript.toLowerCase().trim();
+  return WAKE_PHRASES.some(w => t.includes(w));
 }
 
-// ── TTS ───────────────────────────────────────────────────────────────────────
+function isSleepWord(transcript) {
+  const t = transcript.toLowerCase().trim();
+  return SLEEP_PHRASES.some(w => t.includes(w));
+}
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+function setStatus(text, state = '') {
+  statusEl.textContent = text;
+  statusEl.className   = 'status ' + state;
+  document.body.className = state;
+}
+
+function goStandby() {
+  isAwake = false;
+  setStatus('Standby — say "Hey Jarvis"', 'standby');
+  userText.textContent   = '';
+  jarvisText.textContent = '';
+}
+
+// ── TTS (ElevenLabs George voice — more human) ────────────────────────────────
 async function speak(text) {
   isSpeaking = true;
   setStatus('Speaking...', 'speaking');
   jarvisText.textContent = text;
 
-  // Stop listening while speaking
-  if (recognition) {
-    try { recognition.abort(); } catch(e) {}
-  }
+  if (recognition) { try { recognition.abort(); } catch(e) {} }
 
   try {
     const res = await fetch(TTS_URL, {
@@ -310,51 +315,55 @@ async function speak(text) {
       body: JSON.stringify({ text })
     });
 
-    if (!res.ok) throw new Error('TTS failed');
+    if (!res.ok) throw new Error('TTS error');
 
     const blob = await res.blob();
-    const audioUrl = URL.createObjectURL(blob);
-    const audio = new Audio(audioUrl);
+    const url  = URL.createObjectURL(blob);
+    currentAudio = new Audio(url);
 
-    await new Promise((resolve) => {
-      audio.onended = () => {
-        URL.revokeObjectURL(audioUrl);
-        resolve();
-      };
-      audio.onerror = resolve;
-      audio.play().catch(resolve);
+    await new Promise(resolve => {
+      currentAudio.onended = () => { URL.revokeObjectURL(url); resolve(); };
+      currentAudio.onerror = resolve;
+      currentAudio.play().catch(resolve);
     });
 
-  } catch (err) {
-    // Browser TTS fallback
-    await new Promise((resolve) => {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.95;
-      utterance.pitch = 0.8;
-      utterance.onend = resolve;
-      utterance.onerror = resolve;
-      speechSynthesis.speak(utterance);
+  } catch(e) {
+    await new Promise(resolve => {
+      const u = new SpeechSynthesisUtterance(text);
+      u.rate  = 0.88;
+      u.pitch = 0.75;
+      u.onend = resolve; u.onerror = resolve;
+      // Try to pick a deep male voice
+      const voices = speechSynthesis.getVoices();
+      const deep = voices.find(v => v.name.includes('Daniel') || v.name.includes('Google UK English Male') || v.name.includes('Alex'));
+      if (deep) u.voice = deep;
+      speechSynthesis.speak(u);
     });
   }
 
-  isSpeaking = false;
-  // Resume listening
-  setTimeout(() => startListening(), 300);
+  isSpeaking  = false;
+  currentAudio = null;
+  if (isAwake) {
+    setStatus('Listening...', 'active');
+    setTimeout(() => startListening(), 300);
+  } else {
+    goStandby();
+    setTimeout(() => startListening(), 300);
+  }
 }
 
-// ── AGENT ────────────────────────────────────────────────────────────────────
+// ── AGENT ─────────────────────────────────────────────────────────────────────
 async function askJarvis(userMessage) {
   isThinking = true;
   setStatus('Thinking...', 'thinking');
-  userText.textContent = '"' + userMessage + '"';
+  userText.textContent   = '"' + userMessage + '"';
   jarvisText.textContent = '';
   conversationHistory.push({ role: 'user', content: userMessage });
 
   let reply = '';
-
   try {
     const res = await fetch(
-      `https://api.base44.com/api/apps/6a3581bb2a25b2dfe23bf70e/superagent/message`,
+      'https://api.base44.com/api/apps/6a3581bb2a25b2dfe23bf70e/superagent/message',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -362,12 +371,22 @@ async function askJarvis(userMessage) {
       }
     );
     if (res.ok) {
-      const data = await res.json();
-      reply = data.message || data.reply || data.response || '';
+      const d = await res.json();
+      reply = d.message || d.reply || d.response || '';
     }
   } catch(e) {}
 
   if (!reply) reply = getFallback(userMessage);
+
+  // Strip markdown for voice
+  reply = reply
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/\*(.*?)\*/g, '$1')
+    .replace(/#{1,6} /g, '')
+    .replace(/`{1,3}[^`]*`{1,3}/g, '')
+    .replace(/\n{2,}/g, '. ')
+    .replace(/\n/g, ', ')
+    .trim();
 
   conversationHistory.push({ role: 'assistant', content: reply });
   isThinking = false;
@@ -376,41 +395,60 @@ async function askJarvis(userMessage) {
 
 function getFallback(msg) {
   const m = msg.toLowerCase();
-  if (m.includes('time')) return 'It is ' + new Date().toLocaleTimeString('en-US', {hour:'2-digit', minute:'2-digit'});
-  if (/hello|hey|what'?s up|yo/.test(m)) return 'Online and ready. What do you need?';
-  if (m.includes('your name') || m.includes('who are you')) return 'I am Jarvis. Your personal AI built by J F Web Studios.';
-  if (m.includes('weather')) return 'I need a live connection for that. Check back in a moment.';
-  return 'Understood. I am processing that now.';
+  if (m.includes('time'))  return 'The current time is ' + new Date().toLocaleTimeString('en-US', {hour:'2-digit', minute:'2-digit'});
+  if (m.includes('date'))  return 'Today is ' + new Date().toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric'});
+  if (/hello|what.?s up|how are you/.test(m)) return 'All systems nominal. Ready when you are.';
+  if (m.includes('your name') || m.includes('who are you')) return 'I am Jarvis. Built by J F Web Studios for Mr. Ferrebus.';
+  if (m.includes('weather')) return 'I need a live connection for weather data. One moment.';
+  return 'Understood. Processing your request now.';
 }
 
-// ── ALWAYS-ON LISTENING ───────────────────────────────────────────────────────
+// ── ALWAYS-ON LISTEN ──────────────────────────────────────────────────────────
 function startListening() {
   if (isSpeaking || isThinking) return;
-  if (!SpeechRecognition) {
-    setStatus('Browser not supported', 'error');
-    return;
-  }
+  if (!SpeechRecognition) { setStatus('Browser not supported', 'error'); return; }
 
   recognition = new SpeechRecognition();
-  recognition.lang = 'en-US';
-  recognition.continuous = false;       // auto-stops after silence
-  recognition.interimResults = false;
+  recognition.lang            = 'en-US';
+  recognition.continuous      = false;
+  recognition.interimResults  = false;
   recognition.maxAlternatives = 1;
 
   recognition.onstart = () => {
-    if (!isSpeaking && !isThinking) setStatus('Listening...', 'active');
+    if (!isSpeaking && !isThinking) {
+      setStatus(isAwake ? 'Listening...' : 'Standby — say "Hey Jarvis"', isAwake ? 'active' : 'standby');
+    }
   };
 
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript.trim();
-    if (transcript) askJarvis(transcript);
+    console.log('Heard:', transcript);
+
+    if (!isAwake) {
+      // Waiting for wake word
+      if (isWakeWord(transcript)) {
+        isAwake = true;
+        userText.textContent = '"' + transcript + '"';
+        setStatus('Waking up...', 'wake');
+        speak(WAKE_RESPONSE);
+      } else {
+        // Ignore and keep listening
+        scheduleRestart();
+      }
+    } else {
+      // Already awake — check for sleep command or route to agent
+      if (isSleepWord(transcript)) {
+        isAwake = false;
+        userText.textContent = '"' + transcript + '"';
+        speak(SLEEP_RESPONSE);
+      } else {
+        askJarvis(transcript);
+      }
+    }
   };
 
   recognition.onerror = (event) => {
-    if (event.error === 'no-speech') {
-      // Normal — just restart
-      scheduleRestart();
-    } else if (event.error === 'not-allowed') {
+    if (event.error === 'not-allowed') {
       setStatus('Microphone denied', 'error');
     } else {
       scheduleRestart();
@@ -418,41 +456,34 @@ function startListening() {
   };
 
   recognition.onend = () => {
-    if (!isSpeaking && !isThinking) {
-      setStatus('Listening...', 'active');
-      scheduleRestart();
-    }
+    if (!isSpeaking && !isThinking) scheduleRestart();
   };
 
-  try {
-    recognition.start();
-  } catch(e) {
-    scheduleRestart();
-  }
+  try { recognition.start(); } catch(e) { scheduleRestart(); }
 }
 
 function scheduleRestart() {
   clearTimeout(restartTimeout);
   restartTimeout = setTimeout(() => {
     if (!isSpeaking && !isThinking) startListening();
-  }, 300);
+  }, 400);
 }
 
-// ── TAP ORB TO INTERRUPT ──────────────────────────────────────────────────────
+// ── TAP ORB = INTERRUPT ───────────────────────────────────────────────────────
 orb.addEventListener('click', () => {
   if (isSpeaking) {
-    // Interrupt and go back to listening
     speechSynthesis.cancel();
+    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
     isSpeaking = false;
     setStatus('Listening...', 'active');
     startListening();
   }
 });
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
+// ── START ─────────────────────────────────────────────────────────────────────
 startBtn.addEventListener('click', () => {
   startOverlay.classList.add('hidden');
-  setStatus('Listening...', 'active');
+  goStandby();
   startListening();
 });
 </script>
