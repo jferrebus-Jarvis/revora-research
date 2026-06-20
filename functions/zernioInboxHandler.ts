@@ -43,7 +43,7 @@ Deno.serve(async (req: Request) => {
     }
 
     // Generate AI reply via Anthropic
-    const anthropic = new Anthropic({ apiKey: Deno.env.get("ANTHROPIC_API_KEY") || "" });
+    const anthropic = new Anthropic({ apiKey: Deno.env.get("ANTHROPIC_API_KEY_2") || Deno.env.get("ANTHROPIC_API_KEY") || "" });
 
     const aiResp = await anthropic.messages.create({
       model: "claude-3-5-haiku-20241022",
