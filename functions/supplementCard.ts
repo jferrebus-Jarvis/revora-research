@@ -1,0 +1,214 @@
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
+
+const HTML = `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #07070F;
+    width: 1080px;
+    padding: 32px;
+    color: #fff;
+  }
+  .header {
+    background: #0D0D1A;
+    border: 2px solid #C9A84C;
+    border-radius: 20px;
+    padding: 32px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .header-left h1 { font-size: 40px; font-weight: 900; color: #C9A84C; letter-spacing: -0.5px; }
+  .header-left p { font-size: 20px; color: #B0B0C0; margin-top: 6px; font-weight: 500; }
+  .header-left small { font-size: 14px; color: #444460; margin-top: 4px; display: block; }
+  .badge {
+    background: #C9A84C;
+    border-radius: 14px;
+    padding: 16px 24px;
+    text-align: center;
+    min-width: 110px;
+  }
+  .badge .week-label { font-size: 12px; font-weight: 800; color: #080810; letter-spacing: 2px; }
+  .badge .week-num { font-size: 44px; font-weight: 900; color: #080810; line-height: 1; }
+  .badge .year { font-size: 13px; color: #33330A; font-weight: 700; }
+
+  .section-header {
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-morning { background: #001A0D; border: 1px solid #4CAF82; color: #4CAF82; }
+  .section-food { background: #1A150A; border: 1px solid #C9A84C; color: #C9A84C; }
+  .section-night { background: #12001A; border: 1px solid #9B8EFF; color: #9B8EFF; }
+
+  .section { margin-bottom: 20px; }
+
+  .item {
+    background: #10101C;
+    border: 1px solid #1E1E30;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    overflow: hidden;
+  }
+  .item-stripe { width: 6px; flex-shrink: 0; }
+  .item-body { flex: 1; padding: 16px 20px; }
+  .item-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .item-name { font-size: 22px; font-weight: 700; color: #fff; }
+  .item-note { font-size: 14px; color: #666680; margin-top: 4px; }
+  .item-divider { height: 1px; background: #1E1E30; margin: 10px 0; }
+  .item-dose { font-size: 28px; font-weight: 800; color: #E8C76A; }
+  .tag {
+    background: #0D0D1A;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+  .tag-green { color: #4CAF82; border-color: #4CAF82; }
+  .tag-blue { color: #6EC6FF; border-color: #6EC6FF; }
+  .tag-orange { color: #FF8C42; border-color: #FF8C42; }
+  .tag-purple { color: #9B8EFF; border-color: #9B8EFF; }
+
+  .stripe-green { background: #4CAF82; }
+  .stripe-blue { background: #6EC6FF; }
+  .stripe-orange { background: #FF8C42; }
+  .stripe-purple { background: #9B8EFF; }
+
+  .footer {
+    background: #0D0D1A;
+    border: 1px solid #1E1E30;
+    border-radius: 16px;
+    padding: 20px 28px;
+    margin-top: 8px;
+  }
+  .footer p { font-size: 17px; color: #B0B0C0; margin-bottom: 10px; }
+  .footer p:last-child { margin-bottom: 0; }
+  .footer .gold { color: #C9A84C; }
+  .footer .small { font-size: 14px; color: #444455; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <h1>PAPÁ — SUPLEMENTOS</h1>
+      <p>Protocolo de Suplementos · Semana 1</p>
+      <small>Tarjeta de Referencia Personal &nbsp;•&nbsp; 2026</small>
+    </div>
+    <div class="badge">
+      <div class="week-label">SEMANA</div>
+      <div class="week-num">01</div>
+      <div class="year">2026</div>
+    </div>
+  </div>
+
+  <!-- MAÑANA -->
+  <div class="section">
+    <div class="section-header section-morning">☀️ &nbsp;MAÑANA — Estómago vacío</div>
+
+    <div class="item">
+      <div class="item-stripe stripe-green"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">Instant Hydration</div>
+            <div class="item-note">500mg Sodio · 470mg Potasio · 100mg Magnesio · Sin azúcar</div>
+          </div>
+          <div class="tag tag-green">ELECTROLITOS</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">1 sobre en 500ml agua</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESAYUNO -->
+  <div class="section">
+    <div class="section-header section-food">🍳 &nbsp;CON COMIDA — Desayuno</div>
+
+    <div class="item">
+      <div class="item-stripe stripe-orange"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">Creatina</div>
+            <div class="item-note">Mezclar en agua o jugo · No requiere ciclos · Diario</div>
+          </div>
+          <div class="tag tag-orange">FUERZA</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">5g diario</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-stripe stripe-green"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">Metamucil Fiber Gummies</div>
+            <div class="item-note">5g de fibra · Sin azúcar añadida · Diario</div>
+          </div>
+          <div class="tag tag-green">FIBRA</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">5 gomitas (1 porción)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOCHE -->
+  <div class="section">
+    <div class="section-header section-night">🌙 &nbsp;NOCHE — Antes de dormir</div>
+
+    <div class="item">
+      <div class="item-stripe stripe-purple"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">Magnesio Glicinato</div>
+            <div class="item-note">Con agua · Relaja músculos y nervios · Sueño profundo</div>
+          </div>
+          <div class="tag tag-purple">RECUPERACIÓN</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">Dosis del fabricante</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>💧 &nbsp;Tomar mínimo 2 litros de agua al día</p>
+    <p>🥗 &nbsp;Comida real primero — las barras son snacks, no reemplazos de comida</p>
+    <p>⚠️ &nbsp;<span class="small">Uso personal únicamente — seguir protocolo prescrito</span></p>
+  </div>
+</body>
+</html>
+`;
+
+Deno.serve(async (req) => {
+  const url = new URL(req.url);
+  if (url.pathname.endsWith('/dadCard')) {
+    return new Response(HTML, {
+      headers: { 'Content-Type': 'text/html; charset=utf-8' }
+    });
+  }
+  return new Response(HTML, {
+    headers: { 'Content-Type': 'text/html; charset=utf-8' }
+  });
+});
