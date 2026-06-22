@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    background: linear-gradient(160deg, #08080F 0%, #0D0D1A 60%, #0A0A14 100%);
+    font-family: 'Inter', sans-serif;
+    padding: 40px;
+    min-height: 1500px;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #0E0E1E 0%, #13132A 100%);
+    border: 1.5px solid #C9A84C;
+    border-radius: 24px;
+    padding: 36px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 8px;
+    background: linear-gradient(180deg, #E8C76A, #C9A84C);
+    border-radius: 24px 0 0 24px;
+  }
+  .header-left { padding-left: 20px; }
+  .owner-name {
+    font-size: 42px;
+    font-weight: 800;
+    color: #C9A84C;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .protocol-title {
+    font-size: 22px;
+    font-weight: 400;
+    color: #9090B0;
+    margin-top: 10px;
+  }
+  .protocol-sub {
+    font-size: 15px;
+    color: #444460;
+    margin-top: 6px;
+  }
+  .week-badge {
+    background: linear-gradient(135deg, #E8C76A, #C9A84C);
+    border-radius: 18px;
+    padding: 16px 28px;
+    text-align: center;
+    min-width: 130px;
+  }
+  .week-label { font-size: 13px; font-weight: 700; color: #080810; letter-spacing: 2px; }
+  .week-num { font-size: 52px; font-weight: 900; color: #080810; line-height: 1; }
+  .week-year { font-size: 13px; font-weight: 600; color: #2A1A00; }
+
+  .card {
+    background: linear-gradient(135deg, #11111C 0%, #13132A 100%);
+    border: 1px solid #1E1E35;
+    border-radius: 22px;
+    padding: 0;
+    margin-bottom: 18px;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-accent {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 6px;
+    border-radius: 22px 0 0 22px;
+  }
+  .card-inner { padding: 28px 32px 28px 40px; }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .card-top-left { display: flex; align-items: center; gap: 18px; }
+  .num-circle {
+    width: 52px; height: 52px;
+    background: #1A1A2E;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 800; color: #C9A84C;
+    flex-shrink: 0;
+  }
+  .peptide-name { font-size: 28px; font-weight: 700; color: #FFFFFF; }
+  .vial-info { font-size: 16px; color: #7070A0; margin-top: 4px; font-weight: 400; }
+
+  .tag {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+
+  .divider {
+    height: 1px;
+    background: #1E1E35;
+    margin: 0 0 20px 0;
+  }
+
+  .card-stats {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 16px;
+  }
+  .stat-label { font-size: 12px; font-weight: 600; color: #555575; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .stat-value-gold { font-size: 30px; font-weight: 800; color: #E8C76A; }
+  .stat-value-white { font-size: 30px; font-weight: 700; color: #FFFFFF; }
+
+  .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+    border-top: 1px solid #1A1A2E;
+  }
+  .time-row { font-size: 16px; font-weight: 500; }
+  .syringe-note { font-size: 14px; color: #383858; font-weight: 400; }
+
+  .footer {
+    background: #0E0E1E;
+    border: 1px solid #1E1E35;
+    border-radius: 18px;
+    padding: 24px 36px;
+    margin-top: 8px;
+  }
+  .footer-row { font-size: 16px; color: #8080A0; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+  .footer-row:last-child { margin-bottom: 0; font-size: 14px; color: #404058; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="owner-name">JHONNATAN FERREBUS</div>
+    <div class="protocol-title">Protocolo de Péptidos — Semana 1</div>
+    <div class="protocol-sub">Tarjeta Personal de Dosis de Referencia</div>
+  </div>
+  <div class="week-badge">
+    <div class="week-label">SEMANA</div>
+    <div class="week-num">01</div>
+    <div class="week-year">2026</div>
+  </div>
+</div>
+
+<!-- Retatrutide -->
+<div class="card">
+  <div class="card-accent" style="background: linear-gradient(180deg, #E8C76A, #C9A84C);"></div>
+  <div class="card-inner">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="num-circle">1</div>
+        <div>
+          <div class="peptide-name">Retatrutide</div>
+          <div class="vial-info">Frasco 5mg</div>
+        </div>
+      </div>
+      <div class="tag" style="color:#C9A84C; background:#2A2000; border-color:#C9A84C;">SEMANAL</div>
+    </div>
+    <div class="divider"></div>
+    <div class="card-stats">
+      <div>
+        <div class="stat-label">Dosis</div>
+        <div class="stat-value-gold">60 unidades</div>
+      </div>
+      <div>
+        <div class="stat-label">Frecuencia</div>
+        <div class="stat-value-white">Una vez / semana</div>
+      </div>
+    </div>
+    <div class="card-bottom">
+      <div class="time-row" style="color:#FFD700;">⏰ &nbsp;Por la mañana</div>
+      <div class="syringe-note">✓ Jeringa de insulina</div>
+    </div>
+  </div>
+</div>
+
+<!-- Selank -->
+<div class="card">
+  <div class="card-accent" style="background: linear-gradient(180deg, #6EC6FF, #3A9FE0);"></div>
+  <div class="card-inner">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="num-circle">2</div>
+        <div>
+          <div class="peptide-name">Selank</div>
+          <div class="vial-info">Frasco 5mg</div>
+        </div>
+      </div>
+      <div class="tag" style="color:#6EC6FF; background:#001A2E; border-color:#6EC6FF;">DIARIO · AM</div>
+    </div>
+    <div class="divider"></div>
+    <div class="card-stats">
+      <div>
+        <div class="stat-label">Dosis</div>
+        <div class="stat-value-gold">18 unidades</div>
+      </div>
+      <div>
+        <div class="stat-label">Frecuencia</div>
+        <div class="stat-value-white">Diario</div>
+      </div>
+    </div>
+    <div class="card-bottom">
+      <div class="time-row" style="color:#FFD700;">⏰ &nbsp;Por la mañana</div>
+      <div class="syringe-note">✓ Jeringa de insulina</div>
+    </div>
+  </div>
+</div>
+
+<!-- MOTS-C -->
+<div class="card">
+  <div class="card-accent" style="background: linear-gradient(180deg, #FF8C42, #E06020);"></div>
+  <div class="card-inner">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="num-circle">3</div>
+        <div>
+          <div class="peptide-name">MOTS-C</div>
+          <div class="vial-info">Frasco 5mg</div>
+        </div>
+      </div>
+      <div class="tag" style="color:#FF8C42; background:#2A1000; border-color:#FF8C42;">DIARIO · PRE-ENT</div>
+    </div>
+    <div class="divider"></div>
+    <div class="card-stats">
+      <div>
+        <div class="stat-label">Dosis</div>
+        <div class="stat-value-gold">10 unidades &nbsp;<span style="font-size:18px; color:#9090A0;">(1mg/día)</span></div>
+      </div>
+      <div>
+        <div class="stat-label">Frecuencia</div>
+        <div class="stat-value-white">Diario</div>
+      </div>
+    </div>
+    <div class="card-bottom">
+      <div class="time-row" style="color:#FF8C42;">⏰ &nbsp;Mañana o Pre-Entrenamiento</div>
+      <div class="syringe-note">✓ Jeringa de insulina</div>
+    </div>
+  </div>
+</div>
+
+<!-- DSIP -->
+<div class="card">
+  <div class="card-accent" style="background: linear-gradient(180deg, #9B8EFF, #6A5FD0);"></div>
+  <div class="card-inner">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="num-circle">4</div>
+        <div>
+          <div class="peptide-name">DSIP</div>
+          <div class="vial-info">Frasco 5mg</div>
+        </div>
+      </div>
+      <div class="tag" style="color:#9B8EFF; background:#12002A; border-color:#9B8EFF;">DIARIO · PM</div>
+    </div>
+    <div class="divider"></div>
+    <div class="card-stats">
+      <div>
+        <div class="stat-label">Dosis</div>
+        <div class="stat-value-gold">10 unidades</div>
+      </div>
+      <div>
+        <div class="stat-label">Frecuencia</div>
+        <div class="stat-value-white">Diario</div>
+      </div>
+    </div>
+    <div class="card-bottom">
+      <div class="time-row" style="color:#9B8EFF;">🌙 &nbsp;Antes de dormir</div>
+      <div class="syringe-note">✓ Jeringa de insulina</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-row">💉 &nbsp;Todas las dosis se aplican con jeringa de insulina de 100 unidades</div>
+  <div class="footer-row">❄️ &nbsp;Refrigerar todos los péptidos después de reconstituir</div>
+  <div class="footer-row">⚠️ &nbsp;Uso personal — seguir el protocolo indicado</div>
+</div>
+
+</body>
+</html>
