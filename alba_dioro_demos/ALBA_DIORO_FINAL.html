@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/6c4c98f93_generated_image.png">
 <title>Alba Di'Oro — Oro Italiano 18K y 24K de Elegancia Atemporal</title>
 <meta name="description" content="Alba Di'Oro — joyería fina en oro italiano 18k y 24k. Anillos, cadenas, pulseras y más. Cotización gratis por WhatsApp.">
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -143,18 +144,45 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
 .about-flex .about-stats { justify-content: flex-start; }
 @media (max-width: 860px) { .about-flex { flex-direction: column; text-align: center; } .about-flex .about-text, .about-flex .about-text p { text-align: center; } .about-flex .about-stats { justify-content: center; } .about-flex .about-img { flex: 0 0 auto; max-width: 320px; } }
 
+
+.announce { background: #c9a447; color: #051912; text-align: center; padding: 9px 20px; font-size: 11.5px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; }
+.section-number { display: block; font-size: 11px; letter-spacing: 3px; color: #6f8175; margin-bottom: 10px; }
+.nav-logo-mark { height: 30px; width: 30px; margin-right: 10px; vertical-align: middle; }
+.logo-flex { display: flex; align-items: center; }
+
+.btn-primary, .btn-secondary { position: relative; overflow: hidden; }
+.btn-primary::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(255,255,255,0.25); transition: left 0.5s; }
+.btn-primary:hover::before { left: 100%; }
+
+.steps { padding: 120px 24px; background: #0a2318; }
+.steps-grid { max-width: 1000px; margin: 70px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.step-card { text-align: center; position: relative; padding: 0 16px; }
+.step-num { font-family: 'Italiana', serif; font-size: 54px; color: #c9a44744; display: block; margin-bottom: 12px; }
+.step-card h3 { font-family: 'Italiana', serif; font-size: 21px; margin-bottom: 12px; color: #f5efd9; letter-spacing: 0.5px; }
+.step-card p { font-size: 13.5px; line-height: 1.7; color: #b9c4b6; font-weight: 300; }
+.step-connector { display: none; }
+@media (min-width: 769px) {
+  .step-card:not(:last-child)::after { content: ''; position: absolute; top: 26px; right: -20px; width: 40px; height: 1px; background: #c9a44755; }
+}
+
+.certified-badge { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border: 1px solid #c9a44755; margin-top: 30px; font-size: 12px; letter-spacing: 1px; color: #c9a447; }
+
+body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
 </style>
 </head>
 <body>
 
+<div class="announce">Oro Italiano 18K &amp; 24K Certificado · Cotización Gratis por WhatsApp · Envíos a Todo el País</div>
 <nav>
     <div class="nav-container">
-        <div class="logo">Alba <span>Di'Oro</span></div>
+        <div class="logo logo-flex"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/6c4c98f93_generated_image.png" class="nav-logo-mark" alt="Alba Di'Oro monograma"> Alba <span>Di'Oro</span></div>
         <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
         <div class="nav-links">
             <a href="#coleccion">Colección</a>
             <a href="#nosotros">Nosotros</a>
             <a href="#galeria">Galería</a>
+            <a href="#como-comprar">Cómo Comprar</a>
             <a href="#testimonios">Testimonios</a>
             <a href="#referidos">Referidos</a>
             <a href="#faq">Preguntas</a>
@@ -170,7 +198,7 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
         <p class="hero-eyebrow">ORO ITALIANO · 18K &amp; 24K</p>
         <h1>Alba Di'Oro</h1>
         <div class="gold-divider"></div>
-        <p class="hero-tagline">Donde el amanecer se viste de oro. Piezas exclusivas en oro puro 18k y 24k, elegancia atemporal para quienes no se conforman con menos.</p>
+        <p class="hero-tagline">Oro puro, sin compromisos. Cada pieza está forjada en 18k o 24k — nada más, nada menos — para quienes entienden que la verdadera elegancia no se negocia.</p>
         <div class="hero-buttons">
             <a href="#coleccion" class="btn-primary">Ver Colección</a>
             <a href="https://wa.me/18328441734?text=Hola%21%20Me%20gustar%C3%ADa%20una%20cotizaci%C3%B3n%20gratis%20de%20Alba%20Di%27Oro" class="btn-secondary">Cotización Gratis</a>
@@ -188,7 +216,7 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
 
 <section id="coleccion" class="collection">
     <div class="section-header fade-in">
-        <p class="section-eyebrow">Nuestra Colección</p>
+        <p class="section-number">01</p><p class="section-eyebrow">Nuestra Colección</p>
         <h2>Piezas que Cuentan tu Historia</h2>
     </div>
     <div class="products-grid">
@@ -253,7 +281,7 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
 
 <section id="galeria" class="gallery">
     <div class="section-header fade-in">
-        <p class="section-eyebrow">Galería</p>
+        <p class="section-number">02</p><p class="section-eyebrow">Galería</p>
         <h2>El Brillo del Detalle</h2>
     </div>
     <div class="gallery-grid">
@@ -265,11 +293,37 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
     </div>
 </section>
 
+
+<section id="como-comprar" class="steps">
+    <div class="section-header fade-in">
+        <p class="section-number">04</p>
+        <p class="section-eyebrow">Cómo Comprar</p>
+        <h2>Tan Simple Como Escribir</h2>
+    </div>
+    <div class="steps-grid">
+        <div class="step-card fade-in">
+            <span class="step-num">01</span>
+            <h3>Escríbenos</h3>
+            <p>Mándanos un mensaje por WhatsApp contándonos qué pieza buscas o simplemente pide ver el catálogo completo.</p>
+        </div>
+        <div class="step-card fade-in">
+            <span class="step-num">02</span>
+            <h3>Elige tu Pieza</h3>
+            <p>Te enviamos fotos y videos reales en oro 18k o 24k para que elijas con confianza, sin sorpresas.</p>
+        </div>
+        <div class="step-card fade-in">
+            <span class="step-num">03</span>
+            <h3>Recíbela</h3>
+            <p>Coordinamos pago y entrega o envío asegurado — tu pieza llega lista para brillar.</p>
+        </div>
+    </div>
+</section>
+
 <section id="nosotros" class="about">
     <div class="about-flex fade-in">
         <div class="about-img"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/c60c801bd_generated_image.png" alt="Alba Di'Oro joyería en oro italiano"></div>
         <div class="about-text">
-            <p class="section-eyebrow">Nuestra Historia</p>
+            <p class="section-number">03</p><p class="section-eyebrow">Nuestra Historia</p>
             <h2>Tradición Italiana, Pasión Latina</h2>
             <p>Alba Di'Oro nace de la pasión por el oro fino italiano en sus dos presentaciones más nobles: 18k y 24k. Cada pieza es seleccionada cuidadosamente por su calidad, diseño y durabilidad — para que brilles hoy y por generaciones.</p>
             <div class="about-stats">
@@ -277,13 +331,14 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
                 <div class="stat"><span class="stat-number">18K/24K</span><span class="stat-label">Únicamente</span></div>
                 <div class="stat"><span class="stat-number">5★</span><span class="stat-label">Clientas Felices</span></div>
             </div>
+            <div class="certified-badge">✓ Certificado de Autenticidad Incluido en Cada Compra</div>
         </div>
     </div>
 </section>
 
 <section id="testimonios" class="testimonials">
     <div class="section-header fade-in">
-        <p class="section-eyebrow">Lo Que Dicen</p>
+        <p class="section-number">05</p><p class="section-eyebrow">Lo Que Dicen</p>
         <h2>Clientas Que Confían en Nosotros</h2>
     </div>
     <div class="testimonials-grid">
@@ -308,7 +363,7 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
 
 <section id="referidos" class="referral">
     <div class="referral-content fade-in">
-        <p class="section-eyebrow">Programa de Referidos</p>
+        <p class="section-number">06</p><p class="section-eyebrow">Programa de Referidos</p>
         <h2>Comparte y Gana</h2>
         <p>Refiere a un amigo o familiar y ambos reciben un descuento especial en su próxima compra. Entre más compartas, más ganas.</p>
         <a href="https://wa.me/18328441734?text=Hola%21%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20programa%20de%20referidos%20de%20Alba%20Di%27Oro" class="btn-primary">Conocer el Programa</a>
@@ -317,7 +372,7 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
 
 <section id="faq" class="faq">
     <div class="section-header fade-in">
-        <p class="section-eyebrow">Preguntas Frecuentes</p>
+        <p class="section-number">07</p><p class="section-eyebrow">Preguntas Frecuentes</p>
         <h2>Todo lo que Necesitas Saber</h2>
     </div>
     <div class="faq-list">
@@ -355,7 +410,7 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
 
 <section id="contacto" class="contact">
     <div class="contact-content fade-in">
-        <p class="section-eyebrow">Contáctanos</p>
+        <p class="section-number">08</p><p class="section-eyebrow">Contáctanos</p>
         <h2>Agenda tu Cotización Gratuita</h2>
         <p>Escríbenos por WhatsApp y con gusto te ayudamos a encontrar la pieza perfecta en oro 18k o 24k.</p>
         <a href="https://wa.me/18328441734?text=Hola%21%20Quisiera%20agendar%20mi%20cotizaci%C3%B3n%20gratuita%20con%20Alba%20Di%27Oro" class="btn-primary btn-large">Escribir por WhatsApp</a>
