@@ -15,13 +15,13 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background: #0
 
 /* NAV */
 nav { position: sticky; top: 0; background: rgba(5,25,18,0.92); border-bottom: 1px solid #c9a44733; z-index: 1000; backdrop-filter: blur(12px); transition: 0.3s; }
-.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; }
+.nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; gap: 20px; }
 .logo { font-family: 'Italiana', serif; font-size: 28px; letter-spacing: 1px; color: #ede4cf; }
 .logo span { color: #c9a447; }
-.nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-links a { text-decoration: none; font-size: 12.5px; letter-spacing: 1.2px; text-transform: uppercase; color: #ede4cf; transition: 0.25s; }
+.nav-links { display: flex; align-items: center; gap: 22px; flex-wrap: nowrap; }
+.nav-links a { text-decoration: none; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: #ede4cf; transition: 0.25s; white-space: nowrap; }
 .nav-links a:hover { color: #c9a447; }
-.nav-cta { background: #c9a447; color: #051912 !important; padding: 11px 24px; border-radius: 1px; }
+.nav-cta { background: #c9a447; color: #051912 !important; padding: 10px 18px; border-radius: 1px; }
 .nav-cta:hover { background: #ddb95c !important; }
 .menu-toggle { display: none; background: none; border: none; font-size: 26px; cursor: pointer; color: #ede4cf; }
 
@@ -169,6 +169,12 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
 
 body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
+
+@media (max-width: 1180px) and (min-width: 769px) {
+  .nav-links { gap: 14px; }
+  .nav-links a { font-size: 10px; }
+}
+
 </style>
 </head>
 <body>
@@ -176,7 +182,7 @@ body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-i
 <div class="announce">Oro Italiano 18K &amp; 24K Certificado · Cotización Gratis por WhatsApp · Envíos a Todo el País</div>
 <nav>
     <div class="nav-container">
-        <div class="logo logo-flex"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/6c4c98f93_generated_image.png" class="nav-logo-mark" alt="Alba Di'Oro monograma"> Alba <span>Di'Oro</span></div>
+        <div class="logo">Alba <span>Di'Oro</span></div>
         <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
         <div class="nav-links">
             <a href="#coleccion">Colección</a>
