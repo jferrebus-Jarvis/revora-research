@@ -124,6 +124,25 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
   .trust-bar { gap: 20px; }
 }
 
+
+.gallery { padding: 100px 24px; background: #0a2318; }
+.gallery-grid { max-width: 1200px; margin: 60px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; gap: 16px; }
+.gallery-item { overflow: hidden; border: 1px solid #c9a44733; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.gallery-item:hover img { transform: scale(1.1); }
+.gallery-item.tall { grid-row: span 2; }
+@media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; } .gallery-item.tall { grid-row: span 1; } }
+
+.about-flex { display: flex; align-items: center; gap: 60px; max-width: 1100px; margin: 0 auto; padding: 0 24px; text-align: left; }
+.about-flex .about-img { flex: 0 0 40%; }
+.about-flex .about-img img { width: 100%; border-radius: 2px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+.about-flex .about-text { flex: 1; }
+.about-flex .about-text .section-eyebrow, .about-flex .about-text h2 { text-align: left; }
+.about-flex .about-text p { text-align: left; margin-left: 0; }
+.about-flex .about-stats { justify-content: flex-start; }
+@media (max-width: 860px) { .about-flex { flex-direction: column; text-align: center; } .about-flex .about-text, .about-flex .about-text p { text-align: center; } .about-flex .about-stats { justify-content: center; } .about-flex .about-img { flex: 0 0 auto; max-width: 320px; } }
+
 </style>
 </head>
 <body>
@@ -135,6 +154,7 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
         <div class="nav-links">
             <a href="#coleccion">Colección</a>
             <a href="#nosotros">Nosotros</a>
+            <a href="#galeria">Galería</a>
             <a href="#testimonios">Testimonios</a>
             <a href="#referidos">Referidos</a>
             <a href="#faq">Preguntas</a>
@@ -230,15 +250,33 @@ footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #c
     </div>
 </section>
 
+
+<section id="galeria" class="gallery">
+    <div class="section-header fade-in">
+        <p class="section-eyebrow">Galería</p>
+        <h2>El Brillo del Detalle</h2>
+    </div>
+    <div class="gallery-grid">
+        <div class="gallery-item tall fade-in"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/8e3322b01_generated_image.png" alt="Detalle de oro 24k"></div>
+        <div class="gallery-item fade-in"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/9ac682e66_generated_image.png" alt="Artesanía en oro italiano"></div>
+        <div class="gallery-item fade-in"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/d679a06d3_generated_image.png" alt="Flatlay de joyería en oro"></div>
+        <div class="gallery-item fade-in"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/fb1c26ba5_generated_image.png" alt="Pulsera de oro cubana"></div>
+        <div class="gallery-item tall fade-in"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/3696c47f9_generated_image.png" alt="Empaque de regalo Alba Di'Oro"></div>
+    </div>
+</section>
+
 <section id="nosotros" class="about">
-    <div class="about-content fade-in">
-        <p class="section-eyebrow">Nuestra Historia</p>
-        <h2>Tradición Italiana, Pasión Latina</h2>
-        <p>Alba Di'Oro nace de la pasión por el oro fino italiano en sus dos presentaciones más nobles: 18k y 24k. Cada pieza es seleccionada cuidadosamente por su calidad, diseño y durabilidad — para que brilles hoy y por generaciones.</p>
-        <div class="about-stats">
-            <div class="stat"><span class="stat-number">100%</span><span class="stat-label">Oro Italiano</span></div>
-            <div class="stat"><span class="stat-number">18K/24K</span><span class="stat-label">Únicamente</span></div>
-            <div class="stat"><span class="stat-number">5★</span><span class="stat-label">Clientas Felices</span></div>
+    <div class="about-flex fade-in">
+        <div class="about-img"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/c60c801bd_generated_image.png" alt="Alba Di'Oro joyería en oro italiano"></div>
+        <div class="about-text">
+            <p class="section-eyebrow">Nuestra Historia</p>
+            <h2>Tradición Italiana, Pasión Latina</h2>
+            <p>Alba Di'Oro nace de la pasión por el oro fino italiano en sus dos presentaciones más nobles: 18k y 24k. Cada pieza es seleccionada cuidadosamente por su calidad, diseño y durabilidad — para que brilles hoy y por generaciones.</p>
+            <div class="about-stats">
+                <div class="stat"><span class="stat-number">100%</span><span class="stat-label">Oro Italiano</span></div>
+                <div class="stat"><span class="stat-number">18K/24K</span><span class="stat-label">Únicamente</span></div>
+                <div class="stat"><span class="stat-number">5★</span><span class="stat-label">Clientas Felices</span></div>
+            </div>
         </div>
     </div>
 </section>
