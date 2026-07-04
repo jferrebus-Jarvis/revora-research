@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alba Di'Oro — Oro Italiano 18K y 24K de Elegancia Atemporal</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 22px 24px; }
+.logo { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; letter-spacing: 0.5px; }
+.nav-links { display: flex; align-items: center; gap: 30px; }
+.nav-links a { text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+.menu-toggle { display: none; background: none; border: none; font-size: 24px; cursor: pointer; }
+.hero { min-height: 92vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 24px; }
+.hero-content { max-width: 720px; }
+.hero-eyebrow { letter-spacing: 4px; font-size: 12px; margin-bottom: 20px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 68px; margin-bottom: 20px; font-weight: 600; }
+.gold-divider { width: 80px; height: 1px; margin: 0 auto 28px; }
+.hero-tagline { font-size: 17px; margin-bottom: 36px; line-height: 1.7; font-weight: 300; letter-spacing: 0.3px; }
+.hero-buttons { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+.btn-primary, .btn-secondary { padding: 16px 36px; text-decoration: none; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; transition: 0.35s; display: inline-block; }
+.btn-large { padding: 18px 46px; font-size: 14px; }
+.trust-bar { display: flex; justify-content: center; gap: 44px; padding: 26px; flex-wrap: wrap; font-size: 12px; letter-spacing: 0.5px; }
+.section-header, .about-content, .referral-content, .contact-content { text-align: center; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.section-eyebrow { letter-spacing: 4px; font-size: 12px; margin-bottom: 14px; }
+.collection { padding: 110px 24px; }
+.collection h2, .about-content h2, .referral-content h2, .contact-content h2 { font-family: 'Playfair Display', serif; font-size: 40px; margin-bottom: 20px; font-weight: 600; }
+.products-grid { max-width: 1200px; margin: 64px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.product-card { padding: 46px 26px; text-align: center; transition: transform 0.35s; }
+.product-card:hover { transform: translateY(-6px); }
+.product-icon { font-size: 38px; margin-bottom: 18px; }
+.product-card h3 { font-family: 'Playfair Display', serif; font-size: 21px; margin-bottom: 12px; font-weight: 600; }
+.product-card p { font-size: 13.5px; line-height: 1.6; margin-bottom: 18px; opacity: 0.85; }
+.product-price { display: block; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.6px; font-size: 14px; }
+.product-btn { display: inline-block; padding: 11px 22px; text-decoration: none; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; }
+.about { padding: 110px 24px; }
+.about-content p { font-size: 16px; line-height: 1.9; margin-top: 22px; font-weight: 300; }
+.referral { padding: 100px 24px; }
+.referral-content p { font-size: 16px; line-height: 1.8; margin: 22px 0 32px; font-weight: 300; }
+.contact { padding: 110px 24px; text-align: center; }
+.contact-content p { font-size: 16px; margin: 22px 0 32px; font-weight: 300; }
+footer { padding: 44px 24px; text-align: center; font-size: 12.5px; letter-spacing: 0.3px; }
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 999; }
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nav-links { position: fixed; top: 0; right: -100%; width: 75%; height: 100vh; flex-direction: column; justify-content: center; transition: right 0.3s; z-index: 1000; }
+  .nav-links.open { right: 0; }
+  .hero h1 { font-size: 44px; }
+  .products-grid { grid-template-columns: 1fr; }
+  .trust-bar { gap: 20px; }
+}
+
+body { background: #142a1c; color: #f0ead9; }
+nav { position: sticky; top: 0; background: rgba(20,42,28,0.95); border-bottom: 1px solid #d9c07a44; z-index: 100; backdrop-filter: blur(10px); }
+.logo { color: #f0ead9; } .logo span { color: #d9c07a; }
+.nav-links a { color: #f0ead9; } .nav-links a:hover { color: #d9c07a; }
+.nav-links.open { background: #142a1c; border-left: 1px solid #d9c07a; }
+.nav-cta { background: #d9c07a; color: #142a1c !important; padding: 11px 22px; }
+.hero { background: linear-gradient(180deg, #1c3a26 0%, #142a1c 100%); }
+.hero-eyebrow { color: #d9c07a; }
+.hero h1 { color: #f5f0e0; }
+.gold-divider { background: #d9c07a; }
+.hero-tagline { color: #c8d2c3; }
+.btn-primary { background: #d9c07a; color: #142a1c; }
+.btn-primary:hover { background: #e6d193; }
+.btn-secondary { border: 1px solid #d9c07a; color: #d9c07a; }
+.btn-secondary:hover { background: #d9c07a22; }
+.trust-bar { background: #1a331f; color: #c8d2c3; border-top: 1px solid #d9c07a33; border-bottom: 1px solid #d9c07a33; }
+.trust-item span { color: #d9c07a; }
+.collection { background: #142a1c; }
+.section-eyebrow { color: #d9c07a; }
+.collection h2, .about-content h2, .referral-content h2, .contact-content h2 { color: #f5f0e0; }
+.product-card { background: #1a331f; border: 1px solid #d9c07a33; color: #e8e2ce; }
+.product-card:hover { border-color: #d9c07a; box-shadow: 0 12px 32px rgba(217,192,122,0.18); }
+.product-price { color: #d9c07a; }
+.product-btn { background: transparent; border: 1px solid #d9c07a; color: #d9c07a; }
+.product-btn:hover { background: #d9c07a; color: #142a1c; }
+.about { background: #1a331f; }
+.about-content p { color: #c8d2c3; }
+.referral { background: #142a1c; }
+.referral-content p { color: #c8d2c3; }
+.contact { background: #1a331f; }
+.contact-content p { color: #c8d2c3; }
+footer { background: #142a1c; color: #7c8c78; border-top: 1px solid #d9c07a33; }
+.whatsapp-float { background: #25D366; color: white; }
+
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">Alba <span>Di'Oro</span></div>
+        <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <div class="nav-links">
+            <a href="#coleccion">Colección</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#referidos">Referidos</a>
+            <a href="#contacto">Contacto</a>
+            <a href="https://wa.me/18328441734?text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Alba%20Di%27Oro" class="nav-cta">WhatsApp</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <p class="hero-eyebrow">ORO ITALIANO · 18K &amp; 24K</p>
+        <h1>Alba Di'Oro</h1>
+        <div class="gold-divider"></div>
+        <p class="hero-tagline">Donde el amanecer se viste de oro. Piezas exclusivas en oro puro 18k y 24k, elegancia atemporal.</p>
+        <div class="hero-buttons">
+            <a href="#coleccion" class="btn-primary">Ver Colección</a>
+            <a href="https://wa.me/18328441734?text=Hola%21%20Me%20gustar%C3%ADa%20una%20cotizaci%C3%B3n%20gratis%20de%20Alba%20Di%27Oro" class="btn-secondary">Cotización Gratis</a>
+        </div>
+    </div>
+</header>
+
+<section class="trust-bar">
+    <div class="trust-item"><span>✓</span> Oro 18K &amp; 24K Certificado</div>
+    <div class="trust-item"><span>✓</span> Envíos Seguros</div>
+    <div class="trust-item"><span>✓</span> Garantía de Autenticidad</div>
+    <div class="trust-item"><span>✓</span> Pago Flexible</div>
+</section>
+
+<section id="coleccion" class="collection">
+    <div class="section-header">
+        <p class="section-eyebrow">Nuestra Colección</p>
+        <h2>Piezas que Cuentan tu Historia</h2>
+    </div>
+    <div class="products-grid">
+        
+        <div class="product-card">
+            <div class="product-icon">💍</div>
+            <h3>Anillos</h3>
+            <p>Oro italiano 18k y 24k, diseños clásicos y contemporáneos</p>
+            <span class="product-price">Desde $85</span>
+            <a href="https://wa.me/18328441734?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Anillos%20de%20Alba%20Di%27Oro.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn">Preguntar por WhatsApp</a>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">📿</div>
+            <h3>Cadenas y Collares</h3>
+            <p>Piezas macizas en oro 18k y 24k, cierres reforzados</p>
+            <span class="product-price">Desde $120</span>
+            <a href="https://wa.me/18328441734?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Cadenas%20y%20Collares%20de%20Alba%20Di%27Oro.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn">Preguntar por WhatsApp</a>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">✨</div>
+            <h3>Pulseras</h3>
+            <p>Estilo cubano, tenis y charm — oro 18k y 24k</p>
+            <span class="product-price">Desde $95</span>
+            <a href="https://wa.me/18328441734?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Pulseras%20de%20Alba%20Di%27Oro.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn">Preguntar por WhatsApp</a>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">💎</div>
+            <h3>Aretes</h3>
+            <p>Argollas, dormilonas y broqueles en oro 18k y 24k</p>
+            <span class="product-price">Desde $60</span>
+            <a href="https://wa.me/18328441734?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Aretes%20de%20Alba%20Di%27Oro.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn">Preguntar por WhatsApp</a>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">🔱</div>
+            <h3>Dijes</h3>
+            <p>Religiosos, iniciales y piezas personalizadas en 18k y 24k</p>
+            <span class="product-price">Desde $45</span>
+            <a href="https://wa.me/18328441734?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Dijes%20de%20Alba%20Di%27Oro.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn">Preguntar por WhatsApp</a>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">👰</div>
+            <h3>Sets de Novia</h3>
+            <p>Conjuntos completos en oro 18k y 24k para bodas y quinceañeras</p>
+            <span class="product-price">Cotización personalizada</span>
+            <a href="https://wa.me/18328441734?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Sets%20de%20Novia%20de%20Alba%20Di%27Oro.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn">Preguntar por WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<section id="nosotros" class="about">
+    <div class="about-content">
+        <p class="section-eyebrow">Nuestra Historia</p>
+        <h2>Tradición Italiana, Pasión Latina</h2>
+        <p>Alba Di'Oro nace de la pasión por el oro fino italiano en sus dos presentaciones más nobles: 18k y 24k. Cada pieza es seleccionada cuidadosamente por su calidad, diseño y durabilidad — para que brilles hoy y por generaciones.</p>
+    </div>
+</section>
+
+<section id="referidos" class="referral">
+    <div class="referral-content">
+        <p class="section-eyebrow">Programa de Referidos</p>
+        <h2>Comparte y Gana</h2>
+        <p>Refiere a un amigo o familiar y ambos reciben un descuento especial en su próxima compra. Entre más compartas, más ganas.</p>
+        <a href="https://wa.me/18328441734?text=Hola%21%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20programa%20de%20referidos%20de%20Alba%20Di%27Oro" class="btn-primary">Conocer el Programa</a>
+    </div>
+</section>
+
+<section id="contacto" class="contact">
+    <div class="contact-content">
+        <p class="section-eyebrow">Contáctanos</p>
+        <h2>Agenda tu Cotización Gratuita</h2>
+        <p>Escríbenos por WhatsApp y con gusto te ayudamos a encontrar la pieza perfecta en oro 18k o 24k.</p>
+        <a href="https://wa.me/18328441734?text=Hola%21%20Quisiera%20agendar%20mi%20cotizaci%C3%B3n%20gratuita%20con%20Alba%20Di%27Oro" class="btn-primary btn-large">Escribir por WhatsApp</a>
+    </div>
+</section>
+
+<footer>
+    <p>Alba Di'Oro © 2026 · Oro Italiano 18K &amp; 24K de Elegancia Atemporal</p>
+</footer>
+
+<a href="https://wa.me/18328441734?text=Hola%21%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Alba%20Di%27Oro" class="whatsapp-float">
+    <span>💬</span>
+</a>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+});
+</script>
+
+</body>
+</html>
