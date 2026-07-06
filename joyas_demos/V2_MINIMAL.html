@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Joyas La Gloria — Oro 18K Italiano | Katy, TX</title>
+<meta name="description" content="Joyas La Gloria — joyería fina en oro 18k italiano en Katy, TX. Envíos a todo USA.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:#fff;color:#2b2b2b;overflow-x:hidden;font-weight:300;}
+.cormorant{font-family:'Cormorant Garamond',serif;}
+a{text-decoration:none;color:inherit;}
+:root{--gold:#BFA054;--line:#e5e0d5;--muted:#8a8478;}
+section{padding:120px 24px;}
+.wrap{max-width:1000px;margin:0 auto;text-align:center;}
+
+/* NAV - minimal centered */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);}
+.nav-top{text-align:center;padding:26px 20px 14px;border-bottom:1px solid var(--line);}
+.logo{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;letter-spacing:3px;text-transform:uppercase;}
+.logo span{color:var(--gold);}
+.nav-bottom{display:flex;justify-content:center;gap:40px;padding:14px 20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;}
+.nav-bottom a:hover{color:var(--gold);}
+.lang-toggle{position:absolute;right:24px;top:24px;display:flex;gap:6px;}
+.lang-btn{border:1px solid var(--line);background:none;padding:5px 10px;font-size:10px;letter-spacing:1px;cursor:pointer;font-family:'Poppins',sans-serif;}
+.lang-btn.active{background:#2b2b2b;color:#fff;border-color:#2b2b2b;}
+.menu-toggle{display:none;position:absolute;left:20px;top:26px;background:none;border:none;font-size:22px;}
+
+/* HERO centered minimal */
+.hero{padding:220px 24px 100px;text-align:center;}
+.hero-eyebrow{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:30px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8vw,96px);font-weight:400;line-height:1.05;margin-bottom:8px;}
+.hero h1 .accent{font-style:italic;color:var(--gold);}
+.hero-divider{width:1px;height:60px;background:var(--gold);margin:36px auto;}
+.hero p{max-width:480px;margin:0 auto 44px;color:var(--muted);font-size:15.5px;line-height:1.9;font-weight:300;}
+.hero-btns{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+.btn-outline{border:1px solid #2b2b2b;padding:16px 40px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;transition:0.3s;}
+.btn-outline:hover{background:#2b2b2b;color:#fff;}
+.btn-gold{background:var(--gold);color:#fff;padding:17px 40px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;transition:0.3s;}
+.btn-gold:hover{background:#a68a45;}
+
+/* HERO IMAGE STRIP */
+.hero-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:80px;}
+.hero-strip img{width:100%;height:340px;object-fit:cover;filter:grayscale(15%);}
+
+/* SECTION LABEL */
+.label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.5vw,54px);font-weight:400;margin-bottom:22px;}
+.wrap > p.lead{color:var(--muted);font-size:16px;max-width:560px;margin:0 auto;font-weight:300;line-height:1.8;}
+
+/* CATEGORIES centered list style */
+.cat-list{max-width:780px;margin:70px auto 0;}
+.cat-row{display:flex;justify-content:space-between;align-items:center;padding:32px 0;border-bottom:1px solid var(--line);text-align:left;}
+.cat-row:first-child{border-top:1px solid var(--line);}
+.cat-row-left h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;margin-bottom:6px;}
+.cat-row-left p{color:var(--muted);font-size:13.5px;font-weight:300;}
+.cat-row-right a{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;border-bottom:1px solid var(--gold);color:var(--gold);padding-bottom:3px;white-space:nowrap;}
+
+/* ABOUT centered */
+.about{background:#FAF8F3;}
+.about-inner{max-width:720px;margin:0 auto;text-align:center;}
+.about img{width:100%;max-width:500px;border-radius:2px;margin:44px auto 0;display:block;}
+.stats-row{display:flex;justify-content:center;gap:70px;margin-top:60px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:44px;color:var(--gold);font-weight:500;}
+.stat-lbl{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+
+/* PROCESS numbered minimal */
+.process-row{display:flex;justify-content:center;gap:80px;margin-top:70px;flex-wrap:wrap;text-align:center;}
+.process-item{max-width:220px;}
+.process-item .n{font-family:'Cormorant Garamond',serif;font-size:60px;color:var(--line);font-weight:600;line-height:1;margin-bottom:16px;}
+.process-item h3{font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:10px;font-weight:500;}
+.process-item p{font-size:13.5px;color:var(--muted);font-weight:300;line-height:1.7;}
+
+/* TESTIMONIAL single-quote rotating feel */
+.testimonial-block{background:#2b2b2b;color:#fff;}
+.testimonial-block .label{color:var(--gold);}
+.quote-big{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,3.2vw,34px);line-height:1.6;max-width:780px;margin:40px auto;font-weight:400;}
+.quote-name{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:20px;}
+.quote-set{display:none;}
+.quote-set.active{display:block;}
+.quote-dots{display:flex;justify-content:center;gap:10px;margin-top:30px;}
+.dot{width:8px;height:8px;border-radius:50%;background:#555;cursor:pointer;}
+.dot.active{background:var(--gold);}
+
+/* REFERRAL */
+.referral-inner{max-width:640px;margin:0 auto;}
+.ref-steps{display:flex;justify-content:center;gap:0;margin:50px 0;flex-wrap:wrap;}
+.ref-step{flex:1;min-width:160px;padding:0 20px;position:relative;}
+.ref-step:not(:last-child)::after{content:'';position:absolute;top:20px;right:0;width:1px;height:40px;background:var(--line);}
+.ref-num{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--gold);margin-bottom:10px;}
+.ref-step p{font-size:13px;color:var(--muted);font-weight:300;}
+
+/* CONTACT */
+.contact-block{background:#FAF8F3;}
+.contact-info{display:flex;justify-content:center;gap:60px;margin-top:60px;flex-wrap:wrap;text-align:center;}
+.ci-item .ci-label{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.ci-item .ci-value{font-family:'Cormorant Garamond',serif;font-size:19px;}
+
+/* FOOTER */
+footer{padding:60px 24px 30px;text-align:center;border-top:1px solid var(--line);}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+.footer-logo span{color:var(--gold);}
+footer p{color:var(--muted);font-size:12.5px;margin-bottom:20px;}
+.footer-social{display:flex;justify-content:center;gap:20px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;}
+.footer-bottom{font-size:11px;color:#aaa;border-top:1px solid var(--line);padding-top:20px;max-width:400px;margin:0 auto;}
+
+.whatsapp-float{position:fixed;bottom:26px;right:26px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:999;box-shadow:0 6px 24px rgba(37,211,102,0.4);}
+
+@media(max-width:768px){
+.hero{padding:170px 20px 70px;}
+.hero-strip{grid-template-columns:1fr;}
+.hero-strip img{height:220px;}
+.nav-bottom{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;flex-direction:column;justify-content:center;gap:26px;z-index:1001;}
+.nav-bottom.open{display:flex;}
+.menu-toggle{display:block;z-index:1002;}
+section{padding:80px 20px;}
+.cat-row{flex-direction:column;align-items:flex-start;gap:14px;}
+.stats-row,.process-row,.contact-info{gap:36px;}
+.ref-step:not(:last-child)::after{display:none;}
+.ref-steps{flex-direction:column;gap:30px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-top">
+<div class="logo">Joyas <span>La Gloria</span></div>
+<div class="lang-toggle">
+<button class="lang-btn active" id="btnEs">ES</button>
+<button class="lang-btn" id="btnEn">EN</button>
+</div>
+<button class="menu-toggle" id="menuToggle">☰</button>
+</div>
+<div class="nav-bottom" id="navLinks">
+<a href="#coleccion" data-es="Colección" data-en="Collection">Colección</a>
+<a href="#historia" data-es="Historia" data-en="Story">Historia</a>
+<a href="#testimonios" data-es="Testimonios" data-en="Reviews">Testimonios</a>
+<a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-eyebrow" data-es="ORO 18K ITALIANO" data-en="ITALIAN 18K GOLD">ORO 18K ITALIANO</div>
+<h1 data-es='Joyas <span class="accent">La Gloria</span>' data-en='Joyas <span class="accent">La Gloria</span>'>Joyas <span class="accent">La Gloria</span></h1>
+<div class="hero-divider"></div>
+<p data-es="Piezas selectas en oro italiano de 18 kilates. Elegancia sencilla, calidad garantizada, desde nuestra tienda en Katy, Texas." data-en="Select pieces in 18-karat Italian gold. Simple elegance, guaranteed quality, from our store in Katy, Texas.">Piezas selectas en oro italiano de 18 kilates. Elegancia sencilla, calidad garantizada, desde nuestra tienda en Katy, Texas.</p>
+<div class="hero-btns">
+<a href="https://wa.me/18322368190?text=Hola%21%20Quiero%20una%20cotizaci%C3%B3n%20gratis" class="btn-gold" target="_blank" data-es="Cotización Gratis" data-en="Free Quote">Cotización Gratis</a>
+<a href="#coleccion" class="btn-outline" data-es="Ver Colección" data-en="View Collection">Ver Colección</a>
+</div>
+<div class="hero-strip">
+<img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80" alt="oro">
+<img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80" alt="oro">
+<img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80" alt="oro">
+</div>
+</section>
+
+<section id="coleccion">
+<div class="wrap">
+<div class="label" data-es="Nuestra Colección" data-en="Our Collection">Nuestra Colección</div>
+<h2 data-es="Piezas para Cada Ocasión" data-en="Pieces for Every Occasion">Piezas para Cada Ocasión</h2>
+<p class="lead" data-es="Todo en oro 18k italiano, certificado y listo para acompañarte." data-en="Everything in certified 18k Italian gold, ready to accompany you.">Todo en oro 18k italiano, certificado y listo para acompañarte.</p>
+</div>
+<div class="cat-list">
+<div class="cat-row">
+<div class="cat-row-left"><h3 data-es="Anillos" data-en="Rings">Anillos</h3><p data-es="Clásicos y personalizados" data-en="Classic and custom">Clásicos y personalizados</p></div>
+<div class="cat-row-right"><a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesan%20los%20Anillos" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+</div>
+<div class="cat-row">
+<div class="cat-row-left"><h3 data-es="Cadenas y Collares" data-en="Chains & Necklaces">Cadenas y Collares</h3><p data-es="Piezas macizas, cierres reforzados" data-en="Solid pieces, reinforced clasps">Piezas macizas, cierres reforzados</p></div>
+<div class="cat-row-right"><a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesan%20las%20Cadenas" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+</div>
+<div class="cat-row">
+<div class="cat-row-left"><h3 data-es="Pulseras" data-en="Bracelets">Pulseras</h3><p data-es="Cubanas, tenis y denarios" data-en="Cuban, tennis, and charm styles">Cubanas, tenis y denarios</p></div>
+<div class="cat-row-right"><a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesan%20las%20Pulseras" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+</div>
+<div class="cat-row">
+<div class="cat-row-left"><h3 data-es="Aretes y Tobilleras" data-en="Earrings & Anklets">Aretes y Tobilleras</h3><p data-es="Argollas, dormilonas y broqueles" data-en="Hoops, drops, and studs">Argollas, dormilonas y broqueles</p></div>
+<div class="cat-row-right"><a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesan%20los%20Aretes" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+</div>
+<div class="cat-row">
+<div class="cat-row-left"><h3 data-es="Dijes" data-en="Charms">Dijes</h3><p data-es="Religiosos, iniciales y personalizados" data-en="Religious, initial, and custom">Religiosos, iniciales y personalizados</p></div>
+<div class="cat-row-right"><a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesan%20los%20Dijes" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+</div>
+</div>
+</section>
+
+<section class="about" id="historia">
+<div class="about-inner">
+<div class="label" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</div>
+<h2 data-es="Elegancia Sencilla" data-en="Simple Elegance">Elegancia Sencilla</h2>
+<p class="lead" data-es="Joyas La Gloria nace de la pasión por el oro fino italiano de 18k. Desde Katy, Texas, seleccionamos cada pieza por su calidad y durabilidad — para que brilles hoy y por generaciones." data-en="Joyas La Gloria is born from a passion for fine Italian 18k gold. From Katy, Texas, we select every piece for its quality and durability — so you shine today and for generations.">Joyas La Gloria nace de la pasión por el oro fino italiano de 18k. Desde Katy, Texas, seleccionamos cada pieza por su calidad y durabilidad — para que brilles hoy y por generaciones.</p>
+<img src="https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=700&q=80" alt="Joyas La Gloria">
+<div class="stats-row">
+<div class="stat"><div class="stat-num">3.1K+</div><div class="stat-lbl" data-es="Seguidores" data-en="Followers">Seguidores</div></div>
+<div class="stat"><div class="stat-num">18K</div><div class="stat-lbl" data-es="Oro Italiano" data-en="Italian Gold">Oro Italiano</div></div>
+<div class="stat"><div class="stat-num">USA</div><div class="stat-lbl" data-es="Envíos" data-en="Shipping">Envíos</div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="label" data-es="Proceso" data-en="Process">Proceso</div>
+<h2 data-es="Tan Fácil como Escribir" data-en="As Easy as Messaging">Tan Fácil como Escribir</h2>
+</div>
+<div class="process-row">
+<div class="process-item"><div class="n">01</div><h3 data-es="Escríbenos" data-en="Message Us">Escríbenos</h3><p data-es="Por WhatsApp o en la tienda" data-en="Via WhatsApp or in-store">Por WhatsApp o en la tienda</p></div>
+<div class="process-item"><div class="n">02</div><h3 data-es="Te Mostramos" data-en="We Show You">Te Mostramos</h3><p data-es="Fotos y videos reales" data-en="Real photos and videos">Fotos y videos reales</p></div>
+<div class="process-item"><div class="n">03</div><h3 data-es="Recibe tu Oro" data-en="Receive Your Gold">Recibe tu Oro</h3><p data-es="En tienda o a domicilio" data-en="In-store or delivered">En tienda o a domicilio</p></div>
+</div>
+</section>
+
+<section class="testimonial-block" id="testimonios">
+<div class="wrap">
+<div class="label" data-es="Testimonios" data-en="Testimonials">Testimonios</div>
+<div class="quote-set active" data-idx="0">
+<p class="quote-big" data-es='"Compré una cadena de oro 18k y la calidad es impresionante. Se nota que es oro italiano real."' data-en='"I bought an 18k gold chain and the quality is stunning. You can tell it&#39;s real Italian gold."'>"Compré una cadena de oro 18k y la calidad es impresionante. Se nota que es oro italiano real."</p>
+<div class="quote-name">— Cliente Verificada</div>
+</div>
+<div class="quote-set" data-idx="1">
+<p class="quote-big" data-es='"Excelente atención y variedad de piezas. Me ayudaron a escoger el regalo perfecto para mi mamá."' data-en='"Excellent service and variety. They helped me choose the perfect gift for my mom."'>"Excelente atención y variedad de piezas. Me ayudaron a escoger el regalo perfecto para mi mamá."</p>
+<div class="quote-name">— Cliente de Katy</div>
+</div>
+<div class="quote-set" data-idx="2">
+<p class="quote-big" data-es='"El proceso por WhatsApp fue súper fácil y rápido. Llegó mi pedido en perfecto estado."' data-en='"The WhatsApp process was super easy and fast. My order arrived in perfect condition."'>"El proceso por WhatsApp fue súper fácil y rápido. Llegó mi pedido en perfecto estado."</p>
+<div class="quote-name">— Cliente Frecuente</div>
+</div>
+<div class="quote-dots">
+<div class="dot active" data-i="0"></div><div class="dot" data-i="1"></div><div class="dot" data-i="2"></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap referral-inner">
+<div class="label" data-es="Referidos" data-en="Referrals">Referidos</div>
+<h2 data-es="Refiere y Gana" data-en="Refer and Earn">Refiere y Gana</h2>
+<p class="lead" data-es="Comparte Joyas La Gloria y ambos reciben un beneficio exclusivo." data-en="Share Joyas La Gloria and you both get an exclusive perk.">Comparte Joyas La Gloria y ambos reciben un beneficio exclusivo.</p>
+<div class="ref-steps">
+<div class="ref-step"><div class="ref-num">1</div><p data-es="Comparte nuestro contacto" data-en="Share our contact">Comparte nuestro contacto</p></div>
+<div class="ref-step"><div class="ref-num">2</div><p data-es="Ellos compran mencionando tu nombre" data-en="They buy mentioning your name">Ellos compran mencionando tu nombre</p></div>
+<div class="ref-step"><div class="ref-num">3</div><p data-es="Ambos reciben descuento" data-en="You both get a discount">Ambos reciben descuento</p></div>
+</div>
+<a href="https://wa.me/18322368190?text=Hola%21%20Quiero%20saber%20del%20programa%20de%20referidos" class="btn-gold" target="_blank" data-es="Conocer el Programa" data-en="Learn More">Conocer el Programa</a>
+</div>
+</section>
+
+<section class="contact-block" id="contacto">
+<div class="wrap">
+<div class="label" data-es="Contacto" data-en="Contact">Contacto</div>
+<h2 data-es="Visítanos o Escríbenos" data-en="Visit or Message Us">Visítanos o Escríbenos</h2>
+<p class="lead" data-es="Agenda tu cotización gratuita por WhatsApp." data-en="Book your free quote via WhatsApp.">Agenda tu cotización gratuita por WhatsApp.</p>
+<div style="margin-top:34px;"><a href="https://wa.me/18322368190?text=Hola%21%20Quisiera%20agendar%20mi%20cotizaci%C3%B3n%20gratuita" class="btn-gold" target="_blank" data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a></div>
+<div class="contact-info">
+<div class="ci-item"><div class="ci-label" data-es="Dirección" data-en="Address">Dirección</div><div class="ci-value">5206 E 3rd St, Suite 16<br>Katy, TX 77493</div></div>
+<div class="ci-item"><div class="ci-label" data-es="Horario" data-en="Hours">Horario</div><div class="ci-value" data-es="Lunes a Sábado · 10am – 6:30pm" data-en="Monday to Saturday · 10am – 6:30pm">Lunes a Sábado · 10am – 6:30pm</div></div>
+<div class="ci-item"><div class="ci-label" data-es="Contacto" data-en="Contact">Contacto</div><div class="ci-value">(832) 236-8190<br>@joyaslagloria</div></div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="footer-logo">Joyas <span>La Gloria</span></div>
+<p data-es="Oro 18K Italiano de Elegancia Atemporal" data-en="Italian 18K Gold of Timeless Elegance">Oro 18K Italiano de Elegancia Atemporal</p>
+<div class="footer-social">
+<a href="https://instagram.com/joyaslagloria" target="_blank">Instagram</a>
+<a href="#coleccion" data-es="Colección" data-en="Collection">Colección</a>
+<a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+</div>
+<div class="footer-bottom" data-es="© 2026 Joyas La Gloria. Todos los derechos reservados." data-en="© 2026 Joyas La Gloria. All rights reserved.">© 2026 Joyas La Gloria. Todos los derechos reservados.</div>
+</footer>
+
+<a href="https://wa.me/18322368190?text=Hola%21%20Vengo%20de%20la%20p%C3%A1gina%20web" class="whatsapp-float" target="_blank">💬</a>
+
+<script>
+document.getElementById('menuToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-bottom a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+
+const btnEs=document.getElementById('btnEs'), btnEn=document.getElementById('btnEn');
+function setLang(lang){
+  document.querySelectorAll('[data-es]').forEach(el=>{ el.innerHTML = el.getAttribute('data-'+lang); });
+  btnEs.classList.toggle('active', lang==='es');
+  btnEn.classList.toggle('active', lang==='en');
+}
+btnEs.addEventListener('click',()=>setLang('es'));
+btnEn.addEventListener('click',()=>setLang('en'));
+
+// quote rotator
+const dots = document.querySelectorAll('.dot');
+const sets = document.querySelectorAll('.quote-set');
+dots.forEach(d=>d.addEventListener('click',()=>{
+  const i = d.getAttribute('data-i');
+  sets.forEach(s=>s.classList.toggle('active', s.getAttribute('data-idx')===i));
+  dots.forEach(x=>x.classList.toggle('active', x===d));
+}));
+let cur=0;
+setInterval(()=>{
+  cur=(cur+1)%sets.length;
+  sets.forEach((s,i)=>s.classList.toggle('active', i===cur));
+  dots.forEach((d,i)=>d.classList.toggle('active', i===cur));
+}, 6000);
+</script>
+</body>
+</html>
