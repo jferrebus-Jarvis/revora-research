@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="icon" type="image/png" href="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/6c4c98f93_generated_image.png">
+<title>Joyas La Gloria — Perla y Champán</title>
+<meta name="description" content="Joyas La Gloria — joyería fina en oro 18k italiano. Anillos, cadenas, pulseras y más. Cotización gratis por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background: #FEFEFC; color: #2E2A1F; }
+
+/* ANNOUNCE */
+.announce { background: #D4AF37; color: #FEFEFC; text-align: center; padding: 9px 20px; font-size: 11.5px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; }
+
+/* NAV */
+nav { position: sticky; top: 0; background: rgba(254,254,252,0.92); border-bottom: 1px solid #D4AF3733; z-index: 1000; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: 0.3s; }
+.nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; gap: 20px; }
+.logo { font-family: 'Italiana', serif; font-size: 26px; letter-spacing: 1px; color: #2E2A1F; white-space: nowrap; }
+.logo span { color: #D4AF37; }
+.nav-right { display: flex; align-items: center; gap: 18px; }
+.nav-links { display: flex; align-items: center; gap: 22px; flex-wrap: nowrap; }
+.nav-links a { text-decoration: none; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: #2E2A1F; transition: 0.25s; white-space: nowrap; }
+.nav-links a:hover { color: #D4AF37; }
+.nav-cta { background: #D4AF37; color: #FEFEFC !important; padding: 10px 18px; border-radius: 1px; }
+.nav-cta:hover { background: #C19A2E !important; }
+.lang-toggle { display: flex; align-items: center; gap: 4px; }
+.lang-btn { background: none; border: 1px solid #D4AF3755; color: #2E2A1F; padding: 5px 9px; cursor: pointer; font-size: 11px; letter-spacing: 0.5px; transition: 0.25s; border-radius: 1px; font-family: 'Montserrat', sans-serif; font-weight: 600; }
+.lang-btn.active { background: #D4AF37; color: #FEFEFC; border-color: #D4AF37; }
+.menu-toggle { display: none; background: none; border: none; font-size: 26px; cursor: pointer; color: #2E2A1F; }
+
+/* HERO */
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 24px 60px; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background-image: url('https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/f9b162c9e_generated_image.png'); background-size: cover; background-position: center; opacity: 0.75; }
+.hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(254,254,252,0.2) 0%, rgba(254,254,252,0.55) 85%); }
+.hero-content { position: relative; z-index: 2; max-width: 760px; padding: 0 8px; }
+.hero-eyebrow { letter-spacing: 4px; font-size: 12px; margin-bottom: 22px; color: #D4AF37; font-weight: 500; }
+.hero h1 { font-family: 'Italiana', serif; font-size: 84px; margin-bottom: 22px; color: #211E15; text-shadow: 0 0 60px rgba(212,175,55,0.25); letter-spacing: 2px; }
+.gold-divider { width: 90px; height: 1px; margin: 0 auto 30px; background: linear-gradient(90deg, transparent, #D4AF37, transparent); }
+.hero-tagline { font-size: 18px; margin-bottom: 40px; line-height: 1.8; font-weight: 300; letter-spacing: 0.3px; color: #5E5847; }
+.hero-buttons { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+.btn-primary, .btn-secondary { padding: 17px 38px; text-decoration: none; font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase; transition: 0.35s; display: inline-block; position: relative; overflow: hidden; }
+.btn-large { padding: 19px 48px; font-size: 14px; }
+.btn-primary { background: #D4AF37; color: #FEFEFC; }
+.btn-primary:hover { background: #C19A2E; transform: translateY(-2px); }
+.btn-secondary { border: 1px solid #D4AF37; color: #D4AF37; }
+.btn-secondary:hover { background: rgba(212,175,55,0.1); transform: translateY(-2px); }
+.btn-primary::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(255,255,255,0.25); transition: left 0.5s; }
+.btn-primary:hover::before { left: 100%; }
+.scroll-cue { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 11px; letter-spacing: 2px; color: #B3AB90; z-index: 2; animation: bounce 2.2s infinite; }
+@keyframes bounce { 0%,100% { transform: translate(-50%,0);} 50% { transform: translate(-50%,8px);} }
+
+/* TRUST BAR */
+.trust-bar { display: flex; justify-content: center; gap: 48px; padding: 28px 20px; flex-wrap: wrap; font-size: 12px; letter-spacing: 0.6px; background: #F7F3E8; color: #6E6753; border-top: 1px solid #D4AF3722; border-bottom: 1px solid #D4AF3722; text-align: center; }
+.trust-item span { color: #D4AF37; margin-right: 4px; }
+
+/* SECTION HEADERS */
+.section-header, .about-content, .referral-content, .contact-content { text-align: center; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.section-eyebrow { letter-spacing: 4px; font-size: 12px; margin-bottom: 16px; color: #D4AF37; font-weight: 500; }
+.section-number { display: block; font-size: 11px; letter-spacing: 3px; color: #B3AB90; margin-bottom: 10px; }
+.collection h2, .about-content h2, .referral-content h2, .contact-content h2, .testimonials h2, .faq h2, .gallery h2 { font-family: 'Italiana', serif; font-size: 46px; margin-bottom: 22px; letter-spacing: 1px; color: #211E15; }
+
+/* COLLECTION */
+.collection { padding: 130px 24px; background: #FEFEFC; }
+.products-grid { max-width: 1200px; margin: 70px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
+.product-card { background: #F7F3E8; border: 1px solid #D4AF3733; overflow: hidden; transition: transform 0.4s, box-shadow 0.4s; }
+.product-card:hover { transform: translateY(-8px); border-color: #D4AF37; box-shadow: 0 20px 45px rgba(212,175,55,0.15); }
+.product-img-wrap { width: 100%; height: 240px; overflow: hidden; }
+.product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.product-card:hover .product-img-wrap img { transform: scale(1.08); }
+.product-info { padding: 30px 26px; text-align: center; }
+.product-card h3 { font-family: 'Italiana', serif; font-size: 23px; margin-bottom: 12px; letter-spacing: 0.5px; }
+.product-card p { font-size: 13.5px; line-height: 1.6; margin-bottom: 18px; opacity: 0.85; }
+.product-price { display: block; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.6px; font-size: 14px; color: #D4AF37; }
+.product-btn { display: inline-block; padding: 11px 22px; text-decoration: none; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; background: transparent; border: 1px solid #D4AF37; color: #D4AF37; transition: 0.3s; }
+.product-btn:hover { background: #D4AF37; color: #FEFEFC; }
+
+/* GALLERY */
+.gallery { padding: 100px 24px; background: #F7F3E8; }
+.gallery-grid { max-width: 1200px; margin: 60px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; gap: 16px; }
+.gallery-item { overflow: hidden; border: 1px solid #D4AF3733; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.gallery-item:hover img { transform: scale(1.1); }
+.gallery-item.tall { grid-row: span 2; }
+
+/* ABOUT */
+.about { padding: 130px 24px; background: #FEFEFC; }
+.about-flex { display: flex; align-items: center; gap: 60px; max-width: 1100px; margin: 0 auto; padding: 0 24px; text-align: left; }
+.about-flex .about-img { flex: 0 0 40%; }
+.about-flex .about-img img { width: 100%; border-radius: 2px; box-shadow: 0 20px 50px rgba(212,175,55,0.15); }
+.about-flex .about-text { flex: 1; }
+.about-flex .about-text .section-eyebrow, .about-flex .about-text h2 { text-align: left; }
+.about-flex .about-text p { text-align: left; margin-left: 0; }
+.about-content p { font-size: 17px; line-height: 2; margin-top: 26px; font-weight: 300; color: #5E5847; }
+.about-stats { display: flex; justify-content: center; gap: 60px; margin-top: 50px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-number { font-family: 'Italiana', serif; font-size: 42px; color: #D4AF37; display: block; }
+.stat-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #A39B82; margin-top: 6px; }
+.certified-badge { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border: 1px solid #D4AF3755; margin-top: 30px; font-size: 12px; letter-spacing: 1px; color: #D4AF37; }
+
+/* STEPS */
+.steps { padding: 120px 24px; background: #F7F3E8; }
+.steps-grid { max-width: 1000px; margin: 70px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.step-card { text-align: center; position: relative; padding: 0 16px; }
+.step-num { font-family: 'Italiana', serif; font-size: 54px; color: #D4AF3744; display: block; margin-bottom: 12px; }
+.step-card h3 { font-family: 'Italiana', serif; font-size: 21px; margin-bottom: 12px; color: #211E15; letter-spacing: 0.5px; }
+.step-card p { font-size: 13.5px; line-height: 1.7; color: #6E6753; font-weight: 300; }
+@media (min-width: 769px) { .step-card:not(:last-child)::after { content: ''; position: absolute; top: 26px; right: -20px; width: 40px; height: 1px; background: #D4AF3755; } }
+
+/* TESTIMONIALS */
+.testimonials { padding: 120px 24px; background: #FEFEFC; text-align: center; }
+.testimonials-grid { max-width: 1100px; margin: 60px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.testimonial-card { background: #F7F3E8; border: 1px solid #D4AF3733; padding: 40px 28px; }
+.stars { color: #D4AF37; margin-bottom: 18px; letter-spacing: 3px; }
+.testimonial-quote { font-size: 14.5px; line-height: 1.8; font-style: italic; color: #4D4738; margin-bottom: 20px; font-weight: 300; }
+.testimonial-name { font-size: 13px; letter-spacing: 1px; color: #D4AF37; }
+
+/* FAQ */
+.faq { padding: 120px 24px; background: #F7F3E8; }
+.faq-list { max-width: 760px; margin: 60px auto 0; }
+.faq-item { border-bottom: 1px solid #D4AF3733; }
+.faq-question { width: 100%; background: none; border: none; padding: 26px 4px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; font-size: 16px; color: #2E2A1F; font-family: 'Montserrat', sans-serif; }
+.faq-icon { color: #D4AF37; font-size: 22px; transition: 0.3s; flex-shrink: 0; margin-left: 16px; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-item.open .faq-answer { max-height: 300px; }
+.faq-answer p { padding: 0 4px 26px; font-size: 14.5px; line-height: 1.8; color: #6E6753; font-weight: 300; }
+
+/* REFERRAL */
+.referral { padding: 110px 24px; background: #FEFEFC; }
+.referral-content p { font-size: 16px; line-height: 1.9; margin: 22px 0 34px; font-weight: 300; color: #6E6753; }
+
+/* CONTACT */
+.contact { padding: 130px 24px; text-align: center; background: linear-gradient(180deg, #F7F3E8 0%, #FEFEFC 100%); }
+.contact-content p { font-size: 17px; margin: 22px 0 36px; font-weight: 300; color: #6E6753; }
+
+footer { padding: 50px 24px 30px; text-align: center; font-size: 12.5px; letter-spacing: 0.3px; background: #FEFEFC; color: #B3AB90; border-top: 1px solid #D4AF3722; }
+footer .footer-logo { font-family: 'Italiana', serif; font-size: 22px; color: #D4AF37; margin-bottom: 14px; }
+
+.whatsapp-float { position: fixed; bottom: 26px; right: 26px; width: 62px; height: 62px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; box-shadow: 0 6px 24px rgba(212,175,55,0.15); z-index: 999; background: #25D366; color: white; animation: pulse 2.5s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5);} 70% { box-shadow: 0 0 0 14px rgba(37,211,102,0);} 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0);} }
+
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* TABLET */
+@media (max-width: 900px) {
+  .products-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 64px; }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .announce { font-size: 10px; padding: 8px 16px; }
+  .nav-container { padding: 14px 18px; gap: 12px; }
+  .logo { font-size: 22px; }
+  .menu-toggle { display: block; }
+  .nav-right { gap: 12px; }
+  .nav-links { position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; height: 100svh; flex-direction: column; justify-content: center; gap: 28px; transition: right 0.35s; z-index: 1001; background: #FEFEFC; border-left: 1px solid #D4AF37; padding: 20px; }
+  .nav-links.open { right: 0; }
+  .nav-links a { font-size: 15px; }
+  .nav-cta { font-size: 14px; padding: 14px 24px; }
+  .lang-toggle { gap: 3px; }
+  .lang-btn { padding: 5px 8px; font-size: 11px; }
+  .hero { min-height: 100svh; padding: 110px 20px 70px; }
+  .hero-bg { background-position: center 35%; opacity: 0.6; }
+  .hero-overlay { background: radial-gradient(ellipse at center, rgba(254,254,252,0.4) 0%, rgba(254,254,252,0.88) 80%); }
+  .hero-content { max-width: 100%; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 3px; margin-bottom: 16px; }
+  .hero h1 { font-size: 44px; letter-spacing: 1px; margin-bottom: 16px; }
+  .gold-divider { width: 70px; margin-bottom: 22px; }
+  .hero-tagline { font-size: 15.5px; margin-bottom: 32px; line-height: 1.7; }
+  .hero-buttons { flex-direction: column; width: 100%; gap: 14px; }
+  .hero-buttons a { width: 100%; text-align: center; }
+  .btn-primary, .btn-secondary { padding: 16px 24px; font-size: 12px; }
+  .scroll-cue { display: none; }
+  .trust-bar { gap: 24px; padding: 22px 16px; font-size: 11px; }
+  .collection { padding: 80px 20px; }
+  .collection h2, .about-content h2, .referral-content h2, .contact-content h2, .testimonials h2, .faq h2, .gallery h2 { font-size: 32px; }
+  .products-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 50px; }
+  .product-img-wrap { height: 280px; }
+  .product-info { padding: 24px 20px; }
+  .product-card h3 { font-size: 21px; }
+  .gallery { padding: 80px 20px; }
+  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; margin-top: 40px; gap: 14px; }
+  .gallery-item.tall { grid-row: span 1; }
+  .steps { padding: 80px 20px; }
+  .steps-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 50px; }
+  .step-card::after { display: none !important; }
+  .about { padding: 80px 20px; }
+  .about-flex { flex-direction: column; gap: 40px; padding: 0 16px; }
+  .about-flex .about-img { flex: 0 0 auto; max-width: 340px; }
+  .about-flex .about-text { text-align: center; }
+  .about-flex .about-text .section-eyebrow, .about-flex .about-text h2 { text-align: center; }
+  .about-flex .about-text p { text-align: center; }
+  .about-flex .about-stats { justify-content: center; }
+  .about-content p { font-size: 15px; line-height: 1.8; }
+  .about-stats { gap: 30px; margin-top: 40px; }
+  .stat-number { font-size: 34px; }
+  .certified-badge { font-size: 11px; padding: 12px 20px; }
+  .testimonials { padding: 80px 20px; }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
+  .testimonial-card { padding: 30px 22px; }
+  .referral { padding: 80px 20px; }
+  .referral-content p { font-size: 15px; }
+  .faq { padding: 80px 20px; }
+  .faq-list { margin-top: 40px; }
+  .faq-question { font-size: 14.5px; padding: 22px 4px; }
+  .faq-answer p { font-size: 13.5px; }
+  .contact { padding: 80px 20px; }
+  .contact-content p { font-size: 15px; }
+  .btn-large { padding: 17px 32px; font-size: 13px; }
+  footer { padding: 40px 20px 24px; }
+  .whatsapp-float { width: 56px; height: 56px; font-size: 26px; bottom: 20px; right: 20px; }
+}
+
+/* SMALL PHONES */
+@media (max-width: 400px) {
+  .hero h1 { font-size: 36px; }
+  .hero-tagline { font-size: 14px; }
+  .hero-eyebrow { font-size: 10px; }
+  .collection h2, .about-content h2, .referral-content h2, .contact-content h2, .testimonials h2, .faq h2, .gallery h2 { font-size: 27px; }
+  .logo { font-size: 19px; }
+  .product-img-wrap { height: 220px; }
+  .stat-number { font-size: 28px; }
+  .trust-bar { gap: 16px; font-size: 10px; }
+}
+
+/* TABLET NAV */
+@media (max-width: 1180px) and (min-width: 769px) {
+  .nav-links { gap: 14px; }
+  .nav-links a { font-size: 10px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="announce" data-es="ORO 18K ITALIANO · COTIZACIÓN GRATIS POR WHATSAPP · ENVÍOS A TODO USA" data-en="ITALIAN 18K GOLD · FREE QUOTE VIA WHATSAPP · NATIONWIDE SHIPPING">ORO 18K ITALIANO · COTIZACIÓN GRATIS POR WHATSAPP · ENVÍOS A TODO USA</div>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">Joyas La<span> Gloria</span></div>
+        <div class="nav-right">
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+            <div class="nav-links">
+                <a href="#coleccion" data-es="Colección" data-en="Collection">Colección</a>
+                <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+                <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
+                <a href="#como-comprar" data-es="Cómo Comprar" data-en="How to Buy">Cómo Comprar</a>
+                <a href="#testimonios" data-es="Testimonios" data-en="Reviews">Testimonios</a>
+                <a href="#referidos" data-es="Referidos" data-en="Referrals">Referidos</a>
+                <a href="#faq" data-es="Preguntas" data-en="FAQ">Preguntas</a>
+                <a href="https://wa.me/18322368190?text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Joyas%20La%20Gloria" class="nav-cta">WhatsApp</a>
+            </div>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLang('es')">ES</button>
+                <button class="lang-btn" onclick="setLang('en')">EN</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="hero-eyebrow" data-es="ORO 18K ITALIANO" data-en="ITALIAN 18K GOLD">ORO 18K ITALIANO</p>
+        <h1>Joyas La Gloria</h1>
+        <div class="gold-divider"></div>
+        <p class="hero-tagline" data-es="Oro puro italiano de 18k, sin compromisos. Cada pieza está forjada para quienes entienden que la verdadera elegancia no se negocia." data-en="Pure Italian 18k gold, no compromises. Every piece is crafted for those who understand that true elegance is non-negotiable.">Oro puro italiano de 18k, sin compromisos. Cada pieza está forjada para quienes entienden que la verdadera elegancia no se negocia.</p>
+        <div class="hero-buttons">
+            <a href="#coleccion" class="btn-primary" data-es="Ver Colección" data-en="View Collection">Ver Colección</a>
+            <a href="https://wa.me/18322368190?text=Hola%21%20Me%20gustar%C3%ADa%20una%20cotizaci%C3%B3n%20gratis%20de%20Joyas%20La%20Gloria" class="btn-secondary" data-es="Cotización Gratis" data-en="Free Quote">Cotización Gratis</a>
+        </div>
+    </div>
+    <div class="scroll-cue" data-es="DESLIZA ↓" data-en="SCROLL ↓">DESLIZA ↓</div>
+</header>
+
+<section class="trust-bar">
+    <div class="trust-item"><span>✓</span> <span data-es="Oro 18K Certificado" data-en="Certified 18K Gold">Oro 18K Certificado</span></div>
+    <div class="trust-item"><span>✓</span> <span data-es="Envíos Seguros" data-en="Secure Shipping">Envíos Seguros</span></div>
+    <div class="trust-item"><span>✓</span> <span data-es="Garantía de Autenticidad" data-en="Authenticity Guarantee">Garantía de Autenticidad</span></div>
+    <div class="trust-item"><span>✓</span> <span data-es="Pago Flexible" data-en="Flexible Payment">Pago Flexible</span></div>
+</section>
+
+<section id="coleccion" class="collection">
+    <div class="section-header fade-in">
+        <p class="section-number">01</p><p class="section-eyebrow" data-es="Nuestra Colección" data-en="Our Collection">Nuestra Colección</p>
+        <h2 data-es="Piezas que Cuentan tu Historia" data-en="Pieces That Tell Your Story">Piezas que Cuentan tu Historia</h2>
+    </div>
+    <div class="products-grid">
+        <div class="product-card fade-in">
+            <div class="product-img-wrap"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/95842b2b7_generated_image.png" alt="Anillos" loading="lazy"></div>
+            <div class="product-info">
+                <h3 data-es="Anillos" data-en="Rings">Anillos</h3>
+                <p data-es="Oro italiano 18k, diseños clásicos y contemporáneos" data-en="Italian gold 18k, classic and contemporary designs">Oro italiano 18k, diseños clásicos y contemporáneos</p>
+                <span class="product-price" data-es="Desde $85" data-en="From $85">Desde $85</span>
+                <a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Anillos%20de%20Joyas%20La%20Gloria.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn" data-es="Preguntar por WhatsApp" data-en="Ask on WhatsApp">Preguntar por WhatsApp</a>
+            </div>
+        </div>
+        <div class="product-card fade-in">
+            <div class="product-img-wrap"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/51466ed86_generated_image.png" alt="Cadenas y Collares" loading="lazy"></div>
+            <div class="product-info">
+                <h3 data-es="Cadenas y Collares" data-en="Chains &amp; Necklaces">Cadenas y Collares</h3>
+                <p data-es="Piezas macizas en oro 18k, cierres reforzados" data-en="Solid pieces in 18k gold, reinforced clasps">Piezas macizas en oro 18k, cierres reforzados</p>
+                <span class="product-price" data-es="Desde $120" data-en="From $120">Desde $120</span>
+                <a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Cadenas%20y%20Collares%20de%20Joyas%20La%20Gloria.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn" data-es="Preguntar por WhatsApp" data-en="Ask on WhatsApp">Preguntar por WhatsApp</a>
+            </div>
+        </div>
+        <div class="product-card fade-in">
+            <div class="product-img-wrap"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/b7266fc79_generated_image.png" alt="Pulseras" loading="lazy"></div>
+            <div class="product-info">
+                <h3 data-es="Pulseras" data-en="Bracelets">Pulseras</h3>
+                <p data-es="Estilo cubano, tenis y charm — oro 18k" data-en="Cuban, tennis, and charm styles — 18k gold">Estilo cubano, tenis y charm — oro 18k</p>
+                <span class="product-price" data-es="Desde $95" data-en="From $95">Desde $95</span>
+                <a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Pulseras%20de%20Joyas%20La%20Gloria.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn" data-es="Preguntar por WhatsApp" data-en="Ask on WhatsApp">Preguntar por WhatsApp</a>
+            </div>
+        </div>
+        <div class="product-card fade-in">
+            <div class="product-img-wrap"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/b35e48537_generated_image.png" alt="Aretes" loading="lazy"></div>
+            <div class="product-info">
+                <h3 data-es="Aretes" data-en="Earrings">Aretes</h3>
+                <p data-es="Argollas, dormilonas, broqueles y tobilleras en oro 18k" data-en="Hoop, drop, stud earrings, and anklets in 18k gold">Argollas, dormilonas, broqueles y tobilleras en oro 18k</p>
+                <span class="product-price" data-es="Desde $60" data-en="From $60">Desde $60</span>
+                <a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Aretes%20de%20Joyas%20La%20Gloria.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn" data-es="Preguntar por WhatsApp" data-en="Ask on WhatsApp">Preguntar por WhatsApp</a>
+            </div>
+        </div>
+        <div class="product-card fade-in">
+            <div class="product-img-wrap"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/06ae1bd34_generated_image.png" alt="Dijes" loading="lazy"></div>
+            <div class="product-info">
+                <h3 data-es="Dijes" data-en="Pendants">Dijes</h3>
+                <p data-es="Religiosos, iniciales y piezas personalizadas en 18k" data-en="Religious, initial, and custom pieces in 18k">Religiosos, iniciales y piezas personalizadas en 18k</p>
+                <span class="product-price" data-es="Desde $45" data-en="From $45">Desde $45</span>
+                <a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Dijes%20de%20Joyas%20La%20Gloria.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn" data-es="Preguntar por WhatsApp" data-en="Ask on WhatsApp">Preguntar por WhatsApp</a>
+            </div>
+        </div>
+        <div class="product-card fade-in">
+            <div class="product-img-wrap"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/a4e394ee0_generated_image.png" alt="Sets de Novia" loading="lazy"></div>
+            <div class="product-info">
+                <h3 data-es="Sets de Novia" data-en="Bridal Sets">Sets de Novia</h3>
+                <p data-es="Conjuntos completos en oro 18k para bodas y quinceañeras" data-en="Complete sets in 18k gold for weddings and quinceañeras">Conjuntos completos en oro 18k para bodas y quinceañeras</p>
+                <span class="product-price" data-es="Cotización personalizada" data-en="Custom quote">Cotización personalizada</span>
+                <a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesa%20la%20categor%C3%ADa%20de%20Sets%20de%20Novia%20de%20Joyas%20La%20Gloria.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" class="product-btn" data-es="Preguntar por WhatsApp" data-en="Ask on WhatsApp">Preguntar por WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="galeria" class="gallery">
+    <div class="section-header fade-in">
+        <p class="section-number">02</p><p class="section-eyebrow" data-es="Galería" data-en="Gallery">Galería</p>
+        <h2 data-es="El Brillo del Detalle" data-en="The Brilliance of Detail">El Brillo del Detalle</h2>
+    </div>
+    <div class="gallery-grid">
+        <div class="gallery-item tall fade-in"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/8e3322b01_generated_image.png" alt="Detalle de oro 24k" loading="lazy"></div>
+        <div class="gallery-item fade-in"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/9ac682e66_generated_image.png" alt="Artesanía en oro italiano" loading="lazy"></div>
+        <div class="gallery-item fade-in"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/d679a06d3_generated_image.png" alt="Flatlay de joyería en oro" loading="lazy"></div>
+        <div class="gallery-item fade-in"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/fb1c26ba5_generated_image.png" alt="Pulsera de oro cubana" loading="lazy"></div>
+        <div class="gallery-item tall fade-in"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/3696c47f9_generated_image.png" alt="Empaque de regalo Joyas La Gloria" loading="lazy"></div>
+    </div>
+</section>
+
+<section id="como-comprar" class="steps">
+    <div class="section-header fade-in">
+        <p class="section-number">04</p>
+        <p class="section-eyebrow" data-es="Cómo Comprar" data-en="How to Buy">Cómo Comprar</p>
+        <h2 data-es="Tan Simple Como Escribir" data-en="As Simple as a Message">Tan Simple Como Escribir</h2>
+    </div>
+    <div class="steps-grid">
+        <div class="step-card fade-in">
+            <span class="step-num">01</span>
+            <h3 data-es="Escríbenos" data-en="Message Us">Escríbenos</h3>
+            <p data-es="Mándanos un mensaje por WhatsApp contándonos qué pieza buscas o simplemente pide ver el catálogo completo." data-en="Send us a WhatsApp message telling us what piece you're looking for or simply ask to see the full catalog.">Mándanos un mensaje por WhatsApp contándonos qué pieza buscas o simplemente pide ver el catálogo completo.</p>
+        </div>
+        <div class="step-card fade-in">
+            <span class="step-num">02</span>
+            <h3 data-es="Elige tu Pieza" data-en="Choose Your Piece">Elige tu Pieza</h3>
+            <p data-es="Te enviamos fotos y videos reales en oro 18k para que elijas con confianza, sin sorpresas." data-en="We send you real photos and videos in 18k gold so you choose with confidence, no surprises.">Te enviamos fotos y videos reales en oro 18k para que elijas con confianza, sin sorpresas.</p>
+        </div>
+        <div class="step-card fade-in">
+            <span class="step-num">03</span>
+            <h3 data-es="Recíbela" data-en="Receive It">Recíbela</h3>
+            <p data-es="Coordinamos pago y entrega o envío asegurado — tu pieza llega lista para brillar." data-en="We coordinate payment and delivery or insured shipping — your piece arrives ready to shine.">Coordinamos pago y entrega o envío asegurado — tu pieza llega lista para brillar.</p>
+        </div>
+    </div>
+</section>
+
+<section id="nosotros" class="about">
+    <div class="about-flex fade-in">
+        <div class="about-img"><img src="https://media.base44.com/images/public/6a3581bb2a25b2dfe23bf70e/c60c801bd_generated_image.png" alt="Joyas La Gloria joyería en oro italiano" loading="lazy"></div>
+        <div class="about-text">
+            <p class="section-number">03</p><p class="section-eyebrow" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</p>
+            <h2 data-es="Tradición Italiana, Pasión Latina" data-en="Italian Tradition, Latin Passion">Tradición Italiana, Pasión Latina</h2>
+            <p data-es="Joyas La Gloria nace de la pasión por el oro fino italiano en sus dos presentaciones más nobles: 18k. Cada pieza es seleccionada cuidadosamente por su calidad, diseño y durabilidad — para que brilles hoy y por generaciones." data-en="Joyas La Gloria is born from a passion for fine Italian gold in its two most noble forms: 18k. Every piece is carefully selected for its quality, design, and durability — so you shine today and for generations.">Joyas La Gloria nace de la pasión por el oro fino italiano en sus dos presentaciones más nobles: 18k. Cada pieza es seleccionada cuidadosamente por su calidad, diseño y durabilidad — para que brilles hoy y por generaciones.</p>
+            <div class="about-stats">
+                <div class="stat"><span class="stat-number">100%</span><span class="stat-label" data-es="Oro Italiano" data-en="Italian Gold">Oro Italiano</span></div>
+                <div class="stat"><span class="stat-number">18K/24K</span><span class="stat-label" data-es="Únicamente" data-en="Exclusively">Únicamente</span></div>
+                <div class="stat"><span class="stat-number">5★</span><span class="stat-label" data-es="Clientas Felices" data-en="Happy Clients">Clientas Felices</span></div>
+            </div>
+            <div class="certified-badge" data-es="✓ Certificado de Autenticidad Incluido en Cada Compra" data-en="✓ Certificate of Authenticity Included with Every Purchase">✓ Certificado de Autenticidad Incluido en Cada Compra</div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonios" class="testimonials">
+    <div class="section-header fade-in">
+        <p class="section-number">05</p><p class="section-eyebrow" data-es="Lo Que Dicen" data-en="What They Say">Lo Que Dicen</p>
+        <h2 data-es="Clientas Que Confían en Nosotros" data-en="Clients Who Trust Us">Clientas Que Confían en Nosotros</h2>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+            <p class="stars">★★★★★</p>
+            <p class="testimonial-quote" data-es="Compré una cadena de oro 24k y la calidad es impresionante. Se nota que es oro italiano real." data-en="I bought a 24k gold chain and the quality is stunning. You can tell it's real Italian gold.">"Compré una cadena de oro 24k y la calidad es impresionante. Se nota que es oro italiano real."</p>
+            <p class="testimonial-name">— Maria G.</p>
+        </div>
+        <div class="testimonial-card fade-in">
+            <p class="stars">★★★★★</p>
+            <p class="testimonial-quote" data-es="El servicio por WhatsApp fue rapidísimo y muy personal. Ya voy en mi tercera compra." data-en="The WhatsApp service was super fast and very personal. I'm already on my third purchase.">"El servicio por WhatsApp fue rapidísimo y muy personal. Ya voy en mi tercera compra."</p>
+            <p class="testimonial-name">— Carlos R.</p>
+        </div>
+        <div class="testimonial-card fade-in">
+            <p class="stars">★★★★★</p>
+            <p class="testimonial-quote" data-es="El set de novia que me hicieron para mi boda quedó perfecto. Piezas hermosas y de excelente calidad." data-en="The bridal set they made for my wedding was perfect. Beautiful pieces and excellent quality.">"El set de novia que me hicieron para mi boda quedó perfecto. Piezas hermosas y de excelente calidad."</p>
+            <p class="testimonial-name">— Yesenia P.</p>
+        </div>
+    </div>
+</section>
+
+<section id="referidos" class="referral">
+    <div class="referral-content fade-in">
+        <p class="section-number">06</p><p class="section-eyebrow" data-es="Programa de Referidos" data-en="Referral Program">Programa de Referidos</p>
+        <h2 data-es="Comparte y Gana" data-en="Share and Earn">Comparte y Gana</h2>
+        <p data-es="Refiere a un amigo o familiar y ambos reciben un descuento especial en su próxima compra. Entre más compartas, más ganas." data-en="Refer a friend or family member and both receive a special discount on your next purchase. The more you share, the more you earn.">Refiere a un amigo o familiar y ambos reciben un descuento especial en su próxima compra. Entre más compartas, más ganas.</p>
+        <a href="https://wa.me/18322368190?text=Hola%21%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20programa%20de%20referidos%20de%20Joyas%20La%20Gloria" class="btn-primary" data-es="Conocer el Programa" data-en="Learn More">Conocer el Programa</a>
+    </div>
+</section>
+
+<section id="faq" class="faq">
+    <div class="section-header fade-in">
+        <p class="section-number">07</p><p class="section-eyebrow" data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</p>
+        <h2 data-es="Todo lo que Necesitas Saber" data-en="Everything You Need to Know">Todo lo que Necesitas Saber</h2>
+    </div>
+    <div class="faq-list">
+        <div class="faq-item fade-in">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span data-es="¿El oro es garantizado 18k?" data-en="Is the gold guaranteed 18k?">¿El oro es garantizado 18k?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p data-es="Sí, todas nuestras piezas son de oro italiano 18k, garantizado y sellado." data-en="Yes, all our pieces are certified Italian 18k gold, guaranteed and stamped.">Sí, todas nuestras piezas son de oro italiano 18k, garantizado y sellado.</p></div>
+        </div>
+        <div class="faq-item fade-in">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span data-es="¿Cómo funciona el proceso de compra?" data-en="How does the buying process work?">¿Cómo funciona el proceso de compra?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p data-es="Nos escribes por WhatsApp, te mostramos fotos y videos de las piezas disponibles, y coordinamos el pago y envío o entrega." data-en="You message us on WhatsApp, we show you photos and videos of available pieces, and we coordinate payment and shipping or delivery.">Nos escribes por WhatsApp, te mostramos fotos y videos de las piezas disponibles, y coordinamos el pago y envío o entrega.</p></div>
+        </div>
+        <div class="faq-item fade-in">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span data-es="¿Hacen envíos?" data-en="Do you ship?">¿Hacen envíos?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p data-es="Sí, hacemos envíos seguros y asegurados a todo el país. También ofrecemos entrega personal en área local." data-en="Yes, we offer secure insured shipping nationwide. We also offer personal delivery in the local area.">Sí, hacemos envíos seguros y asegurados a todo el país. También ofrecemos entrega personal en área local.</p></div>
+        </div>
+        <div class="faq-item fade-in">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span data-es="¿Tienen garantía las piezas?" data-en="Do the pieces come with a warranty?">¿Tienen garantía las piezas?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p data-es="Todas nuestras piezas cuentan con garantía de autenticidad y respaldo post-venta." data-en="All our pieces come with an authenticity guarantee and post-sale support.">Todas nuestras piezas cuentan con garantía de autenticidad y respaldo post-venta.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="contacto" class="contact">
+    <div class="contact-content fade-in">
+        <p class="section-number">08</p><p class="section-eyebrow" data-es="Contáctanos" data-en="Contact Us">Contáctanos</p>
+        <h2 data-es="Agenda tu Cotización Gratuita" data-en="Book Your Free Quote">Agenda tu Cotización Gratuita</h2>
+        <p data-es="Escríbenos por WhatsApp y con gusto te ayudamos a encontrar la pieza perfecta en oro 18k." data-en="Message us on WhatsApp and we'll gladly help you find the perfect piece in 18k gold.">Escríbenos por WhatsApp y con gusto te ayudamos a encontrar la pieza perfecta en oro 18k.</p>
+        <a href="https://wa.me/18322368190?text=Hola%21%20Quisiera%20agendar%20mi%20cotizaci%C3%B3n%20gratuita%20con%20Joyas%20La%20Gloria" class="btn-primary btn-large" data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo">Joyas La Gloria</div>
+    <p data-es="Oro 18K Italiano de Elegancia Atemporal" data-en="Italian 18K Gold of Timeless Elegance">Oro 18K Italiano de Elegancia Atemporal</p>
+    <p style="margin-top:18px;opacity:0.85;">📍 5206 E 3rd St, Suite 16, Katy, TX 77493</p>
+    <p style="margin-top:6px;opacity:0.85;" data-es="🕐 Lunes a Sábado · 10am – 6:30pm" data-en="🕐 Monday to Saturday · 10am – 6:30pm">🕐 Lunes a Sábado · 10am – 6:30pm</p>
+    <p style="margin-top:6px;opacity:0.85;">📸 <a href="https://instagram.com/joyaslagloria" target="_blank" style="color:#D4AF37;text-decoration:none;">@joyaslagloria</a> &nbsp;·&nbsp; ✈️ <span data-es="Envíos a todo USA" data-en="Shipping nationwide">Envíos a todo USA</span></p>
+    <p style="margin-top:14px;" data-es="© 2026 Joyas La Gloria. Todos los derechos reservados." data-en="© 2026 Joyas La Gloria. All rights reserved.">© 2026 Joyas La Gloria. Todos los derechos reservados.</p>
+</footer>
+
+<a href="https://wa.me/18322368190?text=Hola%21%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Joyas%20La%20Gloria" class="whatsapp-float">
+    <span>💬</span>
+</a>
+
+<script>
+function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-' + lang + ']').forEach(function(el) {
+        el.innerHTML = el.getAttribute('data-' + lang);
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+        if (btn.textContent.trim().toUpperCase() === lang.toUpperCase()) {
+            btn.classList.add('active');
+        }
+    });
+    try { localStorage.setItem('alba-lang', lang); } catch(e) {}
+}
+
+try {
+    var saved = localStorage.getItem('alba-lang');
+    setLang(saved || 'es');
+} catch(e) {
+    setLang('es');
+}
+
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.remove('open');
+    });
+});
+
+document.addEventListener('click', function(e) {
+    var nav = document.querySelector('.nav-links');
+    var toggle = document.querySelector('.menu-toggle');
+    if (nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('open');
+    }
+});
+
+var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+</script>
+
+</body>
+</html>
