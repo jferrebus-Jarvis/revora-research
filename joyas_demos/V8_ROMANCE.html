@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="icon" type="image/jpeg" href="https://base44.app/api/apps/6a3581bb2a25b2dfe23bf70e/files/mp/public/6a3581bb2a25b2dfe23bf70e/4f9b7515c_logo_cropped.jpg">
+<title>Joyas La Gloria — Oro 18K Italiano | Katy, TX</title>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Mulish:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Mulish',sans-serif;background:#FEFAF7;color:#3A2E2A;overflow-x:hidden;font-weight:300;}
+.italiana{font-family:'Italiana',serif;}
+a{text-decoration:none;color:inherit;}
+:root{--gold:#C79A6B;--blush:#F6E4DC;--rose:#8B6A5E;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 30px;}
+section{padding:120px 0;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(254,250,247,0.96);border-bottom:1px solid #f0ddd2;}
+.nav-inner{max-width:1120px;margin:0 auto;padding:22px 30px;display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo img{width:40px;height:40px;border-radius:50%;object-fit:cover;}
+.logo-text{font-family:'Italiana',serif;font-size:21px;letter-spacing:1.5px;}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:#5c4a44;}
+.nav-links a:hover{color:var(--gold);}
+.lang-toggle{display:flex;gap:4px;}
+.lang-btn{border:1px solid #f0ddd2;background:none;padding:5px 10px;font-size:10px;letter-spacing:1px;cursor:pointer;color:#5c4a44;}
+.lang-btn.active{background:var(--rose);color:#fff;border-color:var(--rose);}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;}
+
+.hero{padding:200px 30px 90px;text-align:center;background:linear-gradient(180deg,#F6E4DC 0%,#FEFAF7 55%);}
+.hero-eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--rose);margin-bottom:26px;}
+.hero h1{font-family:'Italiana',serif;font-size:clamp(42px,7.5vw,86px);font-weight:400;line-height:1.1;margin-bottom:26px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero p{max-width:460px;margin:0 auto 42px;font-size:16px;color:#7a655f;line-height:1.9;font-weight:300;}
+.hero-btns{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
+.btn-rom{background:var(--rose);color:#fff;padding:17px 38px;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;transition:0.3s;}
+.btn-rom:hover{background:#6f5449;}
+.btn-rom-outline{border:1px solid var(--rose);color:var(--rose);padding:16px 38px;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;transition:0.3s;}
+.btn-rom-outline:hover{background:var(--rose);color:#fff;}
+.hero-arch{max-width:420px;margin:70px auto 0;border-radius:220px 220px 0 0;overflow:hidden;height:56vh;}
+.hero-arch img{width:100%;height:100%;object-fit:cover;}
+
+.shead{max-width:600px;margin:0 auto 60px;text-align:center;}
+.stag{font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+.shead h2{font-family:'Italiana',serif;font-size:clamp(30px,4vw,48px);}
+.shead p{color:#7a655f;margin-top:16px;font-size:15px;font-weight:300;}
+
+.cat-grid-rom{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.cat-card-rom{background:var(--blush);border-radius:16px 16px 0 16px;padding:44px 30px;text-align:center;transition:0.3s;}
+.cat-card-rom:hover{transform:translateY(-6px);}
+.cat-card-rom h3{font-family:'Italiana',serif;font-size:23px;margin-bottom:10px;}
+.cat-card-rom p{color:#7a655f;font-size:13.5px;font-weight:300;margin-bottom:20px;}
+.cat-link-rom{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--rose);border-bottom:1px solid var(--rose);padding-bottom:3px;}
+
+.about-rom{background:var(--blush);}
+.about-flex-rom{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-img-rom{border-radius:220px 220px 0 0;overflow:hidden;}
+.about-img-rom img{width:100%;display:block;}
+.about-text-rom .stag{text-align:left;}
+.about-text-rom h2{font-family:'Italiana',serif;font-size:clamp(28px,3.5vw,40px);text-align:left;margin-bottom:22px;}
+.about-text-rom p{color:#7a655f;font-size:15.5px;font-weight:300;line-height:1.9;margin-bottom:30px;}
+.about-stats-rom{display:flex;gap:44px;}
+.asr-num{font-family:'Italiana',serif;font-size:32px;color:var(--rose);}
+.asr-lbl{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#9a857e;margin-top:4px;}
+
+.payment-rom{text-align:center;}
+.pr-steps{display:flex;justify-content:center;gap:0;max-width:800px;margin:50px auto;}
+.pr-step{flex:1;padding:0 24px;border-left:1px solid #f0ddd2;}
+.pr-step:first-child{border-left:none;}
+.pr-step .n{font-family:'Italiana',serif;font-size:32px;color:var(--gold);margin-bottom:10px;}
+.pr-step p{font-size:13px;color:#7a655f;font-weight:300;}
+
+.process-grid-rom{display:flex;justify-content:center;gap:60px;margin-top:60px;flex-wrap:wrap;}
+.pgr-item{max-width:220px;text-align:center;}
+.pgr-num{font-family:'Italiana',serif;font-size:15px;letter-spacing:2px;color:var(--gold);margin-bottom:16px;}
+.pgr-item h3{font-family:'Italiana',serif;font-size:20px;margin-bottom:10px;}
+.pgr-item p{font-size:13px;color:#7a655f;font-weight:300;line-height:1.7;}
+
+.testi-rom{background:var(--rose);color:#fff;text-align:center;}
+.testi-rom .stag{color:#f0ddd2;}
+.tgr{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:1000px;margin:60px auto 0;padding:0 30px;}
+.tgr-stars{color:#f0ddd2;font-size:14px;letter-spacing:3px;margin-bottom:18px;}
+.tgr-text{font-family:'Italiana',serif;font-style:italic;font-size:18px;line-height:1.7;margin-bottom:16px;}
+.tgr-name{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:#f0ddd2;}
+
+.referral-rom{text-align:center;}
+.referral-rom h2{font-family:'Italiana',serif;font-size:clamp(30px,4.2vw,48px);margin-bottom:18px;}
+.referral-rom h2 em{font-style:italic;color:var(--gold);}
+.referral-rom > p{color:#7a655f;max-width:480px;margin:0 auto 44px;font-size:15px;font-weight:300;}
+.rr-steps{display:flex;justify-content:center;gap:50px;margin-bottom:44px;flex-wrap:wrap;}
+.rr-num{width:52px;height:52px;background:var(--blush);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Italiana',serif;font-size:20px;color:var(--rose);margin:0 auto 12px;}
+.rr-steps p{font-size:12.5px;color:#7a655f;max-width:180px;}
+
+.contact-rom{background:var(--blush);text-align:center;}
+.contact-rom h2{font-family:'Italiana',serif;font-size:clamp(32px,5vw,54px);margin-bottom:20px;}
+.contact-rom > p{color:#7a655f;font-size:16px;max-width:480px;margin:0 auto 36px;font-weight:300;}
+.crd-details{display:flex;justify-content:center;gap:56px;margin-top:60px;flex-wrap:wrap;text-align:left;}
+.crd-label{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:8px;}
+.crd-value{font-size:14.5px;color:#5c4a44;}
+
+footer{padding:56px 30px 28px;text-align:center;}
+.footer-logo-rom{width:56px;height:56px;border-radius:50%;object-fit:cover;margin:0 auto 16px;display:block;}
+footer p{color:#9a857e;font-size:12px;margin-bottom:22px;}
+.footer-links-rom{display:flex;justify-content:center;gap:26px;margin-bottom:24px;flex-wrap:wrap;}
+.footer-links-rom a{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#5c4a44;}
+.footer-links-rom a:hover{color:var(--gold);}
+.footer-bottom-rom{font-size:11px;color:#b5a49c;border-top:1px solid #f0ddd2;padding-top:22px;max-width:400px;margin:0 auto;}
+
+.whatsapp-float{position:fixed;bottom:26px;right:26px;width:58px;height:58px;background:#C79A6B;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;z-index:999;box-shadow:0 8px 26px rgba(199,154,107,0.4);color:#fff;}
+
+@media(max-width:900px){
+.cat-grid-rom,.about-flex-rom,.tgr{grid-template-columns:1fr;}
+.about-text-rom h2,.about-text-rom .stag,.about-text-rom p{text-align:center;}
+.about-stats-rom{justify-content:center;}
+.pr-steps{flex-direction:column;gap:30px;}
+.pr-step{border-left:none;border-top:1px solid #f0ddd2;padding:24px 0 0;}
+.pr-step:first-child{border-top:none;}
+.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#FEFAF7;flex-direction:column;justify-content:center;gap:28px;z-index:1001;}
+.nav-links.open{display:flex;}
+.nav-links a{font-size:16px;text-align:center;}
+.menu-toggle{display:block;z-index:1002;}
+section{padding:80px 0;}
+.hero-arch{max-width:280px;height:44vh;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-inner">
+<div class="logo"><img src="https://base44.app/api/apps/6a3581bb2a25b2dfe23bf70e/files/mp/public/6a3581bb2a25b2dfe23bf70e/4f9b7515c_logo_cropped.jpg" alt="Joyas La Gloria"><div class="logo-text">Joyas La Gloria</div></div>
+<div class="nav-links" id="navLinks">
+<a href="#coleccion" data-es="Colección" data-en="Collection">Colección</a>
+<a href="#historia" data-es="Historia" data-en="Story">Historia</a>
+<a href="#testimonios" data-es="Testimonios" data-en="Reviews">Testimonios</a>
+<a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+<div class="lang-toggle"><button class="lang-btn active" id="btnEs">ES</button><button class="lang-btn" id="btnEn">EN</button></div>
+</div>
+<button class="menu-toggle" id="menuToggle">☰</button>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-eyebrow" data-es="ORO 18K ITALIANO · KATY, TX" data-en="ITALIAN 18K GOLD · KATY, TX">ORO 18K ITALIANO · KATY, TX</div>
+<h1 data-es='Brilla con <em>Ternura</em>' data-en='Shine with <em>Tenderness</em>'>Brilla con <em>Ternura</em></h1>
+<p data-es="Piezas en oro italiano de 18K, delicadas y románticas — para regalar y para regalarte." data-en="Pieces in 18K Italian gold, delicate and romantic — to gift and to treat yourself.">Piezas en oro italiano de 18K, delicadas y románticas — para regalar y para regalarte.</p>
+<div class="hero-btns">
+<a href="https://wa.me/18322368190?text=Hola%21%20Quiero%20una%20cotizaci%C3%B3n%20gratis" class="btn-rom" target="_blank" data-es="Cotización Gratis" data-en="Free Quote">Cotización Gratis</a>
+<a href="#coleccion" class="btn-rom-outline" data-es="Ver Colección" data-en="View Collection">Ver Colección</a>
+</div>
+<div class="hero-arch"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=700&q=85" alt="Joyas La Gloria"></div>
+</section>
+
+<section id="coleccion">
+<div class="shead"><div class="stag" data-es="Nuestra Colección" data-en="Our Collection">Nuestra Colección</div><h2 data-es="Piezas para Enamorarte" data-en="Pieces to Fall in Love With">Piezas para Enamorarte</h2><p data-es="Todo en oro 18k italiano, elegido con cariño." data-en="Everything in 18k Italian gold, chosen with love.">Todo en oro 18k italiano, elegido con cariño.</p></div>
+<div class="wrap cat-grid-rom">
+<div class="cat-card-rom"><h3 data-es="Anillos" data-en="Rings">Anillos</h3><p data-es="Clásicos y personalizados" data-en="Classic and custom">Clásicos y personalizados</p><a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesan%20los%20Anillos" class="cat-link-rom" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+<div class="cat-card-rom"><h3 data-es="Cadenas y Collares" data-en="Chains & Necklaces">Cadenas y Collares</h3><p data-es="Piezas macizas, cierres reforzados" data-en="Solid pieces, reinforced clasps">Piezas macizas, cierres reforzados</p><a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesan%20las%20Cadenas" class="cat-link-rom" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+<div class="cat-card-rom"><h3 data-es="Pulseras" data-en="Bracelets">Pulseras</h3><p data-es="Cubanas, tenis y denarios" data-en="Cuban, tennis, and charm styles">Cubanas, tenis y denarios</p><a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesan%20las%20Pulseras" class="cat-link-rom" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+<div class="cat-card-rom"><h3 data-es="Aretes y Tobilleras" data-en="Earrings & Anklets">Aretes y Tobilleras</h3><p data-es="Argollas, dormilonas y broqueles" data-en="Hoops, drops, and studs">Argollas, dormilonas y broqueles</p><a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesan%20los%20Aretes" class="cat-link-rom" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+<div class="cat-card-rom"><h3 data-es="Dijes" data-en="Charms">Dijes</h3><p data-es="Religiosos, iniciales y personalizados" data-en="Religious, initial, and custom">Religiosos, iniciales y personalizados</p><a href="https://wa.me/18322368190?text=Hola%21%20Me%20interesan%20los%20Dijes" class="cat-link-rom" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+<div class="cat-card-rom"><h3 data-es="Regalos Especiales" data-en="Special Gifts">Regalos Especiales</h3><p data-es="El regalo perfecto para alguien especial" data-en="The perfect gift for someone special">El regalo perfecto para alguien especial</p><a href="https://wa.me/18322368190?text=Hola%21%20Busco%20un%20regalo%20especial" class="cat-link-rom" target="_blank" data-es="Preguntar" data-en="Ask Now">Preguntar</a></div>
+</div>
+</section>
+
+<section class="payment-rom">
+<div class="stag" data-es="Facilidades de Pago" data-en="Payment Options">Facilidades de Pago</div>
+<h2 style="font-family:'Italiana',serif;font-size:clamp(30px,4vw,44px);margin-bottom:22px;" data-es="Tu Pieza, a tu Ritmo" data-en="Your Piece, on Your Terms">Tu Pieza, a tu Ritmo</h2>
+<p style="max-width:520px;margin:0 auto;color:#7a655f;font-size:15px;font-weight:300;line-height:1.9;" data-es="Aparta tu pieza favorita hoy y complétala con planes de pago flexibles, coordinados directamente por WhatsApp." data-en="Reserve your favorite piece today and pay it off with flexible plans, coordinated directly over WhatsApp.">Aparta tu pieza favorita hoy y complétala con planes de pago flexibles, coordinados directamente por WhatsApp.</p>
+<div class="pr-steps">
+<div class="pr-step"><div class="n">1</div><p data-es="Depósito inicial para apartar" data-en="Initial deposit to reserve">Depósito inicial para apartar</p></div>
+<div class="pr-step"><div class="n">2</div><p data-es="Cuotas según lo acordado" data-en="Installments as agreed">Cuotas según lo acordado</p></div>
+<div class="pr-step"><div class="n">3</div><p data-es="Recibe tu pieza al completar" data-en="Receive it once paid in full">Recibe tu pieza al completar</p></div>
+</div>
+<a href="https://wa.me/18322368190?text=Hola%21%20Quisiera%20conocer%20los%20planes%20de%20pago" target="_blank" class="btn-rom" data-es="Consultar Planes de Pago" data-en="Ask About Payment Plans">Consultar Planes de Pago</a>
+</section>
+
+<section class="about-rom" id="historia">
+<div class="wrap about-flex-rom">
+<div class="about-img-rom"><img src="https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=700&q=80" alt="Joyas La Gloria"></div>
+<div class="about-text-rom">
+<div class="stag" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</div>
+<h2 data-es="Elegancia con Raíces" data-en="Elegance with Roots">Elegancia con Raíces</h2>
+<p data-es="Joyas La Gloria nace de la pasión por el oro fino italiano de 18k. Desde nuestra tienda en Katy, Texas, seleccionamos cada pieza por su calidad, diseño y durabilidad — para que brilles hoy y por generaciones." data-en="Joyas La Gloria is born from a passion for fine Italian 18k gold. From our store in Katy, Texas, we select every piece for its quality, design, and durability — so you shine today and for generations.">Joyas La Gloria nace de la pasión por el oro fino italiano de 18k. Desde nuestra tienda en Katy, Texas, seleccionamos cada pieza por su calidad, diseño y durabilidad — para que brilles hoy y por generaciones.</p>
+<div class="about-stats-rom">
+<div><div class="asr-num">3.1K+</div><div class="asr-lbl" data-es="Seguidores" data-en="Followers">Seguidores</div></div>
+<div><div class="asr-num">18K</div><div class="asr-lbl" data-es="Oro Italiano" data-en="Italian Gold">Oro Italiano</div></div>
+<div><div class="asr-num">USA</div><div class="asr-lbl" data-es="Envíos" data-en="Shipping">Envíos</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="shead"><div class="stag" data-es="Cómo Funciona" data-en="How It Works">Cómo Funciona</div><h2 data-es="Tu Pieza en 3 Pasos" data-en="Your Piece in 3 Steps">Tu Pieza en 3 Pasos</h2></div>
+<div class="process-grid-rom">
+<div class="pgr-item"><div class="pgr-num">01</div><h3 data-es="Escríbenos" data-en="Message Us">Escríbenos</h3><p data-es="Por WhatsApp o visítanos en la tienda" data-en="Via WhatsApp or visit our store">Por WhatsApp o visítanos en la tienda</p></div>
+<div class="pgr-item"><div class="pgr-num">02</div><h3 data-es="Te Mostramos" data-en="We Show You">Te Mostramos</h3><p data-es="Fotos y videos reales de cada pieza" data-en="Real photos and videos of each piece">Fotos y videos reales de cada pieza</p></div>
+<div class="pgr-item"><div class="pgr-num">03</div><h3 data-es="Recibe tu Oro" data-en="Receive Your Gold">Recibe tu Oro</h3><p data-es="En tienda o con envío a todo USA" data-en="In-store or shipped nationwide">En tienda o con envío a todo USA</p></div>
+</div>
+</section>
+
+<section class="testi-rom" id="testimonios">
+<div class="stag" data-es="Testimonios" data-en="Testimonials">Testimonios</div>
+<h2 style="font-family:'Italiana',serif;font-size:clamp(30px,4vw,44px);" data-es="Clientes que Confían" data-en="Customers Who Trust Us">Clientes que Confían</h2>
+<div class="tgr">
+<div><div class="tgr-stars">★★★★★</div><p class="tgr-text" data-es="“Compré una cadena de oro 18k y la calidad es impresionante.”" data-en="“I bought an 18k gold chain and the quality is stunning.”">“Compré una cadena de oro 18k y la calidad es impresionante.”</p><div class="tgr-name">Cliente Verificada</div></div>
+<div><div class="tgr-stars">★★★★★</div><p class="tgr-text" data-es="“Me ayudaron a escoger el regalo perfecto para mi mamá.”" data-en="“They helped me choose the perfect gift for my mom.”">“Me ayudaron a escoger el regalo perfecto para mi mamá.”</p><div class="tgr-name">Cliente de Katy</div></div>
+<div><div class="tgr-stars">★★★★★</div><p class="tgr-text" data-es="“El proceso por WhatsApp fue súper fácil y rápido.”" data-en="“The WhatsApp process was super easy and fast.”">“El proceso por WhatsApp fue súper fácil y rápido.”</p><div class="tgr-name">Cliente Frecuente</div></div>
+</div>
+</section>
+
+<section class="referral-rom">
+<h2 data-es='Refiere y <em>Gana</em>' data-en='Refer and <em>Earn</em>'>Refiere y <em>Gana</em></h2>
+<p data-es="Comparte Joyas La Gloria y ambos reciben un beneficio exclusivo." data-en="Share Joyas La Gloria and you both get an exclusive perk.">Comparte Joyas La Gloria y ambos reciben un beneficio exclusivo.</p>
+<div class="rr-steps">
+<div><div class="rr-num">1</div><p data-es="Comparte nuestro contacto" data-en="Share our contact">Comparte nuestro contacto</p></div>
+<div><div class="rr-num">2</div><p data-es="Ellos compran mencionando tu nombre" data-en="They buy mentioning your name">Ellos compran mencionando tu nombre</p></div>
+<div><div class="rr-num">3</div><p data-es="Ambos reciben descuento" data-en="You both get a discount">Ambos reciben descuento</p></div>
+</div>
+<a href="https://wa.me/18322368190?text=Hola%21%20Quiero%20saber%20del%20programa%20de%20referidos" class="btn-rom" target="_blank" data-es="Conocer el Programa" data-en="Learn More">Conocer el Programa</a>
+</section>
+
+<section class="contact-rom" id="contacto">
+<div class="stag" data-es="Contacto" data-en="Contact">Contacto</div>
+<h2 data-es="Visítanos o Escríbenos" data-en="Visit or Message Us">Visítanos o Escríbenos</h2>
+<p data-es="Agenda tu cotización gratuita por WhatsApp, o pasa por la tienda en Katy." data-en="Book your free quote via WhatsApp, or stop by our store in Katy.">Agenda tu cotización gratuita por WhatsApp, o pasa por la tienda en Katy.</p>
+<a href="https://wa.me/18322368190?text=Hola%21%20Quisiera%20agendar%20mi%20cotizaci%C3%B3n%20gratuita" class="btn-rom" target="_blank" data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a>
+<div class="crd-details">
+<div><div class="crd-label" data-es="Dirección" data-en="Address">Dirección</div><div class="crd-value">5206 E 3rd St, Suite 16<br>Katy, TX 77493</div></div>
+<div><div class="crd-label" data-es="Horario" data-en="Hours">Horario</div><div class="crd-value" data-es="Lunes a Sábado · 10am – 6:30pm" data-en="Monday to Saturday · 10am – 6:30pm">Lunes a Sábado · 10am – 6:30pm</div></div>
+<div><div class="crd-label" data-es="Contacto" data-en="Contact">Contacto</div><div class="crd-value">(832) 236-8190<br>@joyaslagloria</div></div>
+</div>
+</section>
+
+<footer>
+<img class="footer-logo-rom" src="https://base44.app/api/apps/6a3581bb2a25b2dfe23bf70e/files/mp/public/6a3581bb2a25b2dfe23bf70e/4f9b7515c_logo_cropped.jpg" alt="Joyas La Gloria">
+<p data-es="Oro 18K Italiano de Elegancia Atemporal" data-en="Italian 18K Gold of Timeless Elegance">Oro 18K Italiano de Elegancia Atemporal</p>
+<div class="footer-links-rom">
+<a href="#coleccion" data-es="Colección" data-en="Collection">Colección</a>
+<a href="#historia" data-es="Historia" data-en="Story">Historia</a>
+<a href="https://instagram.com/joyaslagloria" target="_blank">Instagram</a>
+<a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+</div>
+<div class="footer-bottom-rom" data-es="© 2026 Joyas La Gloria. Todos los derechos reservados." data-en="© 2026 Joyas La Gloria. All rights reserved.">© 2026 Joyas La Gloria. Todos los derechos reservados.</div>
+</footer>
+
+<a href="https://wa.me/18322368190?text=Hola%21%20Vengo%20de%20la%20p%C3%A1gina%20web" class="whatsapp-float" target="_blank">💬</a>
+
+<script>
+document.getElementById('menuToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+const btnEs=document.getElementById('btnEs'), btnEn=document.getElementById('btnEn');
+function setLang(lang){
+  document.querySelectorAll('[data-es]').forEach(el=>{ el.innerHTML = el.getAttribute('data-'+lang); });
+  btnEs.classList.toggle('active', lang==='es');
+  btnEn.classList.toggle('active', lang==='en');
+}
+btnEs.addEventListener('click',()=>setLang('es'));
+btnEn.addEventListener('click',()=>setLang('en'));
+</script>
+</body>
+</html>
