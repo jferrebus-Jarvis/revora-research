@@ -125,12 +125,47 @@
     .lookbook{grid-template-columns:1fr;}
     .tour-list{grid-template-columns:repeat(2,1fr);}
   }
+
+  /* SUPREME-STYLE BOX LOGO */
+  .box-logo{background:var(--red);color:#fff;font-family:'Futura','Archivo Black',sans-serif;font-weight:900;font-size:11px;
+             line-height:1.15;letter-spacing:0.5px;padding:6px 10px;text-transform:uppercase;display:inline-block;
+             transform:skew(-2deg);box-shadow:3px 3px 0 rgba(0,0,0,0.4);}
+  .hero-box-logo{background:var(--red);color:#fff;font-family:'Archivo Black',sans-serif;font-weight:900;
+                  font-size:clamp(20px,3.4vw,34px);letter-spacing:1px;padding:16px 34px;text-transform:uppercase;
+                  display:inline-block;transform:rotate(-3deg);box-shadow:6px 6px 0 rgba(0,0,0,0.5);margin-bottom:32px;
+                  border:3px solid #fff;}
+
+  /* CAMO DIVIDER */
+  .camo-strip{height:64px;width:100%;background-color:#0a0a0a;
+    background-image:
+      radial-gradient(circle at 20% 30%, #1c1c1c 18%, transparent 19%),
+      radial-gradient(circle at 60% 60%, #202020 22%, transparent 23%),
+      radial-gradient(circle at 85% 20%, var(--off-black) 16%, transparent 17%),
+      radial-gradient(circle at 40% 80%, #171717 20%, transparent 21%),
+      radial-gradient(circle at 75% 75%, rgba(61,122,181,0.15) 14%, transparent 15%);
+    background-size:140px 140px;border-top:1px solid #262626;border-bottom:1px solid #262626;}
+
+  /* DROP COUNTDOWN */
+  .countdown-band{background:var(--red);padding:28px 24px;text-align:center;}
+  .countdown-band .tag{font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:3px;color:#fff;text-transform:uppercase;margin-bottom:14px;opacity:0.85;}
+  .countdown{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;}
+  .countdown .unit{text-align:center;}
+  .countdown .num{font-family:'Anton',sans-serif;font-size:clamp(30px,5vw,50px);color:#fff;line-height:1;text-shadow:3px 3px 0 rgba(0,0,0,0.25);}
+  .countdown .lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-top:4px;}
+
+  /* STREETWEAR PRODUCT CARDS (Supreme shop grid feel) */
+  .product-card{border:1px solid #262626;}
+  .product-card .price-tag{position:absolute;top:14px;left:14px;background:#fff;color:#0a0a0a;font-family:'Archivo Black',sans-serif;
+                            font-size:11px;padding:5px 9px;letter-spacing:0.5px;z-index:2;}
+  .product-card .sold-out{position:absolute;inset:0;background:rgba(10,10,10,0.72);display:flex;align-items:center;justify-content:center;
+                           font-family:'Anton',sans-serif;font-size:16px;letter-spacing:2px;color:#fff;z-index:3;text-transform:uppercase;
+                           border:2px solid var(--red);margin:14px;}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo"><span class="star">⭐</span> DEAD SERIOUS</div>
+  <div class="logo"><span class="box-logo">DEAD<br>SERIOUS</span></div>
   <div class="nav-links">
     <a href="#drop">Shop</a>
     <a href="#tour">Tour</a>
@@ -141,6 +176,7 @@
 </nav>
 
 <section class="hero">
+  <div class="hero-box-logo">Dead Serious</div>
   <div class="hero-tag">Streetwear · Deadserious.shop</div>
   <h1>Burn<br><span class="strike">On Site</span></h1>
   <p>Cause of death: playing it safe. Dead Serious is streetwear built for the ones who never blend in — bold graphics, tour-inspired drops, zero apologies.</p>
@@ -155,29 +191,44 @@
   <span>BURN ON SITE <b>•</b> CAUSE OF DEATH <b>•</b> TOUR CANCELED <b>•</b> DEAD SERIOUS <b>•</b> BURN ON SITE <b>•</b> CAUSE OF DEATH <b>•</b> TOUR CANCELED <b>•</b> DEAD SERIOUS <b>•</b> </span>
 </div>
 
+<div class="camo-strip"></div>
 <section id="drop">
   <div class="shead">
     <div class="tag">New Drop</div>
     <h2>Latest Collection</h2>
     <p>Graphic tees, tour merch, and statement pieces made for the ones who show up loud.</p>
   </div>
+  <div class="countdown-band" style="max-width:1240px;margin:0 auto 56px;">
+    <div class="tag">Next Drop Locks In</div>
+    <div class="countdown" id="countdown">
+      <div class="unit"><div class="num" id="cd-days">03</div><div class="lbl">Days</div></div>
+      <div class="unit"><div class="num" id="cd-hours">14</div><div class="lbl">Hours</div></div>
+      <div class="unit"><div class="num" id="cd-mins">27</div><div class="lbl">Mins</div></div>
+      <div class="unit"><div class="num" id="cd-secs">09</div><div class="lbl">Secs</div></div>
+    </div>
+  </div>
   <div class="drop">
     <div class="product-grid">
       <div class="product-card">
+        <div class="price-tag">$45</div>
         <div class="drop-cap">New</div>
         <div class="swatch">Product Photo</div>
         <div class="product-label"><h4>Dead Serious Tee</h4><span>$45.00</span></div>
       </div>
       <div class="product-card">
+        <div class="price-tag">$38</div>
+        <div class="sold-out">Sold Out</div>
         <div class="swatch">Product Photo</div>
         <div class="product-label"><h4>Burn On Site Tank</h4><span>$38.00</span></div>
       </div>
       <div class="product-card">
+        <div class="price-tag">$48</div>
         <div class="drop-cap">Hot</div>
         <div class="swatch">Product Photo</div>
         <div class="product-label"><h4>Tour Canceled Poster Tee</h4><span>$48.00</span></div>
       </div>
       <div class="product-card">
+        <div class="price-tag">$32</div>
         <div class="swatch">Product Photo</div>
         <div class="product-label"><h4>DSTC Shield Cap</h4><span>$32.00</span></div>
       </div>
@@ -272,5 +323,27 @@
 
 <a href="https://wa.me/10000000000?text=Hey%20Dead%20Serious%2C%20I%20have%20a%20question" class="wa-float" target="_blank">💬</a>
 
+
+<script>
+(function(){
+  var target = new Date().getTime() + (3*24*60*60*1000) + (14*60*60*1000) + (27*60*1000) + (9*1000);
+  function pad(n){return n.toString().padStart(2,'0');}
+  function tick(){
+    var now = new Date().getTime();
+    var diff = target - now;
+    if(diff < 0) diff = 0;
+    var d = Math.floor(diff/(1000*60*60*24));
+    var h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    var m = Math.floor((diff%(1000*60*60))/(1000*60));
+    var s = Math.floor((diff%(1000*60))/1000);
+    document.getElementById('cd-days').textContent = pad(d);
+    document.getElementById('cd-hours').textContent = pad(h);
+    document.getElementById('cd-mins').textContent = pad(m);
+    document.getElementById('cd-secs').textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
 </body>
 </html>
