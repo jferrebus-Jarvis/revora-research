@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Dog Grooming | Katy, TX — Premium Pet Grooming</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--navy:#1B2845;--navy2:#253556;--blue:#2E6BE6;--gold:#F5B71A;--gold-dark:#E0A510;--mint:#F0F7F4;--white:#fff;--gray:#6B7B8D;--gray-light:#E4EAF0;}
+body{font-family:'Poppins',sans-serif;background:var(--mint);color:var(--navy);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(27,40,69,0.97);backdrop-filter:blur(12px);padding:16px 32px;display:flex;justify-content:space-between;align-items:center;}
+.logo{font-weight:800;font-size:1.3rem;color:#fff;display:flex;align-items:center;gap:8px;}
+.logo span{color:var(--gold);}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.7);transition:.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 24px;border-radius:50px;font-weight:700;}
+.hamburger{display:none;background:none;border:none;font-size:1.5rem;color:#fff;cursor:pointer;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:50px;font-weight:700;font-size:.9rem;transition:.25s;cursor:pointer;border:none;font-family:inherit;}
+.btn-gold{background:var(--gold);color:var(--navy);}
+.btn-gold:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,183,26,.35);}
+.btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.25);color:#fff;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+/* HERO - full bleed with overlay card */
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding-bottom:80px;}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(27,40,69,.92) 0%,rgba(27,40,69,.6) 60%,rgba(27,40,69,.2) 100%);}
+.hero-content{position:relative;z-index:2;padding:0 60px;max-width:680px;padding-bottom:60px;padding-top:160px;}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,183,26,.15);border:1px solid var(--gold);color:var(--gold);padding:8px 18px;border-radius:50px;font-size:.72rem;font-weight:600;margin-bottom:28px;}
+.hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:18px;}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero p{color:rgba(255,255,255,.65);font-size:1rem;max-width:480px;margin-bottom:36px;line-height:1.75;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:50px;}
+.hero-pills{display:flex;gap:12px;flex-wrap:wrap;}
+.pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:8px 18px;border-radius:50px;font-size:.75rem;font-weight:500;}
+.hero-right-card{position:absolute;right:60px;bottom:80px;z-index:3;background:#fff;border-radius:24px;padding:28px 28px;box-shadow:0 30px 80px rgba(0,0,0,.2);max-width:260px;}
+.card-title{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:16px;}
+.rating-big{font-size:3rem;font-weight:900;color:var(--navy);line-height:1;}
+.rating-stars{color:var(--gold);font-size:1.1rem;letter-spacing:2px;margin:6px 0;}
+.rating-sub{font-size:.78rem;color:var(--gray);}
+.card-divider{border:none;border-top:1px solid var(--gray-light);margin:16px 0;}
+.card-stat{display:flex;justify-content:space-between;margin-bottom:8px;}
+.card-stat-label{font-size:.78rem;color:var(--gray);}
+.card-stat-value{font-size:.78rem;font-weight:700;color:var(--navy);}
+
+/* MARQUEE */
+.marquee-bar{background:var(--gold);padding:16px;overflow:hidden;white-space:nowrap;}
+.marquee-inner{display:inline-block;animation:scroll 22s linear infinite;font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);}
+.marquee-inner span{margin:0 22px;opacity:.5;}
+@keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* SERVICES */
+.services{padding:110px 40px;background:var(--white);}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.sec-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;margin-bottom:12px;line-height:1.15;}
+.sec-sub{color:var(--gray);font-size:1rem;max-width:560px;margin-bottom:50px;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;}
+.svc-card{border-radius:20px;overflow:hidden;border:1.5px solid var(--gray-light);transition:.3s;background:var(--mint);}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(27,40,69,.1);}
+.svc-img{width:100%;height:200px;object-fit:cover;}
+.svc-body{padding:26px 24px;}
+.svc-body h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+.svc-body p{color:var(--gray);font-size:.87rem;margin-bottom:14px;line-height:1.65;}
+.svc-price{background:rgba(46,107,230,.08);color:var(--blue);padding:6px 16px;border-radius:8px;font-weight:600;font-size:.8rem;display:inline-block;}
+
+/* PROCESS */
+.process{padding:110px 40px;background:var(--navy);}
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;position:relative;margin-top:60px;}
+.process-grid::before{content:'';position:absolute;top:36px;left:10%;right:10%;height:1px;background:rgba(255,255,255,.08);}
+.process-step{text-align:center;padding:0 24px;}
+.step-num{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;color:var(--navy);margin:0 auto 20px;position:relative;z-index:1;}
+.process-step h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:8px;}
+.process-step p{font-size:.84rem;color:rgba(255,255,255,.45);line-height:1.7;}
+
+/* GALLERY */
+.gallery{padding:110px 40px;background:var(--mint);}
+.gallery-masonry{columns:3;gap:16px;}
+.gallery-masonry img{width:100%;margin-bottom:16px;border-radius:14px;display:block;transition:.4s;cursor:pointer;}
+.gallery-masonry img:hover{transform:scale(1.02);box-shadow:0 16px 40px rgba(27,40,69,.12);}
+
+/* BREEDS */
+.breeds{padding:80px 40px;background:var(--white);text-align:center;}
+.breeds-cloud{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:800px;margin:40px auto 0;}
+.breed-tag{background:var(--mint);border:1.5px solid var(--gray-light);border-radius:50px;padding:10px 22px;font-size:.85rem;font-weight:500;transition:.2s;}
+.breed-tag:hover{border-color:var(--gold);background:rgba(245,183,26,.06);transform:translateY(-2px);}
+
+/* REVIEWS */
+.reviews{padding:110px 40px;background:var(--navy);text-align:center;}
+.reviews .sec-title,.reviews .eyebrow{color:#fff;}
+.reviews .eyebrow{color:var(--gold);}
+.reviews .sec-sub{color:rgba(255,255,255,.5);}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;text-align:left;margin-top:50px;}
+.review-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:28px 24px;}
+.review-stars{color:var(--gold);letter-spacing:2px;margin-bottom:14px;}
+.review-text{font-size:.9rem;font-style:italic;color:rgba(255,255,255,.7);margin-bottom:18px;line-height:1.75;}
+.review-author{display:flex;align-items:center;gap:12px;}
+.review-avatar{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;}
+.review-avatar img{width:100%;height:100%;object-fit:cover;}
+.review-name{font-size:.88rem;font-weight:700;color:#fff;}
+.review-sub{font-size:.75rem;color:rgba(255,255,255,.35);}
+
+/* REFERRAL */
+.referral{padding:100px 40px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));text-align:center;}
+.referral h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--navy);margin-bottom:14px;}
+.referral p{color:rgba(27,40,69,.75);font-size:1rem;max-width:540px;margin:0 auto 40px;}
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:700px;margin:0 auto 40px;}
+.ref-card{background:rgba(255,255,255,.25);border-radius:16px;padding:24px 20px;}
+.ref-num{font-size:2.5rem;font-weight:900;color:var(--navy);margin-bottom:8px;}
+.ref-card p{font-size:.85rem;color:rgba(27,40,69,.7);line-height:1.6;}
+.btn-navy{background:var(--navy);color:#fff;padding:14px 36px;border-radius:50px;font-weight:700;font-size:.9rem;transition:.25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-navy:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.15);}
+
+/* LOCATION */
+.location{padding:110px 40px;background:var(--white);}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.location h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;margin-bottom:16px;}
+.location p{color:var(--gray);margin-bottom:30px;}
+.info-rows{border:1.5px solid var(--gray-light);border-radius:16px;overflow:hidden;}
+.info-row{display:flex;gap:0;align-items:center;padding:18px 22px;border-bottom:1px solid var(--gray-light);}
+.info-row:last-child{border-bottom:none;}
+.info-row-icon{font-size:1.3rem;margin-right:16px;width:36px;text-align:center;}
+.info-row h4{font-size:.88rem;font-weight:700;margin-bottom:2px;}
+.info-row span{font-size:.8rem;color:var(--gray);}
+.map-wrap{border-radius:20px;overflow:hidden;height:460px;box-shadow:0 20px 60px rgba(27,40,69,.1);}
+.map-wrap iframe{width:100%;height:100%;border:none;}
+
+/* FOOTER */
+footer{background:#0F1927;padding:60px 40px 28px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-logo{font-weight:800;font-size:1.2rem;color:#fff;margin-bottom:14px;}
+.footer-logo span{color:var(--gold);}
+.footer-brand p{font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;max-width:260px;}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;}
+.footer-col a{display:block;font-size:.84rem;color:rgba(255,255,255,.4);margin-bottom:10px;transition:.2s;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:22px;font-size:.75rem;color:rgba(255,255,255,.25);text-align:center;}
+
+/* WHATSAPP */
+.wa-float{position:fixed;bottom:24px;right:24px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:998;box-shadow:0 8px 30px rgba(37,211,102,.4);animation:pulse 2.5s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 8px 30px rgba(37,211,102,.4);}50%{box-shadow:0 8px 50px rgba(37,211,102,.6);}}
+
+@media(max-width:900px){
+.hero-content{padding:120px 28px 60px;}
+.hero-right-card{display:none;}
+.gallery-masonry{columns:2;}
+.ref-grid{grid-template-columns:1fr;}
+.location-grid,.footer-grid{grid-template-columns:1fr;}
+.nav-links{display:none;}
+.hamburger{display:block;}
+.services,.gallery,.reviews,.referral,.location,.breeds,.process{padding:80px 24px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">🏆 Top <span>Dog</span> Grooming</div>
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#reviews">Reviews</a>
+<a href="#location">Location</a>
+<a href="https://wa.me/18321234567?text=Hi!%20I'd%20like%20to%20book%20a%20grooming%20appointment%20at%20Top%20Dog!" class="nav-cta" target="_blank">Book Now</a>
+</div>
+<button class="hamburger">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-bg">
+<img src="https://images.unsplash.com/photo-1591946614720-90b589da0642?w=1800&q=85" alt="Premium dog grooming">
+</div>
+<div class="hero-content">
+<div class="badge">⭐ Premium Grooming · Katy, TX</div>
+<h1>Where Every Dog Gets The <em>Royal Treatment</em></h1>
+<p>Precision cuts, luxurious baths, and expert care for all breeds. We're Katy's most trusted premium grooming salon.</p>
+<div class="hero-btns">
+<a href="https://wa.me/18321234567?text=Hi!%20I'd%20like%20to%20book%20a%20grooming%20appointment%20at%20Top%20Dog!" class="btn btn-gold" target="_blank">📅 Book Appointment</a>
+<a href="#services" class="btn btn-ghost">View Services</a>
+</div>
+<div class="hero-pills">
+<span class="pill">✓ All Breeds Welcome</span>
+<span class="pill">✓ No Cage Drying</span>
+<span class="pill">✓ Same-Day Available</span>
+</div>
+</div>
+<div class="hero-right-card">
+<div class="card-title">Our Rating</div>
+<div class="rating-big">5.0</div>
+<div class="rating-stars">★★★★★</div>
+<div class="rating-sub">Based on 200+ Google reviews</div>
+<hr class="card-divider">
+<div class="card-stat"><span class="card-stat-label">Happy Pets</span><span class="card-stat-value">500+</span></div>
+<div class="card-stat"><span class="card-stat-label">Years in Katy</span><span class="card-stat-value">5+</span></div>
+<div class="card-stat"><span class="card-stat-label">Breeds Groomed</span><span class="card-stat-value">40+</span></div>
+</div>
+</section>
+
+<div class="marquee-bar">
+<div class="marquee-inner">
+FULL GROOM ✦ BATH & BRUSH ✦ NAIL TRIM ✦ DE-SHEDDING ✦ TEETH BRUSHING ✦ PUPPY GROOM ✦ ALL BREEDS ✦ KATY TX ✦ FULL GROOM ✦ BATH & BRUSH ✦ NAIL TRIM ✦ DE-SHEDDING ✦ TEETH BRUSHING ✦ PUPPY GROOM ✦ ALL BREEDS ✦ KATY TX ✦
+</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="eyebrow">What We Offer</div>
+<div class="sec-title">Grooming Packages</div>
+<p class="sec-sub">Premium services at competitive prices. Every dog leaves looking show-ready.</p>
+<div class="services-grid">
+<div class="svc-card">
+<img class="svc-img" src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80" alt="Bath and brush">
+<div class="svc-body">
+<h3>🛁 Bath & Brush</h3>
+<p>Shampoo & conditioning rinse, high-velocity blow dry, thorough brush out, ear cleaning, and finishing spray.</p>
+<span class="svc-price">Starting at $35</span>
+</div>
+</div>
+<div class="svc-card">
+<img class="svc-img" src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" alt="Full Groom">
+<div class="svc-body">
+<h3>✂️ Full Groom Package</h3>
+<p>Complete bath, breed-specific or custom haircut, nail trim, ear cleaning, and bandana or bow finish.</p>
+<span class="svc-price">Starting at $55</span>
+</div>
+</div>
+<div class="svc-card">
+<img class="svc-img" src="https://images.unsplash.com/photo-1601758125910-f24f7c7a2b09?w=600&q=80" alt="Puppy groom">
+<div class="svc-body">
+<h3>🐶 Puppy First Groom</h3>
+<p>A calm, positive first experience for puppies 4–6 months. We take extra time to make them comfortable.</p>
+<span class="svc-price">Starting at $30</span>
+</div>
+</div>
+<div class="svc-card">
+<img class="svc-img" src="https://images.unsplash.com/photo-1534361960057-19f4434a4bee?w=600&q=80" alt="De-shedding">
+<div class="svc-body">
+<h3>🌀 De-Shedding Treatment</h3>
+<p>Specialized shampoo, deep conditioner, and high-velocity blow out to remove up to 80% of loose coat.</p>
+<span class="svc-price">Starting at $45</span>
+</div>
+</div>
+<div class="svc-card">
+<img class="svc-img" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&q=80" alt="Spa day">
+<div class="svc-body">
+<h3>💆 Spa Add-Ons</h3>
+<p>Blueberry facial, teeth brushing, paw balm treatment, cologne, or CBD calming spray. Customize your visit.</p>
+<span class="svc-price">From $5 each</span>
+</div>
+</div>
+<div class="svc-card">
+<img class="svc-img" src="https://images.unsplash.com/photo-1602584385150-cd1f2db2d47e?w=600&q=80" alt="Nail grind">
+<div class="svc-body">
+<h3>💅 Nail Trim & Grind</h3>
+<p>Precise nail trim followed by grinder for smooth edges. Stress-free for even the most nail-shy dogs.</p>
+<span class="svc-price">$15 – $20</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process">
+<div class="eyebrow" style="color:var(--gold);">How It Works</div>
+<div class="sec-title" style="color:#fff;margin-bottom:8px;">Book in 3 Easy Steps</div>
+<p class="sec-sub" style="color:rgba(255,255,255,.4);margin-bottom:0;">No apps, no complicated forms. Just message us and we'll take care of the rest.</p>
+<div class="process-grid">
+<div class="process-step"><div class="step-num">1</div><h3>WhatsApp Us</h3><p>Send a message with your dog's breed, size, and what service you need.</p></div>
+<div class="process-step"><div class="step-num">2</div><h3>Pick Your Time</h3><p>We'll confirm same-day or schedule your preferred appointment slot.</p></div>
+<div class="process-step"><div class="step-num">3</div><h3>Drop Off & Relax</h3><p>We'll send you a photo update and text you when your pup is ready for pickup.</p></div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+<div class="eyebrow">Our Work</div>
+<div class="sec-title">Before & After</div>
+<p class="sec-sub" style="margin-bottom:40px;">Every dog leaves looking and smelling their absolute best.</p>
+<div class="gallery-masonry">
+<img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&q=80" alt="Golden Retriever">
+<img src="https://images.unsplash.com/photo-1534361960057-19f4434a4bee?w=500&q=80" alt="Fluffy dog">
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=500&q=80" alt="Dog bath">
+<img src="https://images.unsplash.com/photo-1601758125910-f24f7c7a2b09?w=500&q=80" alt="After groom">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=500&q=80" alt="Poodle">
+<img src="https://images.unsplash.com/photo-1559190394-df5a28aab5c5?w=500&q=80" alt="Groom">
+<img src="https://images.unsplash.com/photo-1602584385150-cd1f2db2d47e?w=500&q=80" alt="Trim">
+</div>
+</section>
+
+<!-- BREEDS -->
+<section class="breeds">
+<div class="eyebrow">All Breeds Welcome</div>
+<div class="sec-title">We Groom Them All</div>
+<div class="breeds-cloud">
+<span class="breed-tag">🐩 Poodle</span><span class="breed-tag">🐕 Golden Retriever</span><span class="breed-tag">🐾 Labradoodle</span><span class="breed-tag">🐶 Shih Tzu</span><span class="breed-tag">🐕‍🦺 German Shepherd</span><span class="breed-tag">🐩 Bichon Frise</span><span class="breed-tag">🐾 Maltese</span><span class="breed-tag">🐕 Husky</span><span class="breed-tag">🐶 Yorkie</span><span class="breed-tag">🐾 Aussie Doodle</span><span class="breed-tag">🐕 Bernedoodle</span><span class="breed-tag">🐩 Cavapoo</span><span class="breed-tag">🐶 Chihuahua</span><span class="breed-tag">🐕 Cocker Spaniel</span><span class="breed-tag">🐾 And more...</span>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+<div class="eyebrow">Reviews</div>
+<div class="sec-title">What Customers Say</div>
+<p class="sec-sub" style="color:rgba(255,255,255,.45);margin-bottom:0;">Don't take our word for it.</p>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">"Top Dog is in a league of their own. My Bernedoodle's coat is always perfect and they're SO patient with her. Won't go anywhere else in Katy."</p>
+<div class="review-author">
+<div class="review-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt=""></div>
+<div><div class="review-name">Jennifer A.</div><div class="review-sub">🐾 Bernedoodle mom · Katy</div></div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">"I've tried 5 groomers in Katy and this is the only one that actually listens to what you want. My husky's de-shedding was incredible — no more fur everywhere."</p>
+<div class="review-author">
+<div class="review-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt=""></div>
+<div><div class="review-name">Marcus D.</div><div class="review-sub">🐺 Husky dad · Katy</div></div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">"I was nervous bringing my senior dog but they were SO gentle. He came out looking 5 years younger. The photo update they sent me made me cry happy tears."</p>
+<div class="review-author">
+<div class="review-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt=""></div>
+<div><div class="review-name">Patricia G.</div><div class="review-sub">🐶 Senior Cocker mom · Katy</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REFERRAL -->
+<section class="referral">
+<h2>🎁 Refer a Friend — Both Save $10</h2>
+<p>Love Top Dog? Share us with another dog parent and you both get $10 off your next groom. Community over everything.</p>
+<div class="ref-grid">
+<div class="ref-card"><div class="ref-num">1</div><p>Share our WhatsApp with a friend or neighbor</p></div>
+<div class="ref-card"><div class="ref-num">2</div><p>They book & mention your name at drop-off</p></div>
+<div class="ref-card"><div class="ref-num">3</div><p>Both of you get $10 off next visit — automatically</p></div>
+</div>
+<a href="https://wa.me/18321234567?text=Hi!%20I%20want%20to%20know%20about%20the%20referral%20program" class="btn-navy" target="_blank">💬 Ask About Referrals</a>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+<div class="location-grid">
+<div>
+<div class="eyebrow">Find Us</div>
+<h2>Visit Top Dog in Katy, TX</h2>
+<p>Easy to find, easy to park. Drop off your pup and pick them up looking amazing.</p>
+<div class="info-rows">
+<div class="info-row"><span class="info-row-icon">📍</span><div><h4>Address</h4><span>Katy, Texas 77449</span></div></div>
+<div class="info-row"><span class="info-row-icon">🕐</span><div><h4>Hours</h4><span>Mon–Sat 9am – 6pm · Sun 10am – 4pm</span></div></div>
+<div class="info-row"><span class="info-row-icon">📱</span><div><h4>WhatsApp</h4><span>(832) 123-4567</span></div></div>
+<div class="info-row"><span class="info-row-icon">🅿️</span><div><h4>Parking</h4><span>Free parking in front of suite</span></div></div>
+</div>
+<a href="https://wa.me/18321234567?text=Hi!%20I'd%20like%20to%20book%20at%20Top%20Dog%20Grooming" class="btn btn-gold" style="margin-top:28px;" target="_blank">📅 Book on WhatsApp</a>
+</div>
+<div class="map-wrap">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110862.45!2d-95.8244!3d29.7858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640d9d9c9494a1b%3A0x4b7b1a1e5a4c1b2b!2sKaty%2C%20TX!5e0!3m2!1sen!2sus!4v1720000000000" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="footer-logo">🏆 Top <span>Dog</span> Grooming</div>
+<p>Premium pet grooming in Katy, TX. Trusted by hundreds of dog parents across the Katy area for precision cuts and loving care.</p>
+</div>
+<div class="footer-col">
+<h4>Services</h4>
+<a href="#">Full Groom</a>
+<a href="#">Bath & Brush</a>
+<a href="#">Puppy Groom</a>
+<a href="#">De-Shedding</a>
+<a href="#">Nail Trim</a>
+</div>
+<div class="footer-col">
+<h4>Contact</h4>
+<a href="https://wa.me/18321234567" target="_blank">WhatsApp</a>
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+<a href="#">Google Maps</a>
+</div>
+</div>
+<div class="footer-bottom">© 2026 Top Dog Grooming · Katy, TX · Built by JF Web Studios</div>
+</footer>
+
+<a href="https://wa.me/18321234567?text=Hi!%20I%20saw%20the%20Top%20Dog%20Grooming%20website%20and%20want%20to%20book!" class="wa-float" target="_blank">💬</a>
+
+</body>
+</html>
