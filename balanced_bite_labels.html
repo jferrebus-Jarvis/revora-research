@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>The Balanced Bite — Etiquetas de Productos</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #f5f0e8; padding: 20px; }
+  h1 { text-align: center; color: #444932; font-size: 18px; margin-bottom: 20px; }
+  .page { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+  
+  .label {
+    width: 320px;
+    border: 2px solid #444932;
+    border-radius: 8px;
+    background: white;
+    padding: 16px;
+    page-break-inside: avoid;
+  }
+
+  .label-header {
+    text-align: center;
+    border-bottom: 1px solid #444932;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  .brand { font-size: 14px; font-weight: bold; color: #444932; letter-spacing: 1px; }
+  .product-name { font-size: 18px; font-weight: bold; color: #222; margin: 4px 0; }
+  .tagline { font-size: 10px; color: #666; font-style: italic; }
+  
+  .badges { display: flex; gap: 4px; justify-content: center; margin: 6px 0; flex-wrap: wrap; }
+  .badge {
+    background: #444932;
+    color: white;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+
+  .section { margin: 8px 0; }
+  .section-title { font-size: 9px; font-weight: bold; color: #444932; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .section-content { font-size: 10px; color: #333; line-height: 1.4; }
+
+  .net-weight { font-size: 11px; font-weight: bold; text-align: center; margin: 8px 0; color: #444932; }
+
+  .allergen-box {
+    background: #fff8e1;
+    border: 1px solid #f0c000;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin: 8px 0;
+    font-size: 9px;
+    color: #7a5c00;
+  }
+
+  .tcs-box {
+    background: #fff3f3;
+    border: 1px solid #e57373;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin: 8px 0;
+    font-size: 9px;
+    color: #b71c1c;
+    font-weight: bold;
+  }
+
+  .label-footer {
+    border-top: 1px solid #444932;
+    padding-top: 8px;
+    margin-top: 8px;
+    font-size: 8.5px;
+    color: #555;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .reg-number { font-weight: bold; color: #444932; }
+
+  .disclosure {
+    font-size: 8px;
+    font-style: italic;
+    color: #888;
+    text-align: center;
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  @media print {
+    body { background: white; }
+    .label { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<h1>THE BALANCED BITE BY CHEF YOLY — Etiquetas de Productos</h1>
+<div class="page">
+
+<!-- AREPA DE YUCA CON CHIA -->
+<div class="label">
+  <div class="label-header">
+    <div class="brand">THE BALANCED BITE</div>
+    <div class="product-name">Arepas de Yuca con Chía</div>
+    <div class="tagline">Artesanales · Sin Gluten · Ricas en Fibra</div>
+    <div class="badges">
+      <span class="badge">🌾 Sin Gluten</span>
+      <span class="badge">🌿 Natural</span>
+      <span class="badge">💪 Fibra</span>
+    </div>
+  </div>
+  <div class="net-weight">Contenido Neto: 6 unidades</div>
+  <div class="section">
+    <div class="section-title">Ingredientes</div>
+    <div class="section-content">Yuca fresca, semillas de chía, sal.</div>
+  </div>
+  <div class="allergen-box">⚠ Alérgenos: Sin gluten. Elaborado en cocina casera que puede procesar lácteos y huevos.</div>
+  <div class="tcs-box">🌡 Mantener refrigerado. Consumir antes de: ___/___/______</div>
+  <div class="section">
+    <div class="section-title">Instrucciones</div>
+    <div class="section-content">Calentar en sartén, plancha o microondas. Refrigerar hasta 5 días o congelar hasta 30 días.</div>
+  </div>
+  <div class="label-footer">
+    The Balanced Bite By Chef Yoly · Houston, TX<br>
+    📞 832-540-2505<br>
+    <span class="reg-number">DSHS Cottage Food Registry #16332</span>
+  </div>
+  <div class="disclosure">Este producto fue elaborado en una residencia privada que no está sujeta a licencia o inspección gubernamental.</div>
+</div>
+
+<!-- AREPA DE YUCA Y PLATANO -->
+<div class="label">
+  <div class="label-header">
+    <div class="brand">THE BALANCED BITE</div>
+    <div class="product-name">Arepas de Yuca y Plátano</div>
+    <div class="tagline">Dulce Natural · Sin Azúcar Añadida · Sin Gluten</div>
+    <div class="badges">
+      <span class="badge">🌾 Sin Gluten</span>
+      <span class="badge">🌿 Natural</span>
+      <span class="badge">🍌 Plátano</span>
+    </div>
+  </div>
+  <div class="net-weight">Contenido Neto: 6 unidades</div>
+  <div class="section">
+    <div class="section-title">Ingredientes</div>
+    <div class="section-content">Yuca fresca, plátano maduro, sal.</div>
+  </div>
+  <div class="allergen-box">⚠ Alérgenos: Sin gluten. Elaborado en cocina casera que puede procesar lácteos y huevos.</div>
+  <div class="tcs-box">🌡 Mantener refrigerado. Consumir antes de: ___/___/______</div>
+  <div class="section">
+    <div class="section-title">Instrucciones</div>
+    <div class="section-content">Calentar en sartén, plancha o microondas. Refrigerar hasta 5 días o congelar hasta 30 días.</div>
+  </div>
+  <div class="label-footer">
+    The Balanced Bite By Chef Yoly · Houston, TX<br>
+    📞 832-540-2505<br>
+    <span class="reg-number">DSHS Cottage Food Registry #16332</span>
+  </div>
+  <div class="disclosure">Este producto fue elaborado en una residencia privada que no está sujeta a licencia o inspección gubernamental.</div>
+</div>
+
+<!-- TORTILLAS DE YUCA Y PLATANO -->
+<div class="label">
+  <div class="label-header">
+    <div class="brand">THE BALANCED BITE</div>
+    <div class="product-name">Tortillas de Yuca y Plátano</div>
+    <div class="tagline">Versátiles · Sin Gluten · Hechas a Mano</div>
+    <div class="badges">
+      <span class="badge">🌾 Sin Gluten</span>
+      <span class="badge">🌿 Natural</span>
+      <span class="badge">🌮 Artesanal</span>
+    </div>
+  </div>
+  <div class="net-weight">Contenido Neto: 8 unidades</div>
+  <div class="section">
+    <div class="section-title">Ingredientes</div>
+    <div class="section-content">Yuca fresca, plátano maduro, sal.</div>
+  </div>
+  <div class="allergen-box">⚠ Alérgenos: Sin gluten. Elaborado en cocina casera que puede procesar lácteos y huevos.</div>
+  <div class="tcs-box">🌡 Mantener refrigerado. Consumir antes de: ___/___/______</div>
+  <div class="section">
+    <div class="section-title">Instrucciones</div>
+    <div class="section-content">Calentar en comal o sartén. Refrigerar hasta 5 días o congelar hasta 30 días.</div>
+  </div>
+  <div class="label-footer">
+    The Balanced Bite By Chef Yoly · Houston, TX<br>
+    📞 832-540-2505<br>
+    <span class="reg-number">DSHS Cottage Food Registry #16332</span>
+  </div>
+  <div class="disclosure">Este producto fue elaborado en una residencia privada que no está sujeta a licencia o inspección gubernamental.</div>
+</div>
+
+<!-- EMPANADAS DE ESPINACA Y QUESO -->
+<div class="label">
+  <div class="label-header">
+    <div class="brand">THE BALANCED BITE</div>
+    <div class="product-name">Empanadas de Espinaca y Queso Cottage</div>
+    <div class="tagline">Ligeras · Nutritivas · Sin Gluten</div>
+    <div class="badges">
+      <span class="badge">🌾 Sin Gluten</span>
+      <span class="badge">🌿 Natural</span>
+      <span class="badge">💪 Proteína</span>
+    </div>
+  </div>
+  <div class="net-weight">Contenido Neto: 6 unidades</div>
+  <div class="section">
+    <div class="section-title">Ingredientes</div>
+    <div class="section-content">Masa de yuca, espinaca fresca, queso cottage, sal, especias naturales.</div>
+  </div>
+  <div class="allergen-box">⚠ Contiene: Lácteos (queso cottage). Sin gluten. Elaborado en cocina casera.</div>
+  <div class="tcs-box">🌡 Mantener refrigerado. Consumir antes de: ___/___/______</div>
+  <div class="section">
+    <div class="section-title">Instrucciones</div>
+    <div class="section-content">Hornear a 375°F por 15 min o freír ligeramente. Refrigerar hasta 4 días o congelar hasta 30 días.</div>
+  </div>
+  <div class="label-footer">
+    The Balanced Bite By Chef Yoly · Houston, TX<br>
+    📞 832-540-2505<br>
+    <span class="reg-number">DSHS Cottage Food Registry #16332</span>
+  </div>
+  <div class="disclosure">Este producto fue elaborado en una residencia privada que no está sujeta a licencia o inspección gubernamental.</div>
+</div>
+
+<!-- EMPANADAS DE CARNE MECHADA -->
+<div class="label">
+  <div class="label-header">
+    <div class="brand">THE BALANCED BITE</div>
+    <div class="product-name">Empanadas de Carne Mechada</div>
+    <div class="tagline">Sabor Venezolano · Sin Gluten · Artesanal</div>
+    <div class="badges">
+      <span class="badge">🌾 Sin Gluten</span>
+      <span class="badge">🥩 Res</span>
+      <span class="badge">💪 Proteína</span>
+    </div>
+  </div>
+  <div class="net-weight">Contenido Neto: 6 unidades</div>
+  <div class="section">
+    <div class="section-title">Ingredientes</div>
+    <div class="section-content">Masa de yuca, carne de res mechada, cebolla, ají dulce, ajo, sal, especias naturales.</div>
+  </div>
+  <div class="allergen-box">⚠ Alérgenos: Sin gluten. Elaborado en cocina casera que puede procesar lácteos y huevos.</div>
+  <div class="tcs-box">🌡 Mantener refrigerado. Consumir antes de: ___/___/______</div>
+  <div class="section">
+    <div class="section-title">Instrucciones</div>
+    <div class="section-content">Hornear a 375°F por 15 min o freír ligeramente. Refrigerar hasta 4 días o congelar hasta 30 días.</div>
+  </div>
+  <div class="label-footer">
+    The Balanced Bite By Chef Yoly · Houston, TX<br>
+    📞 832-540-2505<br>
+    <span class="reg-number">DSHS Cottage Food Registry #16332</span>
+  </div>
+  <div class="disclosure">Este producto fue elaborado en una residencia privada que no está sujeta a licencia o inspección gubernamental.</div>
+</div>
+
+<!-- EMPANADAS DE POLLO MECHADO -->
+<div class="label">
+  <div class="label-header">
+    <div class="brand">THE BALANCED BITE</div>
+    <div class="product-name">Empanadas de Pollo Mechado</div>
+    <div class="tagline">Jugosas · Sabor Casero · Sin Gluten</div>
+    <div class="badges">
+      <span class="badge">🌾 Sin Gluten</span>
+      <span class="badge">🍗 Pollo</span>
+      <span class="badge">💪 Proteína</span>
+    </div>
+  </div>
+  <div class="net-weight">Contenido Neto: 6 unidades</div>
+  <div class="section">
+    <div class="section-title">Ingredientes</div>
+    <div class="section-content">Masa de yuca, pollo mechado, cebolla, ají dulce, ajo, sal, especias naturales.</div>
+  </div>
+  <div class="allergen-box">⚠ Alérgenos: Sin gluten. Elaborado en cocina casera que puede procesar lácteos y huevos.</div>
+  <div class="tcs-box">🌡 Mantener refrigerado. Consumir antes de: ___/___/______</div>
+  <div class="section">
+    <div class="section-title">Instrucciones</div>
+    <div class="section-content">Hornear a 375°F por 15 min o freír ligeramente. Refrigerar hasta 4 días o congelar hasta 30 días.</div>
+  </div>
+  <div class="label-footer">
+    The Balanced Bite By Chef Yoly · Houston, TX<br>
+    📞 832-540-2505<br>
+    <span class="reg-number">DSHS Cottage Food Registry #16332</span>
+  </div>
+  <div class="disclosure">Este producto fue elaborado en una residencia privada que no está sujeta a licencia o inspección gubernamental.</div>
+</div>
+
+<!-- CARNE MECHADA -->
+<div class="label">
+  <div class="label-header">
+    <div class="brand">THE BALANCED BITE</div>
+    <div class="product-name">Carne Mechada</div>
+    <div class="tagline">Res con Especias Naturales · Alto en Proteína</div>
+    <div class="badges">
+      <span class="badge">🌾 Sin Gluten</span>
+      <span class="badge">🥩 Res</span>
+      <span class="badge">💪 Alto en Proteína</span>
+    </div>
+  </div>
+  <div class="net-weight">Contenido Neto: 1 lb (16 oz)</div>
+  <div class="section">
+    <div class="section-title">Ingredientes</div>
+    <div class="section-content">Carne de res, cebolla, ají dulce, tomate, ajo, sal, especias naturales.</div>
+  </div>
+  <div class="allergen-box">⚠ Alérgenos: Sin gluten. Elaborado en cocina casera que puede procesar lácteos y huevos.</div>
+  <div class="tcs-box">🌡 Mantener refrigerado. Consumir antes de: ___/___/______</div>
+  <div class="section">
+    <div class="section-title">Instrucciones</div>
+    <div class="section-content">Calentar en sartén o microondas. Refrigerar hasta 4 días o congelar hasta 60 días.</div>
+  </div>
+  <div class="label-footer">
+    The Balanced Bite By Chef Yoly · Houston, TX<br>
+    📞 832-540-2505<br>
+    <span class="reg-number">DSHS Cottage Food Registry #16332</span>
+  </div>
+  <div class="disclosure">Este producto fue elaborado en una residencia privada que no está sujeta a licencia o inspección gubernamental.</div>
+</div>
+
+<!-- POLLO MECHADO -->
+<div class="label">
+  <div class="label-header">
+    <div class="brand">THE BALANCED BITE</div>
+    <div class="product-name">Pollo Mechado</div>
+    <div class="tagline">Pollo con Especias Naturales · Rico en Proteína</div>
+    <div class="badges">
+      <span class="badge">🌾 Sin Gluten</span>
+      <span class="badge">🍗 Pollo</span>
+      <span class="badge">💪 Alto en Proteína</span>
+    </div>
+  </div>
+  <div class="net-weight">Contenido Neto: 1 lb (16 oz)</div>
+  <div class="section">
+    <div class="section-title">Ingredientes</div>
+    <div class="section-content">Pechuga de pollo, cebolla, ají dulce, ajo, tomate, sal, especias naturales.</div>
+  </div>
+  <div class="allergen-box">⚠ Alérgenos: Sin gluten. Elaborado en cocina casera que puede procesar lácteos y huevos.</div>
+  <div class="tcs-box">🌡 Mantener refrigerado. Consumir antes de: ___/___/______</div>
+  <div class="section">
+    <div class="section-title">Instrucciones</div>
+    <div class="section-content">Calentar en sartén o microondas. Refrigerar hasta 4 días o congelar hasta 60 días.</div>
+  </div>
+  <div class="label-footer">
+    The Balanced Bite By Chef Yoly · Houston, TX<br>
+    📞 832-540-2505<br>
+    <span class="reg-number">DSHS Cottage Food Registry #16332</span>
+  </div>
+  <div class="disclosure">Este producto fue elaborado en una residencia privada que no está sujeta a licencia o inspección gubernamental.</div>
+</div>
+
+<!-- PAVO MECHADO -->
+<div class="label">
+  <div class="label-header">
+    <div class="brand">THE BALANCED BITE</div>
+    <div class="product-name">Pavo Mechado</div>
+    <div class="tagline">Proteína Pura · Sin Grasa · Fitness</div>
+    <div class="badges">
+      <span class="badge">🌾 Sin Gluten</span>
+      <span class="badge">🦃 Pavo</span>
+      <span class="badge">💪 Fitness</span>
+    </div>
+  </div>
+  <div class="net-weight">Contenido Neto: 1 lb (16 oz)</div>
+  <div class="section">
+    <div class="section-title">Ingredientes</div>
+    <div class="section-content">Pavo molido, cebolla, ají dulce, ajo, sal, especias naturales.</div>
+  </div>
+  <div class="allergen-box">⚠ Alérgenos: Sin gluten. Elaborado en cocina casera que puede procesar lácteos y huevos.</div>
+  <div class="tcs-box">🌡 Mantener refrigerado. Consumir antes de: ___/___/______</div>
+  <div class="section">
+    <div class="section-title">Instrucciones</div>
+    <div class="section-content">Calentar en sartén o microondas. Refrigerar hasta 4 días o congelar hasta 60 días.</div>
+  </div>
+  <div class="label-footer">
+    The Balanced Bite By Chef Yoly · Houston, TX<br>
+    📞 832-540-2505<br>
+    <span class="reg-number">DSHS Cottage Food Registry #16332</span>
+  </div>
+  <div class="disclosure">Este producto fue elaborado en una residencia privada que no está sujeta a licencia o inspección gubernamental.</div>
+</div>
+
+</div>
+</body>
+</html>
