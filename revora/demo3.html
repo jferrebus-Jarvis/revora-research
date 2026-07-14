@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revora Research — Minimal Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--p:#6d28d9;--g:#f4f4f4;--b:#0d0d0d}
+body{font-family:'Space Grotesk',sans-serif;background:#fff;color:var(--b)}
+
+nav{padding:24px 64px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e5e5e5;position:sticky;top:0;background:#fff;z-index:100}
+.logo-mark{display:flex;align-items:center;gap:12px}
+.r-icon{width:36px;height:36px;background:linear-gradient(135deg,#7c3aed,#a78bfa);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px}
+.logo-text{font-size:13px;letter-spacing:3px;font-weight:500;text-transform:uppercase}
+.nav-menu{display:flex;gap:40px}
+.nav-menu a{font-size:12px;letter-spacing:1px;color:#888;text-decoration:none;transition:.2s}
+.nav-menu a:hover{color:var(--b)}
+.nav-end{display:flex;gap:16px;align-items:center}
+.icon-btn{width:36px;height:36px;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px}
+.nav-shop{background:var(--p);color:#fff;padding:10px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer}
+
+/* EDITORIAL HERO */
+.hero{display:grid;grid-template-columns:5fr 4fr;border-bottom:1px solid #e5e5e5}
+.hero-copy{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #e5e5e5}
+.h-tag{display:inline-flex;align-items:center;gap:8px;background:var(--g);padding:6px 14px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#666;margin-bottom:40px;align-self:flex-start}
+h1{font-family:'EB Garamond',serif;font-size:clamp(44px,5vw,80px);line-height:1.05;font-weight:400;margin-bottom:32px}
+h1 span{color:var(--p);font-style:italic}
+.h-body{font-size:15px;line-height:1.9;color:#666;max-width:420px;margin-bottom:48px}
+.h-actions{display:flex;gap:0}
+.h-btn-main{background:var(--b);color:#fff;padding:16px 40px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer}
+.h-btn-ghost{background:transparent;color:var(--b);padding:16px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:1px solid #e5e5e5;cursor:pointer;border-left:none}
+.hero-right{display:flex;flex-direction:column}
+.product-feature{padding:48px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--g);text-align:center}
+.big-vial{width:80px;height:120px;background:linear-gradient(160deg,#fff,#e0e0e0);border-radius:40px 40px 6px 6px;margin:0 auto 28px;box-shadow:0 8px 24px rgba(0,0,0,0.1);border:1px solid #ddd}
+.feat-name{font-family:'EB Garamond',serif;font-size:28px;margin-bottom:6px}
+.feat-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--p);margin-bottom:20px}
+.feat-info{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e5e5e5;margin-bottom:28px;width:100%}
+.feat-info-cell{background:#fff;padding:12px 8px;text-align:center}
+.feat-info-cell .lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#aaa;display:block;margin-bottom:4px}
+.feat-info-cell .val{font-size:13px;font-weight:500}
+.feat-price{font-family:'EB Garamond',serif;font-size:36px;margin-bottom:20px}
+.feat-btn{width:100%;background:var(--b);color:#fff;padding:14px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer}
+.disclaimer-strip{background:var(--b);color:#666;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:10px;text-align:center}
+
+/* GRID CATALOG */
+.catalog{padding:0}
+.catalog-head{padding:60px 64px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e5e5e5}
+.ch-left span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--p);display:block;margin-bottom:8px}
+.ch-left h2{font-family:'EB Garamond',serif;font-size:clamp(28px,3vw,40px);font-weight:400}
+.ch-right{font-size:11px;letter-spacing:1px;color:#888;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.grid-table{display:grid;grid-template-columns:repeat(4,1fr)}
+.grid-cell{padding:40px 32px;border-right:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;cursor:pointer;transition:.2s}
+.grid-cell:nth-child(4n){border-right:none}
+.grid-cell:hover{background:var(--g)}
+.gc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px}
+.gc-num{font-size:10px;letter-spacing:2px;color:#ccc}
+.gc-badge{font-size:9px;letter-spacing:1px;background:#f0ebff;color:var(--p);padding:3px 8px}
+.gc-vial{width:44px;height:60px;background:linear-gradient(180deg,#f0f0f0,#d8d8d8);border-radius:22px 22px 4px 4px;margin-bottom:20px}
+.gc-name{font-size:15px;font-weight:500;margin-bottom:4px}
+.gc-type{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--p);margin-bottom:8px}
+.gc-dose{font-size:11px;color:#aaa;margin-bottom:20px}
+.gc-footer{display:flex;justify-content:space-between;align-items:center}
+.gc-price{font-family:'EB Garamond',serif;font-size:22px}
+.gc-arrow{font-size:18px;color:#ddd;transition:.2s}
+.grid-cell:hover .gc-arrow{color:var(--p)}
+
+/* FOOTER */
+.site-footer{padding:48px 64px;border-top:2px solid var(--b);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.sf-brand .sf-logo{font-size:16px;letter-spacing:3px;font-weight:500;text-transform:uppercase;margin-bottom:16px}
+.sf-brand p{font-size:12px;color:#888;line-height:1.7}
+.sf-col h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.sf-col a{display:block;font-size:12px;color:#888;text-decoration:none;margin-bottom:8px}
+.sf-col a:hover{color:var(--b)}
+.footer-bottom{padding:20px 64px;border-top:1px solid #e5e5e5;display:flex;justify-content:space-between}
+.footer-bottom p{font-size:10px;color:#aaa;letter-spacing:1px}
+
+@media(max-width:900px){
+  .hero,.grid-table,.site-footer{grid-template-columns:1fr}
+  nav,.catalog-head,.site-footer,.footer-bottom{padding-left:24px;padding-right:24px}
+  .hero-copy{padding:48px 24px}
+  .hero-right{border-top:1px solid #e5e5e5}
+  .nav-menu{display:none}
+  .grid-cell{border-right:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-mark">
+    <div class="r-icon">R</div>
+    <div class="logo-text">Revora Research</div>
+  </div>
+  <div class="nav-menu">
+    <a href="#">Catalog</a>
+    <a href="#">Lab Reports</a>
+    <a href="#">Science</a>
+    <a href="#">FAQ</a>
+  </div>
+  <div class="nav-end">
+    <div class="icon-btn">🔍</div>
+    <div class="icon-btn">🛒</div>
+    <button class="nav-shop">Order</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="h-tag">⬡ Advanced Research Compounds</div>
+    <h1>What If<br>Medicine<br>Didn't Just<br><span>Treat</span><br>Symptoms?</h1>
+    <p class="h-body">Revora Research delivers precision-synthesized peptides for serious researchers. Rigorously tested. Consistently pure. Always evolved.</p>
+    <div class="h-actions">
+      <button class="h-btn-main">Browse Catalog</button>
+      <button class="h-btn-ghost">View COA Reports</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="product-feature">
+      <div class="big-vial"></div>
+      <div class="feat-name">Gonadorelin</div>
+      <div class="feat-tag">Peptide Hormone · Research</div>
+      <div class="feat-info">
+        <div class="feat-info-cell"><span class="lbl">Concentration</span><span class="val">2 MG</span></div>
+        <div class="feat-info-cell"><span class="lbl">Purity</span><span class="val">99%+</span></div>
+        <div class="feat-info-cell"><span class="lbl">Storage</span><span class="val">Refrigerated</span></div>
+        <div class="feat-info-cell"><span class="lbl">Shipping</span><span class="val">48 Hours</span></div>
+      </div>
+      <div class="feat-price">$48</div>
+      <button class="feat-btn">Add to Cart</button>
+    </div>
+    <div class="disclaimer-strip">For research use only — not for human consumption</div>
+  </div>
+</section>
+
+<section class="catalog">
+  <div class="catalog-head">
+    <div class="ch-left">
+      <span>Research Catalog</span>
+      <h2>Premium Compounds</h2>
+    </div>
+    <span class="ch-right">View all →</span>
+  </div>
+  <div class="grid-table">
+    <div class="grid-cell">
+      <div class="gc-top"><span class="gc-num">001</span><span class="gc-badge">Best Seller</span></div>
+      <div class="gc-vial"></div>
+      <div class="gc-name">BPC-157</div>
+      <div class="gc-type">Healing Peptide</div>
+      <div class="gc-dose">10 mg / vial</div>
+      <div class="gc-footer"><span class="gc-price">$59</span><span class="gc-arrow">→</span></div>
+    </div>
+    <div class="grid-cell">
+      <div class="gc-top"><span class="gc-num">002</span><span class="gc-badge">Popular</span></div>
+      <div class="gc-vial"></div>
+      <div class="gc-name">CJC-1295</div>
+      <div class="gc-type">GH Releasing</div>
+      <div class="gc-dose">2 mg / no DAC</div>
+      <div class="gc-footer"><span class="gc-price">$49</span><span class="gc-arrow">→</span></div>
+    </div>
+    <div class="grid-cell">
+      <div class="gc-top"><span class="gc-num">003</span><span class="gc-badge">New</span></div>
+      <div class="gc-vial"></div>
+      <div class="gc-name">Ipamorelin</div>
+      <div class="gc-type">GH Secretagogue</div>
+      <div class="gc-dose">5 mg / vial</div>
+      <div class="gc-footer"><span class="gc-price">$52</span><span class="gc-arrow">→</span></div>
+    </div>
+    <div class="grid-cell">
+      <div class="gc-top"><span class="gc-num">004</span></div>
+      <div class="gc-vial"></div>
+      <div class="gc-name">DSIP</div>
+      <div class="gc-type">Sleep Peptide</div>
+      <div class="gc-dose">10 mg / vial</div>
+      <div class="gc-footer"><span class="gc-price">$45</span><span class="gc-arrow">→</span></div>
+    </div>
+    <div class="grid-cell">
+      <div class="gc-top"><span class="gc-num">005</span></div>
+      <div class="gc-vial"></div>
+      <div class="gc-name">Selank</div>
+      <div class="gc-type">Nootropic</div>
+      <div class="gc-dose">5 mg / vial</div>
+      <div class="gc-footer"><span class="gc-price">$55</span><span class="gc-arrow">→</span></div>
+    </div>
+    <div class="grid-cell">
+      <div class="gc-top"><span class="gc-num">006</span></div>
+      <div class="gc-vial"></div>
+      <div class="gc-name">Gonadorelin</div>
+      <div class="gc-type">Peptide Hormone</div>
+      <div class="gc-dose">2 mg / vial</div>
+      <div class="gc-footer"><span class="gc-price">$48</span><span class="gc-arrow">→</span></div>
+    </div>
+    <div class="grid-cell">
+      <div class="gc-top"><span class="gc-num">007</span></div>
+      <div class="gc-vial"></div>
+      <div class="gc-name">MOTS-c</div>
+      <div class="gc-type">Mitochondrial</div>
+      <div class="gc-dose">10 mg / vial</div>
+      <div class="gc-footer"><span class="gc-price">$79</span><span class="gc-arrow">→</span></div>
+    </div>
+    <div class="grid-cell">
+      <div class="gc-top"><span class="gc-num">008</span><span class="gc-badge">Premium</span></div>
+      <div class="gc-vial"></div>
+      <div class="gc-name">Epithalon</div>
+      <div class="gc-type">Longevity Peptide</div>
+      <div class="gc-dose">10 mg / vial</div>
+      <div class="gc-footer"><span class="gc-price">$65</span><span class="gc-arrow">→</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="sf-brand">
+    <div class="sf-logo">Revora Research</div>
+    <p>Precision-synthesized research compounds for the serious scientist. For research use only.</p>
+  </div>
+  <div class="sf-col">
+    <h4>Products</h4>
+    <a href="#">All Peptides</a>
+    <a href="#">Healing</a>
+    <a href="#">GH Releasing</a>
+    <a href="#">Nootropics</a>
+  </div>
+  <div class="sf-col">
+    <h4>Company</h4>
+    <a href="#">About</a>
+    <a href="#">Lab Reports</a>
+    <a href="#">Science</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="sf-col">
+    <h4>Legal</h4>
+    <a href="#">Terms</a>
+    <a href="#">Privacy</a>
+    <a href="#">Disclaimer</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Revora Research · For Research Use Only · Not evaluated by the FDA</p>
+  <p>PRECISION. RESEARCHED. EVOLVED.</p>
+</div>
+
+</body>
+</html>
