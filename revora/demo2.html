@@ -3,299 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revora Research — Evolved</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Revora Research — Dark Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--purple:#8b5cf6;--light-purple:#f5f3ff;--gray:#6b7280;--dark:#111827}
-body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow-x:hidden}
+:root{--p:#a78bfa;--pd:#7c3aed;--bg:#080808;--card:#111;--line:#1f1f1f;--mid:#888;--white:#f5f5f5}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
 
-nav{position:fixed;top:0;width:100%;z-index:100;padding:28px 80px;display:flex;justify-content:space-between;align-items:center;background:white}
-.logo{font-family:'Playfair Display',serif;font-size:18px;letter-spacing:4px;font-weight:400}
-.nav-center{display:flex;gap:48px}
-.nav-center a{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;text-decoration:none;transition:.2s}
-.nav-center a:hover{color:var(--dark)}
-.nav-right{display:flex;gap:16px;align-items:center}
-.cart-btn{font-size:12px;letter-spacing:1px;color:var(--gray);cursor:pointer}
-.shop-btn{background:var(--purple);color:white;padding:10px 28px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px}
+nav{position:sticky;top:0;z-index:100;background:rgba(8,8,8,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--white)}
+.nav-links{display:none}
+@media(min-width:768px){.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);text-decoration:none}.nav-links a:hover{color:var(--white)}}
+.nav-btn{background:var(--p);color:#fff;padding:9px 22px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:.2s}
+.nav-btn:hover{background:var(--pd)}
 
-/* SPLIT HERO */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;margin-top:80px}
-.hero-left{background:var(--light-purple);display:flex;align-items:center;justify-content:center;padding:80px}
-.hero-content{max-width:480px}
-.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--purple);margin-bottom:32px;display:flex;align-items:center;gap:12px}
-.eyebrow::before{content:'';width:32px;height:1px;background:var(--purple)}
-h1{font-family:'Playfair Display',serif;font-size:clamp(40px,4.5vw,68px);font-weight:400;line-height:1.1;margin-bottom:24px;color:var(--dark)}
-h1 i{font-style:italic;color:var(--purple)}
-.hero-desc{font-size:15px;line-height:1.9;color:var(--gray);margin-bottom:48px}
-.hero-actions{display:flex;gap:20px;align-items:center}
-.primary-btn{background:var(--dark);color:white;padding:16px 40px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:.2s}
-.primary-btn:hover{background:var(--purple)}
-.link-btn{font-size:12px;letter-spacing:1px;color:var(--gray);cursor:pointer;border-bottom:1px solid #ddd;padding-bottom:2px}
-.hero-right{background:#f9fafb;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;gap:24px}
-.featured-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9ca3af;text-align:center}
-.product-showcase{background:white;border:1px solid #f3f4f6;padding:48px 40px;text-align:center;width:100%;max-width:320px;box-shadow:0 4px 24px rgba(0,0,0,0.04)}
-.product-vial{width:100px;height:140px;background:linear-gradient(160deg,#f9f9f9,#ececec);border-radius:50px 50px 8px 8px;margin:0 auto 24px;position:relative;border:1px solid #e5e7eb}
-.product-vial-cap{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:32px;height:16px;background:linear-gradient(180deg,#d1d5db,#9ca3af);border-radius:3px}
-.featured-name{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:4px}
-.featured-mg{font-size:11px;letter-spacing:2px;color:var(--purple);text-transform:uppercase;margin-bottom:20px}
-.purity-bar{display:flex;align-items:center;gap:10px;margin-bottom:24px;justify-content:center}
-.bar-track{width:120px;height:4px;background:#f3f4f6;border-radius:2px}
-.bar-fill{width:99%;height:100%;background:var(--purple);border-radius:2px}
-.purity-label{font-size:10px;letter-spacing:1px;color:var(--gray)}
-.featured-price{font-family:'Playfair Display',serif;font-size:32px;font-weight:400;color:var(--dark);margin-bottom:20px}
-.add-cart{width:100%;padding:13px;background:var(--dark);color:white;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:.2s}
-.add-cart:hover{background:var(--purple)}
-.trust-row{display:flex;gap:32px;justify-content:center}
-.trust-item{text-align:center}
-.trust-num{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark)}
-.trust-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#9ca3af}
+/* HERO */
+.hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(124,58,237,0.15),transparent);pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid #2a2a2a;padding:6px 16px;border-radius:40px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--p);margin-bottom:32px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(44px,11vw,88px);font-weight:400;line-height:1.0;letter-spacing:-1px;margin-bottom:24px}
+h1 i{color:var(--p);font-style:italic}
+.hero-sub{font-size:15px;line-height:1.9;color:var(--mid);max-width:480px;margin:0 auto 40px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn-p{background:var(--p);color:#fff;padding:14px 36px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:.2s}
+.btn-p:hover{background:var(--pd)}
+.btn-o{background:transparent;color:var(--white);padding:14px 28px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:1px solid #333;cursor:pointer;border-radius:2px;transition:.2s}
+.btn-o:hover{border-color:var(--p);color:var(--p)}
+.hero-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:60px;width:100%;max-width:640px}
+@media(min-width:640px){.hero-grid{grid-template-columns:repeat(4,1fr)}}
+.hg-cell{background:var(--bg);padding:24px 16px;text-align:center}
+.hg-val{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--white)}
+.hg-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#555;margin-top:4px}
 
-/* MARQUEE */
-.marquee-section{border-top:1px solid #f3f4f6;border-bottom:1px solid #f3f4f6;padding:16px 0;overflow:hidden}
-.marquee-track{display:flex;animation:scroll 20s linear infinite;white-space:nowrap}
-.marquee-track span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9ca3af;padding:0 32px}
-.marquee-track b{color:var(--purple)}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* DISCLAIMER */
+.disc{background:#1a1000;border-top:1px solid #3d2600;border-bottom:1px solid #3d2600;padding:10px 24px;text-align:center;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#d97706}
 
-/* CATALOG */
-.catalog{padding:100px 80px}
-.cat-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px}
-.cat-title-group .cat-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--purple);margin-bottom:12px;display:block}
-.cat-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,44px);font-weight:400}
-.view-all{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);text-decoration:none;border-bottom:1px solid #ddd;padding-bottom:3px}
-.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.cat-item{background:#fafafa;padding:40px 32px;transition:.3s;cursor:pointer;position:relative}
-.cat-item:hover{background:var(--light-purple)}
-.cat-item-num{font-family:'Playfair Display',serif;font-size:11px;color:#d1d5db;margin-bottom:24px}
-.cat-vial{width:48px;height:64px;background:linear-gradient(180deg,#e5e7eb,#d1d5db);border-radius:24px 24px 4px 4px;margin-bottom:20px}
-.cat-name{font-size:16px;font-weight:500;margin-bottom:4px}
-.cat-type{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--purple);margin-bottom:12px}
-.cat-dose{font-size:12px;color:var(--gray)}
-.cat-price{position:absolute;top:40px;right:32px;font-family:'Playfair Display',serif;font-size:20px}
+/* PRODUCTS */
+.products{padding:64px 24px}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:12px}
+.sl{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--p);display:block;margin-bottom:8px}
+.st{font-family:'Playfair Display',serif;font-size:clamp(24px,6vw,38px);font-weight:400}
+.va{font-size:11px;color:var(--mid);cursor:pointer}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+@media(min-width:640px){.pgrid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.pgrid{grid-template-columns:repeat(4,1fr)}}
+.pc{background:var(--card);padding:24px 20px;cursor:pointer;transition:.2s;position:relative}
+.pc:hover{background:#161616}
+.pcb{position:absolute;top:14px;right:14px;background:rgba(124,58,237,0.2);color:var(--p);font-size:9px;letter-spacing:1px;padding:3px 8px;border-radius:40px}
+.pv{width:40px;height:56px;background:linear-gradient(160deg,#2a2a2a,#1f1f1f);border-radius:20px 20px 4px 4px;margin:0 0 20px;border:1px solid #333}
+.pn{font-size:14px;font-weight:500;color:var(--white);margin-bottom:3px}
+.pt{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--p);margin-bottom:10px}
+.pd2{font-size:11px;color:#555;margin-bottom:16px}
+.pf{display:flex;justify-content:space-between;align-items:center}
+.pp{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--white)}
+.pa{font-size:18px;color:#444;transition:.2s}
+.pc:hover .pa{color:var(--p)}
 
-/* ABOUT */
-.about{padding:100px 80px;background:var(--dark);color:white;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--purple);display:block;margin-bottom:24px}
-.about h2{font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,52px);font-weight:400;color:white;margin-bottom:24px;line-height:1.2}
-.about p{font-size:14px;line-height:2;color:#9ca3af;margin-bottom:32px}
-.about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
-.stat{border-top:1px solid #374151;padding-top:24px}
-.stat-num{font-family:'Playfair Display',serif;font-size:36px;color:white;margin-bottom:4px}
-.stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#6b7280}
-.about-right{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.about-card{background:#1f2937;padding:32px 24px}
-.about-card-icon{font-size:24px;margin-bottom:16px}
-.about-card-title{font-size:13px;font-weight:500;margin-bottom:8px;color:white}
-.about-card-desc{font-size:11px;color:#6b7280;line-height:1.6}
+/* LAB */
+.lab{padding:64px 24px;background:#0c0c0c}
+.ls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+@media(min-width:640px){.ls{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.ls{grid-template-columns:repeat(5,1fr)}}
+.sc{background:var(--card);border:1px solid var(--line);padding:24px 16px;text-align:center}
+.sn{font-size:10px;letter-spacing:2px;color:var(--p);font-weight:600;margin-bottom:10px}
+.si{font-size:20px;margin-bottom:10px}
+.sm{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px;color:var(--white)}
+.sd{font-size:11px;color:#666;line-height:1.7}
+.lq{background:#0f0f0f;border:1px solid var(--line);padding:32px 24px;margin-top:16px;display:flex;flex-direction:column;gap:16px}
+@media(min-width:640px){.lq{flex-direction:row;align-items:center}}
+.lqt{font-size:14px;color:#aaa;line-height:1.8;flex:1}
+.lqt b{color:var(--p)}
+.lqr{font-size:12px;color:#555;line-height:1.7;flex:1}
+.lqr b{color:var(--p)}
 
-footer{padding:32px 80px;background:var(--dark);border-top:1px solid #1f2937;display:flex;justify-content:space-between;align-items:center}
-footer p{font-size:11px;color:#4b5563;letter-spacing:1px}
-footer a{font-size:11px;color:var(--purple);letter-spacing:1px;text-decoration:none}
+/* CTA */
+.cta{padding:72px 24px;text-align:center;background:var(--bg)}
+.ct{font-family:'Playfair Display',serif;font-size:clamp(28px,7vw,52px);font-weight:400;margin-bottom:14px}
+.cs{font-size:14px;color:var(--mid);margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto}
+.cd{font-size:10px;color:#444;margin-top:16px;letter-spacing:1px}
 
-@media(max-width:900px){
-  .hero,.about{grid-template-columns:1fr}
-  .cat-grid{grid-template-columns:1fr}
-  nav,footer,.catalog,.about{padding-left:24px;padding-right:24px}
-  .hero-left,.hero-right{padding:48px 24px}
-}
+footer{padding:28px 24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer p{font-size:10px;color:#444;letter-spacing:1px;text-transform:uppercase}
+footer span{font-size:10px;color:var(--p);letter-spacing:1px;text-transform:uppercase}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">REVORA RESEARCH</div>
-  <div class="nav-center">
-    <a href="#">Products</a>
-    <a href="#">Science</a>
-    <a href="#">Lab Reports</a>
-    <a href="#">Contact</a>
-  </div>
-  <div class="nav-right">
-    <span class="cart-btn">Cart (0)</span>
-    <button class="shop-btn">Order Now</button>
-  </div>
+  <div class="nav-logo">REVORA RESEARCH</div>
+  <ul class="nav-links">
+    <li><a href="#">Catalog</a></li>
+    <li><a href="#">Lab Reports</a></li>
+    <li><a href="#">Science</a></li>
+    <li><a href="#">FAQ</a></li>
+  </ul>
+  <button class="nav-btn">Shop Now</button>
 </nav>
 
+<div class="disc">⚠ For Research Use Only — Not for human consumption — Not evaluated by the FDA</div>
+
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-content">
-      <div class="eyebrow">Advanced Research Compounds</div>
-      <h1>A New Era of<br><i>Targeted</i><br>Research.</h1>
-      <p class="hero-desc">Revora Research provides the scientific community with premium-grade peptides. Every batch is synthesized and third-party tested for purity above 99%.</p>
-      <div class="hero-actions">
-        <button class="primary-btn">Shop Catalog</button>
-        <span class="link-btn">View Lab Reports</span>
-      </div>
-    </div>
+  <div class="hero-bg"></div>
+  <div class="hero-tag">Advanced Research Compounds</div>
+  <h1>What If Medicine<br>Didn't Just<br><i>Treat Symptoms?</i></h1>
+  <p class="hero-sub">A new era of targeted research is already here. Precision-synthesized. Third-party verified. Evolved.</p>
+  <div class="hero-btns">
+    <button class="btn-p">View Catalog</button>
+    <button class="btn-o">Download COA</button>
   </div>
-  <div class="hero-right">
-    <div class="featured-label">Featured Compound</div>
-    <div class="product-showcase">
-      <div class="product-vial"><div class="product-vial-cap"></div></div>
-      <div class="featured-name">Ipamorelin</div>
-      <div class="featured-mg">5 MG · Research Grade</div>
-      <div class="purity-bar">
-        <div class="bar-track"><div class="bar-fill"></div></div>
-        <span class="purity-label">99% Purity</span>
-      </div>
-      <div class="featured-price">$52</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-    <div class="trust-row">
-      <div class="trust-item"><div class="trust-num">99%</div><div class="trust-label">Purity</div></div>
-      <div class="trust-item"><div class="trust-num">48h</div><div class="trust-label">Ship Time</div></div>
-      <div class="trust-item"><div class="trust-num">COA</div><div class="trust-label">Verified</div></div>
-    </div>
+  <div class="hero-grid">
+    <div class="hg-cell"><div class="hg-val">99%</div><div class="hg-lbl">Purity</div></div>
+    <div class="hg-cell"><div class="hg-val">COA</div><div class="hg-lbl">Verified</div></div>
+    <div class="hg-cell"><div class="hg-val">48h</div><div class="hg-lbl">Shipping</div></div>
+    <div class="hg-cell"><div class="hg-val">❄️</div><div class="hg-lbl">Cold Chain</div></div>
   </div>
 </section>
 
-<div class="marquee-section">
-  <div class="marquee-track">
-    <span>PRECISION</span><span><b>·</b></span><span>RESEARCHED</span><span><b>·</b></span><span>EVOLVED</span><span><b>·</b></span>
-    <span>99% PURITY</span><span><b>·</b></span><span>THIRD PARTY TESTED</span><span><b>·</b></span><span>RESEARCH USE ONLY</span><span><b>·</b></span>
-    <span>PRECISION</span><span><b>·</b></span><span>RESEARCHED</span><span><b>·</b></span><span>EVOLVED</span><span><b>·</b></span>
-    <span>99% PURITY</span><span><b>·</b></span><span>THIRD PARTY TESTED</span><span><b>·</b></span><span>RESEARCH USE ONLY</span><span><b>·</b></span>
+<section class="products">
+  <div class="sh">
+    <div><span class="sl">Research Catalog</span><h2 class="st">Premium Compounds</h2></div>
+    <span class="va">View all →</span>
   </div>
-</div>
-
-<section class="catalog">
-  <div class="cat-header">
-    <div class="cat-title-group">
-      <span class="cat-tag">Research Catalog</span>
-      <h2 class="cat-title">Select Compounds</h2>
-    </div>
-    <a href="#" class="view-all">View All Products</a>
-  </div>
-  <div class="cat-grid">
-    <div class="cat-item">
-      <div class="cat-item-num">001</div>
-      <div class="cat-vial"></div>
-      <div class="cat-name">BPC-157</div>
-      <div class="cat-type">Healing Peptide</div>
-      <div class="cat-dose">10mg · 99% Purity</div>
-      <div class="cat-price">$59</div>
-    </div>
-    <div class="cat-item">
-      <div class="cat-item-num">002</div>
-      <div class="cat-vial"></div>
-      <div class="cat-name">CJC-1295</div>
-      <div class="cat-type">GH Releasing Peptide</div>
-      <div class="cat-dose">2mg · No DAC</div>
-      <div class="cat-price">$49</div>
-    </div>
-    <div class="cat-item">
-      <div class="cat-item-num">003</div>
-      <div class="cat-vial"></div>
-      <div class="cat-name">DSIP</div>
-      <div class="cat-type">Sleep Peptide</div>
-      <div class="cat-dose">10mg · 99%+ Purity</div>
-      <div class="cat-price">$45</div>
-    </div>
-    <div class="cat-item">
-      <div class="cat-item-num">004</div>
-      <div class="cat-vial"></div>
-      <div class="cat-name">Ipamorelin</div>
-      <div class="cat-type">GH Secretagogue</div>
-      <div class="cat-dose">5mg · Ultra Pure</div>
-      <div class="cat-price">$52</div>
-    </div>
-    <div class="cat-item">
-      <div class="cat-item-num">005</div>
-      <div class="cat-vial"></div>
-      <div class="cat-name">Selank</div>
-      <div class="cat-type">Nootropic Peptide</div>
-      <div class="cat-dose">5mg · Research Grade</div>
-      <div class="cat-price">$55</div>
-    </div>
-    <div class="cat-item">
-      <div class="cat-item-num">006</div>
-      <div class="cat-vial"></div>
-      <div class="cat-name">Gonadorelin</div>
-      <div class="cat-type">Peptide Hormone</div>
-      <div class="cat-dose">2mg · Premium</div>
-      <div class="cat-price">$48</div>
-    </div>
+  <div class="pgrid">
+    <div class="pc"><span class="pcb">Best Seller</span><div class="pv"></div><div class="pn">BPC-157</div><div class="pt">Healing Peptide</div><div class="pd2">10 MG / VIAL</div><div class="pf"><span class="pp">$59</span><span class="pa">→</span></div></div>
+    <div class="pc"><div class="pv"></div><div class="pn">CJC-1295</div><div class="pt">GH Releasing</div><div class="pd2">2 MG / NO DAC</div><div class="pf"><span class="pp">$49</span><span class="pa">→</span></div></div>
+    <div class="pc"><span class="pcb">Popular</span><div class="pv"></div><div class="pn">Ipamorelin</div><div class="pt">GH Secretagogue</div><div class="pd2">5 MG / VIAL</div><div class="pf"><span class="pp">$52</span><span class="pa">→</span></div></div>
+    <div class="pc"><div class="pv"></div><div class="pn">DSIP</div><div class="pt">Sleep Peptide</div><div class="pd2">10 MG / VIAL</div><div class="pf"><span class="pp">$45</span><span class="pa">→</span></div></div>
+    <div class="pc"><div class="pv"></div><div class="pn">Selank</div><div class="pt">Nootropic</div><div class="pd2">5 MG / VIAL</div><div class="pf"><span class="pp">$55</span><span class="pa">→</span></div></div>
+    <div class="pc"><div class="pv"></div><div class="pn">Gonadorelin</div><div class="pt">Peptide Hormone</div><div class="pd2">2 MG / VIAL</div><div class="pf"><span class="pp">$48</span><span class="pa">→</span></div></div>
+    <div class="pc"><span class="pcb">Premium</span><div class="pv"></div><div class="pn">MOTS-c</div><div class="pt">Mitochondrial</div><div class="pd2">10 MG / VIAL</div><div class="pf"><span class="pp">$79</span><span class="pa">→</span></div></div>
+    <div class="pc"><div class="pv"></div><div class="pn">Epithalon</div><div class="pt">Longevity</div><div class="pd2">10 MG / VIAL</div><div class="pf"><span class="pp">$65</span><span class="pa">→</span></div></div>
   </div>
 </section>
 
-<section class="about">
-  <div>
-    <span class="about-tag">Our Mission</span>
-    <h2>Advancing Research,<br>One Compound at a Time.</h2>
-    <p>Revora Research was founded on a simple belief: researchers deserve access to compounds that are pure, consistent, and reliable. We do not cut corners. We do not compromise on quality.</p>
-    <div class="about-stats">
-      <div class="stat"><div class="stat-num">99%+</div><div class="stat-label">Purity Guaranteed</div></div>
-      <div class="stat"><div class="stat-num">48hr</div><div class="stat-label">Ship Time</div></div>
-      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">COA Verified</div></div>
-      <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Support</div></div>
-    </div>
+<section class="lab">
+  <div class="sh">
+    <div><span class="sl">Quality Assurance</span><h2 class="st">Inside the Research Lab</h2></div>
   </div>
-  <div class="about-right">
-    <div class="about-card"><div class="about-card-icon">🧪</div><div class="about-card-title">Research Use Only</div><div class="about-card-desc">All compounds are sold strictly for laboratory and research purposes.</div></div>
-    <div class="about-card"><div class="about-card-icon">❄️</div><div class="about-card-title">Cold Chain Delivery</div><div class="about-card-desc">Temperature-controlled shipping to preserve compound integrity.</div></div>
-    <div class="about-card"><div class="about-card-icon">🛡️</div><div class="about-card-title">Quality Assured</div><div class="about-card-desc">HPLC tested. COA provided. Every. Single. Batch.</div></div>
-    <div class="about-card"><div class="about-card-icon">⚗️</div><div class="about-card-title">99% Purity</div><div class="about-card-desc">Pharmaceutical-grade synthesis. No exceptions.</div></div>
+  <div class="ls">
+    <div class="sc"><div class="sn">01</div><div class="si">📦</div><div class="sm">Receiving</div><div class="sd">Raw materials from trusted suppliers logged into our secure system.</div></div>
+    <div class="sc"><div class="sn">02</div><div class="si">🔬</div><div class="sm">Identity Testing</div><div class="sd">Compound identity confirmed via advanced HPLC-MS techniques.</div></div>
+    <div class="sc"><div class="sn">03</div><div class="si">📊</div><div class="sm">Purity Testing</div><div class="sd">Purity measured to meet our strict quality and consistency standards.</div></div>
+    <div class="sc"><div class="sn">04</div><div class="si">🛡️</div><div class="sm">Sterility</div><div class="sd">Every batch tested free from bacteria, yeast, fungi, and contaminants.</div></div>
+    <div class="sc"><div class="sn">05</div><div class="si">📋</div><div class="sm">Data Analysis</div><div class="sd">Our team reviews all results to verify compliance and approve each batch.</div></div>
+  </div>
+  <div class="lq">
+    <p class="lqt">"Behind every vial is a process built on <b>integrity, transparency, and relentless standards.</b>"</p>
+    <p class="lqr">Our commitment to <b>science</b> is what sets us apart.</p>
   </div>
 </section>
 
-
-<!-- LAB PROCESS SECTION -->
-<section style="padding:100px 60px;background:#fafafa;">
-  <div style="max-width:1100px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:64px;">
-      <span style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#7c3aed;display:block;margin-bottom:16px;">Quality Assurance</span>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:#111;margin-bottom:16px;">Inside the Research Lab</h2>
-      <p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#999;">EVERY STEP. EVERY TEST. EVERY BATCH. <span style="color:#7c3aed;">SCIENCE YOU CAN TRUST.</span></p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-bottom:48px;">
-      <div style="text-align:center;padding:24px 16px;background:#fff;border:1px solid #eee;">
-        <div style="font-size:11px;font-weight:600;letter-spacing:2px;color:#7c3aed;margin-bottom:8px;">01</div>
-        <div style="font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase;">Receiving<br>Materials</div>
-        <div style="font-size:24px;margin-bottom:12px;">📦</div>
-        <div style="font-size:11px;color:#888;line-height:1.7;">Raw materials and peptides are received from trusted suppliers and logged into our secure system.</div>
-      </div>
-      <div style="text-align:center;padding:24px 16px;background:#fff;border:1px solid #eee;">
-        <div style="font-size:11px;font-weight:600;letter-spacing:2px;color:#7c3aed;margin-bottom:8px;">02</div>
-        <div style="font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase;">Identity<br>Testing</div>
-        <div style="font-size:24px;margin-bottom:12px;">🔬</div>
-        <div style="font-size:11px;color:#888;line-height:1.7;">Each compound is tested to confirm its identity using advanced analytical techniques such as HPLC-MS.</div>
-      </div>
-      <div style="text-align:center;padding:24px 16px;background:#fff;border:1px solid #eee;">
-        <div style="font-size:11px;font-weight:600;letter-spacing:2px;color:#7c3aed;margin-bottom:8px;">03</div>
-        <div style="font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase;">Purity<br>Testing</div>
-        <div style="font-size:24px;margin-bottom:12px;">📊</div>
-        <div style="font-size:11px;color:#888;line-height:1.7;">Purity is measured to ensure the compound meets our strict standards for quality and consistency.</div>
-      </div>
-      <div style="text-align:center;padding:24px 16px;background:#fff;border:1px solid #eee;">
-        <div style="font-size:11px;font-weight:600;letter-spacing:2px;color:#7c3aed;margin-bottom:8px;">04</div>
-        <div style="font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase;">Sterility<br>Testing</div>
-        <div style="font-size:24px;margin-bottom:12px;">🛡️</div>
-        <div style="font-size:11px;color:#888;line-height:1.7;">Sterility tests help ensure that every batch is free from harmful bacteria, yeast, fungi, and other contaminants.</div>
-      </div>
-      <div style="text-align:center;padding:24px 16px;background:#fff;border:1px solid #eee;">
-        <div style="font-size:11px;font-weight:600;letter-spacing:2px;color:#7c3aed;margin-bottom:8px;">05</div>
-        <div style="font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase;">Data<br>Analysis</div>
-        <div style="font-size:24px;margin-bottom:12px;">📋</div>
-        <div style="font-size:11px;color:#888;line-height:1.7;">Results are analyzed by our research team to verify compliance and approve each batch.</div>
-      </div>
-    </div>
-    <div style="background:#111;padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;">
-      <div style="flex:1;">
-        <div style="font-size:11px;color:#7c3aed;letter-spacing:2px;margin-bottom:8px;">"</div>
-        <p style="font-size:15px;color:#ccc;line-height:1.8;">Behind every vial is a process built on <span style="color:#7c3aed;font-weight:500;">integrity, transparency, and relentless standards.</span></p>
-      </div>
-      <div style="flex:1;text-align:right;">
-        <p style="font-size:13px;color:#888;line-height:1.8;">Our commitment to <span style="color:#7c3aed;">science</span> is<br>what sets us apart.</p>
-      </div>
-    </div>
-  </div>
+<section class="cta">
+  <span class="sl">Get Started</span>
+  <h2 class="ct">Precision Research<br>Starts Here.</h2>
+  <p class="cs">Join researchers who trust Revora for purity, consistency, and reliability.</p>
+  <button class="btn-p">Browse Full Catalog</button>
+  <p class="cd">For research use only · Not for human consumption</p>
 </section>
 
 <footer>
-  <p>© 2026 Revora Research · For Research Use Only · Not FDA Evaluated</p>
-  <a href="#">Contact Us</a>
+  <p>© 2026 Revora Research</p>
+  <span>Precision. Researched. Evolved.</span>
 </footer>
-
 </body>
 </html>
