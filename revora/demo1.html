@@ -7,196 +7,229 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--p:#7c3aed;--lp:#f5f3ff;--g:#f9f9f9;--b:#0f0f0f;--mid:#6b7280;--line:#e8e8e8}
-body{font-family:'Inter',sans-serif;background:#fff;color:var(--b);-webkit-font-smoothing:antialiased}
+:root{--p:#7c3aed;--lp:#f5f3ff;--line:#e8e8e8;--mid:#777;--b:#0d0d0d;--white:#fff}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--b);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;letter-spacing:3px;text-transform:uppercase}
-.nav-logo b{color:var(--p);font-weight:400}
-.nav-links{display:none}
-@media(min-width:768px){.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);text-decoration:none}.nav-links a:hover{color:var(--b)}}
-.nav-btn{background:var(--b);color:#fff;padding:9px 22px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:.2s}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+@media(min-width:768px){nav{padding:0 60px}}
+.logo{font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:4px;text-transform:uppercase;color:var(--b);font-weight:400}
+.logo span{color:var(--p)}
+.nav-links{display:none;gap:40px;list-style:none}
+@media(min-width:900px){.nav-links{display:flex}}
+.nav-links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:.2s}
+.nav-links a:hover{color:var(--b)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-btn{background:var(--b);color:#fff;padding:10px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:.2s;border-radius:2px;white-space:nowrap}
 .nav-btn:hover{background:var(--p)}
 
 /* HERO */
-.hero{padding:56px 24px 48px;text-align:center;background:linear-gradient(180deg,#fff 0%,var(--lp) 100%)}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);padding:6px 16px;border-radius:40px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--p);margin-bottom:28px}
-.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--p);border-radius:50%}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,10vw,72px);font-weight:300;line-height:1.08;letter-spacing:-1px;margin-bottom:20px;color:var(--b)}
+.hero{min-height:100svh;padding:100px 24px 60px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(170deg,#fff 0%,#f5f3ff 60%,#ede9fe 100%);position:relative;overflow:hidden}
+@media(min-width:768px){.hero{padding:120px 60px 80px}}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,0.08),transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,0.05),transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.9);border:1px solid rgba(124,58,237,0.2);padding:7px 18px;border-radius:40px;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--p);margin-bottom:32px;backdrop-filter:blur(8px)}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--p);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.2)}}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,12vw,90px);font-weight:300;line-height:1.0;letter-spacing:-2px;margin-bottom:24px;color:var(--b)}
 .hero h1 i{color:var(--p);font-style:italic}
-.hero-sub{font-size:14px;line-height:1.8;color:var(--mid);max-width:440px;margin:0 auto 36px}
-.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-main{background:var(--b);color:#fff;padding:14px 36px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:.2s}
-.btn-main:hover{background:var(--p)}
-.btn-ghost{background:transparent;color:var(--b);padding:14px 28px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--line);cursor:pointer;border-radius:2px;transition:.2s}
-.btn-ghost:hover{border-color:var(--b)}
-.hero-stats{display:flex;justify-content:center;gap:40px;margin-top:48px;padding-top:36px;border-top:1px solid var(--line);flex-wrap:wrap}
-.stat{text-align:center}
-.stat-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--b)}
-.stat-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#bbb;margin-top:2px}
+.hero-sub{font-size:15px;line-height:1.9;color:var(--mid);max-width:500px;margin:0 auto 40px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
+.btn-primary{background:var(--b);color:#fff;padding:14px 36px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:.2s}
+.btn-primary:hover{background:var(--p)}
+.btn-secondary{background:transparent;color:var(--b);padding:14px 28px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(0,0,0,0.15);cursor:pointer;border-radius:2px;transition:.2s}
+.btn-secondary:hover{border-color:var(--b)}
+.trust-pills{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.tp{background:rgba(255,255,255,0.9);border:1px solid var(--line);padding:10px 20px;border-radius:40px;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:500;backdrop-filter:blur(8px)}
+.tp-icon{font-size:16px}
 
-/* TRUST BAND */
-.trust-band{background:var(--b);padding:14px 24px;overflow:hidden}
-.trust-scroll{display:flex;animation:ticker 22s linear infinite;white-space:nowrap;gap:0}
-.trust-item{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#555;padding:0 28px;flex-shrink:0}
-.trust-item b{color:var(--p)}
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* TICKER */
+.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;background:#fff}
+.ticker-inner{display:flex;animation:ticker-scroll 28s linear infinite;white-space:nowrap}
+.tick{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#bbb;padding:0 28px;flex-shrink:0}
+.tick b{color:var(--p)}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* DISCLAIMER */
-.disclaimer{background:#fffbeb;border-bottom:1px solid #fde68a;padding:10px 24px;text-align:center;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#92400e}
+.disclaimer{background:#fffbeb;border-bottom:1px solid #fde68a;padding:10px 24px;text-align:center;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#92400e;font-weight:500}
+
+/* SECTION SHARED */
+.section-label{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--p);display:block;margin-bottom:12px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,48px);font-weight:300;line-height:1.1}
+.section-header{margin-bottom:48px}
+.section-header.center{text-align:center}
 
 /* PRODUCTS */
-.products{padding:60px 24px}
-.section-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:12px}
-.section-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--p);display:block;margin-bottom:8px}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,6vw,40px);font-weight:300}
-.view-all{font-size:11px;letter-spacing:1px;color:var(--mid);text-decoration:underline;cursor:pointer;text-underline-offset:4px}
+.products{padding:80px 24px}
+@media(min-width:768px){.products{padding:100px 60px}}
+.products-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px}
+.view-all{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);text-decoration:none;cursor:pointer;padding-bottom:2px;border-bottom:1px solid var(--line);transition:.2s}
+.view-all:hover{color:var(--b);border-color:var(--b)}
 .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(min-width:600px){.products-grid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:900px){.products-grid{grid-template-columns:repeat(4,1fr);gap:20px}}
-.product-card{border:1px solid var(--line);padding:24px 20px;cursor:pointer;transition:.25s;position:relative}
-.product-card:hover{border-color:var(--b);box-shadow:0 4px 24px rgba(0,0,0,0.07)}
-.pc-badge{position:absolute;top:14px;right:14px;background:var(--lp);color:var(--p);font-size:9px;letter-spacing:1px;padding:3px 8px;border-radius:40px}
-.pc-vial{width:40px;height:56px;background:linear-gradient(160deg,#f0f0f0,#dcdcdc);border-radius:20px 20px 4px 4px;margin:0 0 20px;border:1px solid #e5e5e5}
-.pc-name{font-size:14px;font-weight:500;margin-bottom:3px}
-.pc-type{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--p);margin-bottom:10px}
-.pc-dose{font-size:11px;color:#aaa;margin-bottom:16px}
-.pc-footer{display:flex;justify-content:space-between;align-items:center}
-.pc-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300}
-.pc-add{font-size:18px;color:#ddd;transition:.2s}
-.product-card:hover .pc-add{color:var(--p)}
+@media(min-width:1000px){.products-grid{grid-template-columns:repeat(4,1fr);gap:20px}}
+.card{border:1px solid var(--line);padding:28px 22px;cursor:pointer;transition:all .25s;position:relative;background:#fff}
+.card:hover{border-color:var(--b);box-shadow:0 8px 32px rgba(0,0,0,0.08);transform:translateY(-2px)}
+.card-badge{position:absolute;top:14px;right:14px;background:var(--lp);color:var(--p);font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:40px;font-weight:500}
+.card-vial{width:44px;height:62px;background:linear-gradient(160deg,#f4f4f4,#e0e0e0);border-radius:22px 22px 4px 4px;margin:0 0 22px;border:1px solid #e8e8e8;position:relative}
+.card-vial::after{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:18px;height:10px;background:linear-gradient(180deg,#d0d0d0,#c0c0c0);border-radius:2px}
+.card-name{font-size:14px;font-weight:500;margin-bottom:4px;letter-spacing:.3px}
+.card-type{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--p);margin-bottom:10px}
+.card-dose{font-size:11px;color:#bbb;margin-bottom:18px;letter-spacing:.5px}
+.card-footer{display:flex;justify-content:space-between;align-items:center}
+.card-price{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300}
+.card-arrow{font-size:18px;color:#ddd;transition:.2s}
+.card:hover .card-arrow{color:var(--p);transform:translateX(4px)}
 
-/* LAB SECTION */
-.lab{padding:60px 24px;background:var(--g)}
-.lab-steps{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+/* CREDENTIALS */
+.creds{padding:60px 24px;background:var(--b)}
+@media(min-width:768px){.creds{padding:80px 60px}}
+.creds-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#222}
+@media(min-width:640px){.creds-grid{grid-template-columns:repeat(4,1fr)}}
+.cred-cell{background:var(--b);padding:36px 24px;text-align:center}
+.cred-icon{font-size:28px;margin-bottom:12px}
+.cred-val{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#fff;margin-bottom:4px}
+.cred-lbl{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#555}
+
+/* LAB */
+.lab{padding:80px 24px;background:#fafafa}
+@media(min-width:768px){.lab{padding:100px 60px}}
+.lab-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:48px}
 @media(min-width:640px){.lab-steps{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:900px){.lab-steps{grid-template-columns:repeat(5,1fr)}}
-.step-card{background:#fff;border:1px solid var(--line);padding:24px 18px;text-align:center}
-.step-num{font-size:10px;letter-spacing:2px;color:var(--p);font-weight:600;margin-bottom:12px}
-.step-icon{font-size:22px;margin-bottom:12px}
-.step-name{font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
-.step-desc{font-size:11px;color:var(--mid);line-height:1.7}
-.lab-quote{background:var(--b);padding:36px 28px;margin-top:24px;display:flex;flex-direction:column;gap:16px}
-@media(min-width:640px){.lab-quote{flex-direction:row;align-items:center}}
-.lq-text{font-size:14px;color:#ccc;line-height:1.8;flex:1}
-.lq-text b{color:var(--p)}
-.lq-right{font-size:12px;color:#666;line-height:1.7;flex:1;text-align:left}
-@media(min-width:640px){.lq-right{text-align:right}}
-.lq-right b{color:var(--p)}
+@media(min-width:1000px){.lab-steps{grid-template-columns:repeat(5,1fr)}}
+.step{background:#fff;border:1px solid var(--line);padding:28px 18px;text-align:center;transition:.2s}
+.step:hover{border-color:var(--p);box-shadow:0 4px 20px rgba(124,58,237,0.08)}
+.step-num{font-size:9px;letter-spacing:2px;color:var(--p);font-weight:600;margin-bottom:14px;display:block}
+.step-icon{font-size:24px;margin-bottom:14px;display:block}
+.step-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+.step-desc{font-size:11px;color:var(--mid);line-height:1.8}
+.lab-quote{background:var(--b);padding:40px 28px;margin-top:20px;display:grid;gap:20px}
+@media(min-width:768px){.lab-quote{grid-template-columns:1fr 1fr;align-items:center;padding:48px 60px}}
+.lq-left{font-size:15px;color:#ccc;line-height:1.9;font-style:italic}
+.lq-left b{color:var(--p);font-style:normal}
+.lq-right{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(min-width:768px){.lq-right{border-left:1px solid #222;padding-left:40px}}
+.lq-stat .lq-val{font-family:'Cormorant Garamond',serif;font-size:32px;color:#fff;display:block}
+.lq-stat .lq-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#555}
 
 /* CTA */
-.cta{padding:72px 24px;text-align:center;background:var(--lp)}
-.cta .section-title{color:var(--b);margin-bottom:14px}
-.cta-sub{font-size:14px;color:var(--mid);margin-bottom:32px;max-width:420px;margin-left:auto;margin-right:auto}
-.cta-disc{font-size:10px;color:#bbb;margin-top:16px;letter-spacing:1px}
+.cta{padding:80px 24px;text-align:center;background:var(--lp)}
+@media(min-width:768px){.cta{padding:100px 60px}}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,8vw,64px);font-weight:300;margin-bottom:16px;line-height:1.05}
+.cta-sub{font-size:14px;color:var(--mid);margin-bottom:36px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cta-disc{font-size:10px;color:#bbb;margin-top:18px;letter-spacing:1px;text-transform:uppercase}
 
 /* FOOTER */
-footer{padding:28px 24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer p{font-size:10px;color:#bbb;letter-spacing:1px;text-transform:uppercase}
-footer span{font-size:10px;color:var(--p);letter-spacing:1px;text-transform:uppercase}
+footer{padding:32px 24px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px;text-align:center}
+@media(min-width:768px){footer{flex-direction:row;justify-content:space-between;align-items:center;text-align:left;padding:32px 60px}}
+footer p{font-size:10px;color:#bbb;letter-spacing:1.5px;text-transform:uppercase}
+footer span{font-size:10px;color:var(--p);letter-spacing:1.5px;text-transform:uppercase}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">REVORA <b>·</b> RESEARCH</div>
+  <div class="logo">Revora<span>·</span>Research</div>
   <ul class="nav-links">
     <li><a href="#">Catalog</a></li>
     <li><a href="#">Lab Reports</a></li>
     <li><a href="#">Science</a></li>
     <li><a href="#">FAQ</a></li>
   </ul>
-  <button class="nav-btn">Shop Now</button>
+  <div class="nav-right">
+    <button class="nav-btn">Shop Now</button>
+  </div>
 </nav>
 
 <div class="disclaimer">⚠ For Research Use Only — Not for human consumption — Not evaluated by the FDA</div>
 
 <section class="hero">
-  <div class="hero-eyebrow">Advanced Research Compounds</div>
+  <div class="hero-badge">Advanced Research Compounds</div>
   <h1>The Future<br>of <i>Medicine</i><br>Is Here.</h1>
-  <p class="hero-sub">What if medicine didn't just treat symptoms? Revora Research delivers precision-synthesized peptides for the serious researcher.</p>
-  <div class="hero-actions">
-    <button class="btn-main">View Catalog</button>
-    <button class="btn-ghost">Lab Reports</button>
+  <p class="hero-sub">What if medicine didn't just treat symptoms? Revora Research delivers precision-synthesized peptides for the serious researcher. 99%+ purity. Every batch verified.</p>
+  <div class="hero-btns">
+    <button class="btn-primary">View Catalog</button>
+    <button class="btn-secondary">Lab Reports</button>
   </div>
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-val">99%+</div><div class="stat-lbl">Purity</div></div>
-    <div class="stat"><div class="stat-val">COA</div><div class="stat-lbl">Every Batch</div></div>
-    <div class="stat"><div class="stat-val">48h</div><div class="stat-lbl">Ship Time</div></div>
-    <div class="stat"><div class="stat-val">❄️</div><div class="stat-lbl">Cold Chain</div></div>
+  <div class="trust-pills">
+    <div class="tp"><span class="tp-icon">⚗️</span> 99%+ Purity</div>
+    <div class="tp"><span class="tp-icon">🛡️</span> COA Verified</div>
+    <div class="tp"><span class="tp-icon">❄️</span> Cold Chain</div>
+    <div class="tp"><span class="tp-icon">⚡</span> 48hr Shipping</div>
   </div>
 </section>
 
-<div class="trust-band">
-  <div class="trust-scroll">
-    <span class="trust-item">PRECISION</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">RESEARCHED</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">EVOLVED</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">99% PURITY</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">THIRD PARTY TESTED</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">COLD CHAIN SHIPPING</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">RESEARCH USE ONLY</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">PRECISION</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">RESEARCHED</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">EVOLVED</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">99% PURITY</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">THIRD PARTY TESTED</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">COLD CHAIN SHIPPING</span><span class="trust-item"><b>·</b></span>
-    <span class="trust-item">RESEARCH USE ONLY</span><span class="trust-item"><b>·</b></span>
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="tick">PRECISION</span><span class="tick"><b>·</b></span><span class="tick">RESEARCHED</span><span class="tick"><b>·</b></span><span class="tick">EVOLVED</span><span class="tick"><b>·</b></span><span class="tick">99%+ PURITY</span><span class="tick"><b>·</b></span><span class="tick">THIRD PARTY TESTED</span><span class="tick"><b>·</b></span><span class="tick">COLD CHAIN DELIVERY</span><span class="tick"><b>·</b></span><span class="tick">RESEARCH USE ONLY</span><span class="tick"><b>·</b></span><span class="tick">HPLC VERIFIED</span><span class="tick"><b>·</b></span>
+    <span class="tick">PRECISION</span><span class="tick"><b>·</b></span><span class="tick">RESEARCHED</span><span class="tick"><b>·</b></span><span class="tick">EVOLVED</span><span class="tick"><b>·</b></span><span class="tick">99%+ PURITY</span><span class="tick"><b>·</b></span><span class="tick">THIRD PARTY TESTED</span><span class="tick"><b>·</b></span><span class="tick">COLD CHAIN DELIVERY</span><span class="tick"><b>·</b></span><span class="tick">RESEARCH USE ONLY</span><span class="tick"><b>·</b></span><span class="tick">HPLC VERIFIED</span><span class="tick"><b>·</b></span>
   </div>
 </div>
 
 <section class="products">
-  <div class="section-top">
+  <div class="products-top">
     <div>
       <span class="section-label">Research Catalog</span>
       <h2 class="section-title">Premium Compounds</h2>
     </div>
-    <span class="view-all">View all →</span>
+    <span class="view-all">View All Products →</span>
   </div>
   <div class="products-grid">
-    <div class="product-card"><span class="pc-badge">Best Seller</span><div class="pc-vial"></div><div class="pc-name">BPC-157</div><div class="pc-type">Healing Peptide</div><div class="pc-dose">10 MG / VIAL</div><div class="pc-footer"><span class="pc-price">$59</span><span class="pc-add">→</span></div></div>
-    <div class="product-card"><div class="pc-vial"></div><div class="pc-name">CJC-1295</div><div class="pc-type">GH Releasing</div><div class="pc-dose">2 MG / NO DAC</div><div class="pc-footer"><span class="pc-price">$49</span><span class="pc-add">→</span></div></div>
-    <div class="product-card"><span class="pc-badge">Popular</span><div class="pc-vial"></div><div class="pc-name">Ipamorelin</div><div class="pc-type">GH Secretagogue</div><div class="pc-dose">5 MG / VIAL</div><div class="pc-footer"><span class="pc-price">$52</span><span class="pc-add">→</span></div></div>
-    <div class="product-card"><div class="pc-vial"></div><div class="pc-name">DSIP</div><div class="pc-type">Sleep Peptide</div><div class="pc-dose">10 MG / VIAL</div><div class="pc-footer"><span class="pc-price">$45</span><span class="pc-add">→</span></div></div>
-    <div class="product-card"><div class="pc-vial"></div><div class="pc-name">Selank</div><div class="pc-type">Nootropic</div><div class="pc-dose">5 MG / VIAL</div><div class="pc-footer"><span class="pc-price">$55</span><span class="pc-add">→</span></div></div>
-    <div class="product-card"><div class="pc-vial"></div><div class="pc-name">Gonadorelin</div><div class="pc-type">Peptide Hormone</div><div class="pc-dose">2 MG / VIAL</div><div class="pc-footer"><span class="pc-price">$48</span><span class="pc-add">→</span></div></div>
-    <div class="product-card"><span class="pc-badge">Premium</span><div class="pc-vial"></div><div class="pc-name">MOTS-c</div><div class="pc-type">Mitochondrial</div><div class="pc-dose">10 MG / VIAL</div><div class="pc-footer"><span class="pc-price">$79</span><span class="pc-add">→</span></div></div>
-    <div class="product-card"><div class="pc-vial"></div><div class="pc-name">Epithalon</div><div class="pc-type">Longevity</div><div class="pc-dose">10 MG / VIAL</div><div class="pc-footer"><span class="pc-price">$65</span><span class="pc-add">→</span></div></div>
+    <div class="card"><span class="card-badge">Best Seller</span><div class="card-vial"></div><div class="card-name">BPC-157</div><div class="card-type">Healing Peptide</div><div class="card-dose">10 MG / VIAL</div><div class="card-footer"><span class="card-price">$59</span><span class="card-arrow">→</span></div></div>
+    <div class="card"><div class="card-vial"></div><div class="card-name">CJC-1295</div><div class="card-type">GH Releasing</div><div class="card-dose">2 MG · No DAC</div><div class="card-footer"><span class="card-price">$49</span><span class="card-arrow">→</span></div></div>
+    <div class="card"><span class="card-badge">Popular</span><div class="card-vial"></div><div class="card-name">Ipamorelin</div><div class="card-type">GH Secretagogue</div><div class="card-dose">5 MG / VIAL</div><div class="card-footer"><span class="card-price">$52</span><span class="card-arrow">→</span></div></div>
+    <div class="card"><div class="card-vial"></div><div class="card-name">DSIP</div><div class="card-type">Sleep Peptide</div><div class="card-dose">10 MG / VIAL</div><div class="card-footer"><span class="card-price">$45</span><span class="card-arrow">→</span></div></div>
+    <div class="card"><div class="card-vial"></div><div class="card-name">Selank</div><div class="card-type">Nootropic</div><div class="card-dose">5 MG / VIAL</div><div class="card-footer"><span class="card-price">$55</span><span class="card-arrow">→</span></div></div>
+    <div class="card"><div class="card-vial"></div><div class="card-name">Gonadorelin</div><div class="card-type">Peptide Hormone</div><div class="card-dose">2 MG / VIAL</div><div class="card-footer"><span class="card-price">$48</span><span class="card-arrow">→</span></div></div>
+    <div class="card"><span class="card-badge">Premium</span><div class="card-vial"></div><div class="card-name">MOTS-c</div><div class="card-type">Mitochondrial</div><div class="card-dose">10 MG / VIAL</div><div class="card-footer"><span class="card-price">$79</span><span class="card-arrow">→</span></div></div>
+    <div class="card"><div class="card-vial"></div><div class="card-name">Epithalon</div><div class="card-type">Longevity</div><div class="card-dose">10 MG / VIAL</div><div class="card-footer"><span class="card-price">$65</span><span class="card-arrow">→</span></div></div>
+  </div>
+</section>
+
+<section class="creds">
+  <div class="creds-grid">
+    <div class="cred-cell"><div class="cred-icon">⚗️</div><div class="cred-val">99%+</div><div class="cred-lbl">Purity Guaranteed</div></div>
+    <div class="cred-cell"><div class="cred-icon">📋</div><div class="cred-val">COA</div><div class="cred-lbl">Every Single Batch</div></div>
+    <div class="cred-cell"><div class="cred-icon">❄️</div><div class="cred-val">48h</div><div class="cred-lbl">Cold Chain Shipping</div></div>
+    <div class="cred-cell"><div class="cred-icon">🔬</div><div class="cred-val">HPLC</div><div class="cred-lbl">Lab Verified</div></div>
   </div>
 </section>
 
 <section class="lab">
-  <div class="section-top">
-    <div>
-      <span class="section-label">Quality Assurance</span>
-      <h2 class="section-title">Inside the Research Lab</h2>
-    </div>
+  <div class="section-header center">
+    <span class="section-label">Quality Assurance</span>
+    <h2 class="section-title">Inside the Research Lab</h2>
+    <p style="margin-top:12px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#bbb">Every Step · Every Test · Every Batch · <span style="color:var(--p)">Science You Can Trust</span></p>
   </div>
   <div class="lab-steps">
-    <div class="step-card"><div class="step-num">01</div><div class="step-icon">📦</div><div class="step-name">Receiving</div><div class="step-desc">Raw materials from trusted suppliers logged into our secure system.</div></div>
-    <div class="step-card"><div class="step-num">02</div><div class="step-icon">🔬</div><div class="step-name">Identity Testing</div><div class="step-desc">Compound identity confirmed via advanced HPLC-MS techniques.</div></div>
-    <div class="step-card"><div class="step-num">03</div><div class="step-icon">📊</div><div class="step-name">Purity Testing</div><div class="step-desc">Purity measured to ensure compound meets our strict quality standards.</div></div>
-    <div class="step-card"><div class="step-num">04</div><div class="step-icon">🛡️</div><div class="step-name">Sterility</div><div class="step-desc">Every batch tested to be free from bacteria, yeast, fungi, and contaminants.</div></div>
-    <div class="step-card"><div class="step-num">05</div><div class="step-icon">📋</div><div class="step-name">Data Analysis</div><div class="step-desc">Results reviewed by our team to verify compliance and approve each batch.</div></div>
+    <div class="step"><span class="step-num">01</span><span class="step-icon">📦</span><div class="step-title">Receiving Materials</div><div class="step-desc">Raw materials from trusted suppliers are received and logged into our secure tracking system.</div></div>
+    <div class="step"><span class="step-num">02</span><span class="step-icon">🔬</span><div class="step-title">Identity Testing</div><div class="step-desc">Each compound is confirmed using advanced HPLC-MS analytical techniques.</div></div>
+    <div class="step"><span class="step-num">03</span><span class="step-icon">📊</span><div class="step-title">Purity Testing</div><div class="step-desc">Purity is measured to ensure every compound meets our strict quality standards.</div></div>
+    <div class="step"><span class="step-num">04</span><span class="step-icon">🛡️</span><div class="step-title">Sterility Testing</div><div class="step-desc">Each batch is tested to confirm it's free from bacteria, yeast, fungi, and contaminants.</div></div>
+    <div class="step"><span class="step-num">05</span><span class="step-icon">📋</span><div class="step-title">Data Analysis</div><div class="step-desc">Our research team reviews all results to verify compliance and approve every batch.</div></div>
   </div>
   <div class="lab-quote">
-    <p class="lq-text">"Behind every vial is a process built on <b>integrity, transparency, and relentless standards.</b>"</p>
-    <p class="lq-right">Our commitment to <b>science</b> is what sets us apart.</p>
+    <div class="lq-left">"Behind every vial is a process built on <b>integrity, transparency, and relentless standards.</b> Our commitment to science is what sets us apart."</div>
+    <div class="lq-right">
+      <div class="lq-stat"><span class="lq-val">99%+</span><span class="lq-lbl">Purity</span></div>
+      <div class="lq-stat"><span class="lq-val">48h</span><span class="lq-lbl">Ship Time</span></div>
+      <div class="lq-stat"><span class="lq-val">100%</span><span class="lq-lbl">COA Rate</span></div>
+      <div class="lq-stat"><span class="lq-val">24/7</span><span class="lq-lbl">Support</span></div>
+    </div>
   </div>
 </section>
 
 <section class="cta">
-  <span class="section-label">Get Started</span>
-  <h2 class="section-title">Precision Research<br>Starts Here.</h2>
-  <p class="cta-sub">Join researchers who trust Revora for purity, consistency, and reliability.</p>
-  <button class="btn-main">Browse Full Catalog</button>
+  <span class="section-label">Get Started Today</span>
+  <h2 class="cta-title">Precision Research<br>Starts Here.</h2>
+  <p class="cta-sub">Join thousands of researchers who trust Revora for purity, consistency, and reliability. Every compound. Every time.</p>
+  <button class="btn-primary">Browse Full Catalog</button>
   <p class="cta-disc">For research use only · Not for human consumption</p>
 </section>
 
 <footer>
-  <p>© 2026 Revora Research</p>
+  <p>© 2026 Revora Research · All Rights Reserved</p>
   <span>Precision. Researched. Evolved.</span>
 </footer>
 

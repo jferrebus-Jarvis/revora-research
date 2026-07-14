@@ -3,94 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revora Research — Dark Edition</title>
+<title>Revora Research — Dark</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--p:#a78bfa;--pd:#7c3aed;--bg:#080808;--card:#111;--line:#1f1f1f;--mid:#888;--white:#f5f5f5}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+:root{--p:#a78bfa;--pd:#7c3aed;--bg:#060606;--card:#0f0f0f;--line:#1e1e1e;--mid:#777;--white:#f0f0f0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-nav{position:sticky;top:0;z-index:100;background:rgba(8,8,8,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
-.nav-logo{font-family:'Playfair Display',serif;font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--white)}
-.nav-links{display:none}
-@media(min-width:768px){.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);text-decoration:none}.nav-links a:hover{color:var(--white)}}
-.nav-btn{background:var(--p);color:#fff;padding:9px 22px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:.2s}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(6,6,6,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+@media(min-width:768px){nav{padding:0 60px}}
+.logo{font-family:'Playfair Display',serif;font-size:16px;letter-spacing:4px;text-transform:uppercase;color:var(--white)}
+.logo i{color:var(--p);font-style:italic}
+.nav-links{display:none;gap:40px;list-style:none}
+@media(min-width:900px){.nav-links{display:flex}}
+.nav-links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-btn{background:var(--p);color:#fff;padding:10px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:.2s;border-radius:2px}
 .nav-btn:hover{background:var(--pd)}
 
-/* HERO */
-.hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(124,58,237,0.15),transparent);pointer-events:none}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid #2a2a2a;padding:6px 16px;border-radius:40px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--p);margin-bottom:32px}
-h1{font-family:'Playfair Display',serif;font-size:clamp(44px,11vw,88px);font-weight:400;line-height:1.0;letter-spacing:-1px;margin-bottom:24px}
-h1 i{color:var(--p);font-style:italic}
-.hero-sub{font-size:15px;line-height:1.9;color:var(--mid);max-width:480px;margin:0 auto 40px}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.btn-p{background:var(--p);color:#fff;padding:14px 36px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:.2s}
-.btn-p:hover{background:var(--pd)}
-.btn-o{background:transparent;color:var(--white);padding:14px 28px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:1px solid #333;cursor:pointer;border-radius:2px;transition:.2s}
-.btn-o:hover{border-color:var(--p);color:var(--p)}
-.hero-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:60px;width:100%;max-width:640px}
-@media(min-width:640px){.hero-grid{grid-template-columns:repeat(4,1fr)}}
-.hg-cell{background:var(--bg);padding:24px 16px;text-align:center}
-.hg-val{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--white)}
-.hg-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#555;margin-top:4px}
+.disc{background:#120a0a;border-bottom:1px solid #2a1a0a;padding:10px 24px;text-align:center;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#f59e0b;font-weight:500}
 
-/* DISCLAIMER */
-.disc{background:#1a1000;border-top:1px solid #3d2600;border-bottom:1px solid #3d2600;padding:10px 24px;text-align:center;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#d97706}
+/* HERO */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden}
+@media(min-width:768px){.hero{padding:120px 60px 80px}}
+.glow-1{position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(124,58,237,0.12),transparent 65%);pointer-events:none}
+.glow-2{position:absolute;bottom:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(167,139,250,0.06),transparent 65%);pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;border:1px solid #2a2a2a;background:rgba(167,139,250,0.06);padding:8px 20px;border-radius:40px;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--p);margin-bottom:36px}
+.dot{width:6px;height:6px;background:var(--p);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:'Playfair Display',serif;font-size:clamp(44px,11vw,88px);font-weight:400;line-height:1.0;letter-spacing:-1px;margin-bottom:24px}
+h1 i{color:var(--p)}
+.hero-sub{font-size:15px;line-height:1.9;color:var(--mid);max-width:500px;margin:0 auto 44px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.btn-p{background:var(--p);color:#fff;padding:14px 36px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;border:none;cursor:pointer;border-radius:2px;transition:.2s}
+.btn-p:hover{background:var(--pd)}
+.btn-o{background:transparent;color:var(--white);padding:14px 28px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:1px solid #2a2a2a;cursor:pointer;border-radius:2px;transition:.2s}
+.btn-o:hover{border-color:var(--p);color:var(--p)}
+.stat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);width:100%;max-width:600px}
+@media(min-width:480px){.stat-row{grid-template-columns:repeat(4,1fr)}}
+.stat-cell{background:var(--bg);padding:24px 12px;text-align:center}
+.stat-val{font-family:'Playfair Display',serif;font-size:28px;color:var(--white)}
+.stat-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#444;margin-top:4px}
+
+/* TICKER */
+.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 0;background:#050505}
+.ticker-inner{display:flex;animation:tick 28s linear infinite;white-space:nowrap}
+.ti{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#333;padding:0 28px;flex-shrink:0}
+.ti b{color:var(--p)}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* PRODUCTS */
-.products{padding:64px 24px}
-.sh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:12px}
-.sl{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--p);display:block;margin-bottom:8px}
-.st{font-family:'Playfair Display',serif;font-size:clamp(24px,6vw,38px);font-weight:400}
-.va{font-size:11px;color:var(--mid);cursor:pointer}
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
-@media(min-width:640px){.pgrid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:900px){.pgrid{grid-template-columns:repeat(4,1fr)}}
-.pc{background:var(--card);padding:24px 20px;cursor:pointer;transition:.2s;position:relative}
-.pc:hover{background:#161616}
-.pcb{position:absolute;top:14px;right:14px;background:rgba(124,58,237,0.2);color:var(--p);font-size:9px;letter-spacing:1px;padding:3px 8px;border-radius:40px}
-.pv{width:40px;height:56px;background:linear-gradient(160deg,#2a2a2a,#1f1f1f);border-radius:20px 20px 4px 4px;margin:0 0 20px;border:1px solid #333}
-.pn{font-size:14px;font-weight:500;color:var(--white);margin-bottom:3px}
+.products{padding:80px 24px}
+@media(min-width:768px){.products{padding:100px 60px}}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px}
+.sl{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--p);display:block;margin-bottom:12px}
+.st{font-family:'Playfair Display',serif;font-size:clamp(26px,6vw,44px);font-weight:400}
+.va{font-size:11px;color:var(--mid);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:600px){.pgrid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1000px){.pgrid{grid-template-columns:repeat(4,1fr);gap:16px}}
+.pc{background:var(--card);border:1px solid var(--line);padding:28px 22px;cursor:pointer;transition:all .25s;position:relative}
+.pc:hover{border-color:var(--p);box-shadow:0 8px 32px rgba(124,58,237,0.1);transform:translateY(-2px)}
+.pcb{position:absolute;top:14px;right:14px;background:rgba(167,139,250,0.12);color:var(--p);font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:40px}
+.pv{width:40px;height:58px;background:linear-gradient(160deg,#252525,#1a1a1a);border-radius:20px 20px 4px 4px;margin:0 0 22px;border:1px solid #2a2a2a;position:relative}
+.pv::after{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%);width:16px;height:9px;background:#333;border-radius:2px}
+.pn{font-size:14px;font-weight:500;color:var(--white);margin-bottom:4px}
 .pt{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--p);margin-bottom:10px}
-.pd2{font-size:11px;color:#555;margin-bottom:16px}
+.pd{font-size:11px;color:#444;margin-bottom:18px}
 .pf{display:flex;justify-content:space-between;align-items:center}
-.pp{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--white)}
-.pa{font-size:18px;color:#444;transition:.2s}
-.pc:hover .pa{color:var(--p)}
+.pp{font-family:'Playfair Display',serif;font-size:22px;color:var(--white)}
+.pa{font-size:18px;color:#333;transition:.2s}
+.pc:hover .pa{color:var(--p);transform:translateX(4px)}
 
 /* LAB */
-.lab{padding:64px 24px;background:#0c0c0c}
-.ls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+.lab{padding:80px 24px;background:#080808}
+@media(min-width:768px){.lab{padding:100px 60px}}
+.ls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:48px}
 @media(min-width:640px){.ls{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:900px){.ls{grid-template-columns:repeat(5,1fr)}}
-.sc{background:var(--card);border:1px solid var(--line);padding:24px 16px;text-align:center}
-.sn{font-size:10px;letter-spacing:2px;color:var(--p);font-weight:600;margin-bottom:10px}
-.si{font-size:20px;margin-bottom:10px}
-.sm{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px;color:var(--white)}
-.sd{font-size:11px;color:#666;line-height:1.7}
-.lq{background:#0f0f0f;border:1px solid var(--line);padding:32px 24px;margin-top:16px;display:flex;flex-direction:column;gap:16px}
-@media(min-width:640px){.lq{flex-direction:row;align-items:center}}
-.lqt{font-size:14px;color:#aaa;line-height:1.8;flex:1}
-.lqt b{color:var(--p)}
-.lqr{font-size:12px;color:#555;line-height:1.7;flex:1}
-.lqr b{color:var(--p)}
+@media(min-width:1000px){.ls{grid-template-columns:repeat(5,1fr)}}
+.step{background:var(--card);border:1px solid var(--line);padding:28px 16px;text-align:center;transition:.2s}
+.step:hover{border-color:var(--p)}
+.sn{font-size:9px;letter-spacing:2px;color:var(--p);font-weight:600;margin-bottom:14px;display:block}
+.si{font-size:24px;margin-bottom:14px;display:block}
+.sm{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;color:var(--white)}
+.sd{font-size:11px;color:#555;line-height:1.8}
+.lq{background:#0a0a0a;border:1px solid var(--line);padding:40px 28px;margin-top:16px;display:grid;gap:28px}
+@media(min-width:768px){.lq{grid-template-columns:1fr 1fr;align-items:center;padding:48px 60px}}
+.lq-t{font-size:15px;color:#aaa;line-height:1.9;font-style:italic}
+.lq-t b{color:var(--p);font-style:normal}
+.lq-r{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(min-width:768px){.lq-r{border-left:1px solid var(--line);padding-left:40px}}
+.lq-s .lq-v{font-family:'Playfair Display',serif;font-size:30px;color:var(--white);display:block}
+.lq-s .lq-l{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#444}
 
 /* CTA */
-.cta{padding:72px 24px;text-align:center;background:var(--bg)}
-.ct{font-family:'Playfair Display',serif;font-size:clamp(28px,7vw,52px);font-weight:400;margin-bottom:14px}
-.cs{font-size:14px;color:var(--mid);margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto}
-.cd{font-size:10px;color:#444;margin-top:16px;letter-spacing:1px}
+.cta{padding:80px 24px;text-align:center;background:linear-gradient(180deg,var(--bg) 0%,#0d0520 100%)}
+@media(min-width:768px){.cta{padding:100px 60px}}
+.ct{font-family:'Playfair Display',serif;font-size:clamp(30px,8vw,64px);font-weight:400;margin-bottom:16px;line-height:1.05}
+.cs{font-size:14px;color:var(--mid);margin-bottom:36px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cd{font-size:10px;color:#333;margin-top:18px;letter-spacing:1px;text-transform:uppercase}
 
-footer{padding:28px 24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer p{font-size:10px;color:#444;letter-spacing:1px;text-transform:uppercase}
-footer span{font-size:10px;color:var(--p);letter-spacing:1px;text-transform:uppercase}
+footer{padding:32px 24px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px;text-align:center}
+@media(min-width:768px){footer{flex-direction:row;justify-content:space-between;align-items:center;padding:32px 60px}}
+footer p{font-size:10px;color:#333;letter-spacing:1.5px;text-transform:uppercase}
+footer span{font-size:10px;color:var(--p);letter-spacing:1.5px;text-transform:uppercase}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">REVORA RESEARCH</div>
+  <div class="logo">REVORA <i>·</i> RESEARCH</div>
   <ul class="nav-links">
     <li><a href="#">Catalog</a></li>
     <li><a href="#">Lab Reports</a></li>
@@ -103,66 +126,78 @@ footer span{font-size:10px;color:var(--p);letter-spacing:1px;text-transform:uppe
 <div class="disc">⚠ For Research Use Only — Not for human consumption — Not evaluated by the FDA</div>
 
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-tag">Advanced Research Compounds</div>
-  <h1>What If Medicine<br>Didn't Just<br><i>Treat Symptoms?</i></h1>
-  <p class="hero-sub">A new era of targeted research is already here. Precision-synthesized. Third-party verified. Evolved.</p>
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+  <div class="hero-tag"><div class="dot"></div>Advanced Research Compounds</div>
+  <h1>What If Medicine<br>Didn't Just <i>Treat</i><br>Symptoms?</h1>
+  <p class="hero-sub">A new era of targeted research is already here. Revora Research provides precision-synthesized peptides — third-party verified, cold-chain delivered.</p>
   <div class="hero-btns">
     <button class="btn-p">View Catalog</button>
     <button class="btn-o">Download COA</button>
   </div>
-  <div class="hero-grid">
-    <div class="hg-cell"><div class="hg-val">99%</div><div class="hg-lbl">Purity</div></div>
-    <div class="hg-cell"><div class="hg-val">COA</div><div class="hg-lbl">Verified</div></div>
-    <div class="hg-cell"><div class="hg-val">48h</div><div class="hg-lbl">Shipping</div></div>
-    <div class="hg-cell"><div class="hg-val">❄️</div><div class="hg-lbl">Cold Chain</div></div>
+  <div class="stat-row">
+    <div class="stat-cell"><div class="stat-val">99%</div><div class="stat-lbl">Purity</div></div>
+    <div class="stat-cell"><div class="stat-val">COA</div><div class="stat-lbl">Verified</div></div>
+    <div class="stat-cell"><div class="stat-val">48h</div><div class="stat-lbl">Shipping</div></div>
+    <div class="stat-cell"><div class="stat-val">24/7</div><div class="stat-lbl">Support</div></div>
   </div>
 </section>
 
-<section class="products">
-  <div class="sh">
-    <div><span class="sl">Research Catalog</span><h2 class="st">Premium Compounds</h2></div>
-    <span class="va">View all →</span>
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ti">PRECISION</span><span class="ti"><b>·</b></span><span class="ti">RESEARCHED</span><span class="ti"><b>·</b></span><span class="ti">EVOLVED</span><span class="ti"><b>·</b></span><span class="ti">99%+ PURITY</span><span class="ti"><b>·</b></span><span class="ti">HPLC TESTED</span><span class="ti"><b>·</b></span><span class="ti">COLD CHAIN SHIPPING</span><span class="ti"><b>·</b></span><span class="ti">RESEARCH USE ONLY</span><span class="ti"><b>·</b></span>
+    <span class="ti">PRECISION</span><span class="ti"><b>·</b></span><span class="ti">RESEARCHED</span><span class="ti"><b>·</b></span><span class="ti">EVOLVED</span><span class="ti"><b>·</b></span><span class="ti">99%+ PURITY</span><span class="ti"><b>·</b></span><span class="ti">HPLC TESTED</span><span class="ti"><b>·</b></span><span class="ti">COLD CHAIN SHIPPING</span><span class="ti"><b>·</b></span><span class="ti">RESEARCH USE ONLY</span><span class="ti"><b>·</b></span>
   </div>
+</div>
+
+<section class="products">
+  <div class="sh"><div><span class="sl">Research Catalog</span><h2 class="st">Premium Compounds</h2></div><span class="va">View all →</span></div>
   <div class="pgrid">
-    <div class="pc"><span class="pcb">Best Seller</span><div class="pv"></div><div class="pn">BPC-157</div><div class="pt">Healing Peptide</div><div class="pd2">10 MG / VIAL</div><div class="pf"><span class="pp">$59</span><span class="pa">→</span></div></div>
-    <div class="pc"><div class="pv"></div><div class="pn">CJC-1295</div><div class="pt">GH Releasing</div><div class="pd2">2 MG / NO DAC</div><div class="pf"><span class="pp">$49</span><span class="pa">→</span></div></div>
-    <div class="pc"><span class="pcb">Popular</span><div class="pv"></div><div class="pn">Ipamorelin</div><div class="pt">GH Secretagogue</div><div class="pd2">5 MG / VIAL</div><div class="pf"><span class="pp">$52</span><span class="pa">→</span></div></div>
-    <div class="pc"><div class="pv"></div><div class="pn">DSIP</div><div class="pt">Sleep Peptide</div><div class="pd2">10 MG / VIAL</div><div class="pf"><span class="pp">$45</span><span class="pa">→</span></div></div>
-    <div class="pc"><div class="pv"></div><div class="pn">Selank</div><div class="pt">Nootropic</div><div class="pd2">5 MG / VIAL</div><div class="pf"><span class="pp">$55</span><span class="pa">→</span></div></div>
-    <div class="pc"><div class="pv"></div><div class="pn">Gonadorelin</div><div class="pt">Peptide Hormone</div><div class="pd2">2 MG / VIAL</div><div class="pf"><span class="pp">$48</span><span class="pa">→</span></div></div>
-    <div class="pc"><span class="pcb">Premium</span><div class="pv"></div><div class="pn">MOTS-c</div><div class="pt">Mitochondrial</div><div class="pd2">10 MG / VIAL</div><div class="pf"><span class="pp">$79</span><span class="pa">→</span></div></div>
-    <div class="pc"><div class="pv"></div><div class="pn">Epithalon</div><div class="pt">Longevity</div><div class="pd2">10 MG / VIAL</div><div class="pf"><span class="pp">$65</span><span class="pa">→</span></div></div>
+    <div class="pc"><span class="pcb">Best Seller</span><div class="pv"></div><div class="pn">BPC-157</div><div class="pt">Healing Peptide</div><div class="pd">10 MG / VIAL</div><div class="pf"><span class="pp">$59</span><span class="pa">→</span></div></div>
+    <div class="pc"><div class="pv"></div><div class="pn">CJC-1295</div><div class="pt">GH Releasing</div><div class="pd">2 MG · No DAC</div><div class="pf"><span class="pp">$49</span><span class="pa">→</span></div></div>
+    <div class="pc"><span class="pcb">Popular</span><div class="pv"></div><div class="pn">Ipamorelin</div><div class="pt">GH Secretagogue</div><div class="pd">5 MG / VIAL</div><div class="pf"><span class="pp">$52</span><span class="pa">→</span></div></div>
+    <div class="pc"><div class="pv"></div><div class="pn">DSIP</div><div class="pt">Sleep Peptide</div><div class="pd">10 MG / VIAL</div><div class="pf"><span class="pp">$45</span><span class="pa">→</span></div></div>
+    <div class="pc"><div class="pv"></div><div class="pn">Selank</div><div class="pt">Nootropic</div><div class="pd">5 MG / VIAL</div><div class="pf"><span class="pp">$55</span><span class="pa">→</span></div></div>
+    <div class="pc"><div class="pv"></div><div class="pn">Gonadorelin</div><div class="pt">Peptide Hormone</div><div class="pd">2 MG / VIAL</div><div class="pf"><span class="pp">$48</span><span class="pa">→</span></div></div>
+    <div class="pc"><span class="pcb">Premium</span><div class="pv"></div><div class="pn">MOTS-c</div><div class="pt">Mitochondrial</div><div class="pd">10 MG / VIAL</div><div class="pf"><span class="pp">$79</span><span class="pa">→</span></div></div>
+    <div class="pc"><div class="pv"></div><div class="pn">Epithalon</div><div class="pt">Longevity</div><div class="pd">10 MG / VIAL</div><div class="pf"><span class="pp">$65</span><span class="pa">→</span></div></div>
   </div>
 </section>
 
 <section class="lab">
-  <div class="sh">
-    <div><span class="sl">Quality Assurance</span><h2 class="st">Inside the Research Lab</h2></div>
+  <div class="sh center" style="flex-direction:column;align-items:center;text-align:center">
+    <span class="sl">Quality Assurance</span>
+    <h2 class="st">Inside the Research Lab</h2>
+    <p style="margin-top:12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#444">Every Step · Every Test · Every Batch · <span style="color:var(--p)">Science You Can Trust</span></p>
   </div>
   <div class="ls">
-    <div class="sc"><div class="sn">01</div><div class="si">📦</div><div class="sm">Receiving</div><div class="sd">Raw materials from trusted suppliers logged into our secure system.</div></div>
-    <div class="sc"><div class="sn">02</div><div class="si">🔬</div><div class="sm">Identity Testing</div><div class="sd">Compound identity confirmed via advanced HPLC-MS techniques.</div></div>
-    <div class="sc"><div class="sn">03</div><div class="si">📊</div><div class="sm">Purity Testing</div><div class="sd">Purity measured to meet our strict quality and consistency standards.</div></div>
-    <div class="sc"><div class="sn">04</div><div class="si">🛡️</div><div class="sm">Sterility</div><div class="sd">Every batch tested free from bacteria, yeast, fungi, and contaminants.</div></div>
-    <div class="sc"><div class="sn">05</div><div class="si">📋</div><div class="sm">Data Analysis</div><div class="sd">Our team reviews all results to verify compliance and approve each batch.</div></div>
+    <div class="step"><span class="sn">01</span><span class="si">📦</span><div class="sm">Receiving</div><div class="sd">Raw materials received from trusted suppliers and logged into our secure system.</div></div>
+    <div class="step"><span class="sn">02</span><span class="si">🔬</span><div class="sm">Identity Testing</div><div class="sd">Compound identity confirmed using advanced HPLC-MS analytical techniques.</div></div>
+    <div class="step"><span class="sn">03</span><span class="si">📊</span><div class="sm">Purity Testing</div><div class="sd">Purity measured to ensure every compound meets our strict standards.</div></div>
+    <div class="step"><span class="sn">04</span><span class="si">🛡️</span><div class="sm">Sterility</div><div class="sd">Every batch confirmed free from bacteria, yeast, fungi, and contaminants.</div></div>
+    <div class="step"><span class="sn">05</span><span class="si">📋</span><div class="sm">Data Analysis</div><div class="sd">Our team reviews all results to verify compliance and approve each batch.</div></div>
   </div>
   <div class="lq">
-    <p class="lqt">"Behind every vial is a process built on <b>integrity, transparency, and relentless standards.</b>"</p>
-    <p class="lqr">Our commitment to <b>science</b> is what sets us apart.</p>
+    <div class="lq-t">"Behind every vial is a process built on <b>integrity, transparency, and relentless standards.</b> Our commitment to science is what sets us apart."</div>
+    <div class="lq-r">
+      <div class="lq-s"><span class="lq-v">99%+</span><span class="lq-l">Purity</span></div>
+      <div class="lq-s"><span class="lq-v">48h</span><span class="lq-l">Ship Time</span></div>
+      <div class="lq-s"><span class="lq-v">100%</span><span class="lq-l">COA Rate</span></div>
+      <div class="lq-s"><span class="lq-v">24/7</span><span class="lq-l">Support</span></div>
+    </div>
   </div>
 </section>
 
 <section class="cta">
   <span class="sl">Get Started</span>
-  <h2 class="ct">Precision Research<br>Starts Here.</h2>
-  <p class="cs">Join researchers who trust Revora for purity, consistency, and reliability.</p>
+  <h2 class="ct">Precision Research<br><i>Starts Here.</i></h2>
+  <p class="cs">Join researchers who trust Revora for purity, consistency, and reliability. Every compound. Every time.</p>
   <button class="btn-p">Browse Full Catalog</button>
   <p class="cd">For research use only · Not for human consumption</p>
 </section>
 
 <footer>
-  <p>© 2026 Revora Research</p>
+  <p>© 2026 Revora Research · All Rights Reserved</p>
   <span>Precision. Researched. Evolved.</span>
 </footer>
 </body>
