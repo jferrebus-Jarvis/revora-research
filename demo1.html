@@ -312,14 +312,28 @@ function renderChips(){
 
 function setFilter(g){FILTER=g;renderChips();renderGrid();}
 
+function vialHTML(p){
+  var nm=p.name.replace(/\s*\(.*?\)/g,"").trim();
+  return "<div class='vial-wrap'><div class='vial'>"
+    +"<div class='vial-cap'></div>"
+    +"<div class='vial-neck'></div>"
+    +"<div class='vial-body'><div class='vial-liquid'></div><div class='vial-shine'></div></div>"
+    +"<div class='vial-label'>"
+    +"<div class='vial-logo'>R<span>.</span></div>"
+    +"<div class='vial-name'>"+nm+"</div>"
+    +"<div class='vial-dose'>"+p.mg+" | 99%+</div>"
+    +"</div>"
+    +"<div class='vial-holo'></div>"
+    +"</div></div>";
+}
 function renderGrid(){
   var list=FILTER==="all"?PRODUCTS:PRODUCTS.filter(function(p){return p.g===FILTER;});
   document.getElementById("grid").innerHTML=list.map(function(p){
     var idx=PRODUCTS.indexOf(p);
-    return "<div class='card'>"
+    return "<div class='card"+(p.sale?" sale":"")+"'>"
       +"<div class='card-img'>"
       +(p.sale?"<div class='sale-badge'>SALE!</div>":"")
-      +"<img src='"+IMGS[p.img]+"' alt='"+p.name+"' loading='lazy'>"
+      +vialHTML(p)
       +"</div>"
       +"<div class='card-body'>"
       +"<div class='card-cat'>"+p.cat+"</div>"
