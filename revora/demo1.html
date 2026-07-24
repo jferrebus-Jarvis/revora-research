@@ -190,6 +190,26 @@
   .tile:hover .vial{transform:translateY(-4px) scale(1.03);filter:drop-shadow(0 20px 28px rgba(40,44,52,.35))}
   html[data-theme="dark"] .tile-img .vial{filter:drop-shadow(0 8px 24px rgba(107,78,158,.25))}
   html[data-theme="dark"] .tile:hover .vial{filter:drop-shadow(0 16px 32px rgba(107,78,158,.45))}
+
+  /* Variant selector */
+  .var-sel{width:100%;margin-top:8px;margin-bottom:6px;position:relative}
+  .var-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border-radius:6px;border:1px solid var(--card-line);background:var(--bg2);color:var(--text);font-family:var(--sans);font-size:11px;letter-spacing:.06em;cursor:pointer;transition:all .2s;text-align:left}
+  .var-btn:hover{border-color:var(--violet-lt)}
+  html[data-theme="light"] .var-btn:hover{border-color:var(--violet)}
+  .var-btn::after{content:'▾';font-size:10px;color:var(--text-dim);margin-left:8px}
+  .var-btn.open::after{content:'▴'}
+  .var-opts{display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--bg);border:1px solid var(--card-line);border-radius:6px;overflow:hidden;z-index:10;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  .var-opts.open{display:block}
+  .var-opt{padding:9px 14px;font-size:11px;cursor:pointer;transition:background .15s;display:flex;justify-content:space-between;border-bottom:1px solid var(--card-line)}
+  .var-opt:last-child{border-bottom:0}
+  .var-opt:hover{background:var(--bg2)}
+  .var-opt.sel{color:var(--violet-lt);font-weight:600}
+  html[data-theme="light"] .var-opt.sel{color:var(--violet)}
+  .var-opt .v-price{color:var(--text-dim);font-weight:400}
+  .from{font-size:10px;letter-spacing:.08em;color:var(--text-soft);text-transform:uppercase;margin-right:3px}
+  .var-opt.sel .v-price{color:var(--violet-lt)}
+  html[data-theme="light"] .var-opt.sel .v-price{color:var(--violet)}
+
   .act{width:100%;text-align:center;font-family:var(--sans);font-size:13px;letter-spacing:.02em;font-weight:600;padding:13px 10px;border-radius:10px;cursor:pointer;transition:all .2s;border:1.5px solid;background:var(--bg)}
   .act.cart{border-color:var(--red);color:var(--text)}
   .act.cart:hover{background:var(--red);color:#fff}
@@ -705,22 +725,84 @@ function vial(accent){
 }
 
 var products=[
-  {g:"growth",cat:{en:"Featured",es:"Destacado"},name:"CJC-1295",mg:"5 mg · Without DAC",price:62,state:"cart",a:"#6b4e9e"},
-  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"BPC-157",mg:"10 mg",price:45,state:"cart",a:"#4a5a8a"},
-  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"TB-500",mg:"10 mg",price:48,state:"cart",a:"#3f6d7a"},
-  {g:"sleep",cat:{en:"Sleep",es:"Sueño"},name:"DSIP",mg:"10 mg",price:40,state:"cart",a:"#6b4e9e"},
-  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"Ipamorelin",mg:"5 mg",price:42,state:"cart",a:"#4a5a8a"},
-  {g:"cellular",cat:{en:"Cellular",es:"Celular"},name:"GHK-Cu",mg:"50 mg",price:38,state:"cart",a:"#5a6b3a"},
-  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"AICAR",mg:"50 mg",price:38,state:"cart",a:"#4a5a8a"},
-  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"5-Amino-1MQ",mg:"50 mg",price:62,state:"cart",a:"#5a6b3a"},
-  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"Adamax",mg:"5 mg",price:46,state:"cart",a:"#6b4e9e"},
-  {g:"cellular",cat:{en:"Cellular",es:"Celular"},name:"AHK-Cu",mg:"100 mg",price:38,state:"cart",a:"#3f6d7a"},
-  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"ARA-290",mg:"10 mg",price:40,state:"cart",a:"#4a5a8a"},
-  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"ACE-031",mg:"1 mg",price:100,state:"cart",a:"#6b4e9e"},
-  {g:"supplies",cat:{en:"Supplies",es:"Suministros"},name:"Acetic Acid 0.6%",mg:"Reconstitution",price:8,range:[6,8],state:"opts",a:"#8b9098"},
-  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"AOD-9604",mg:"5 mg",price:38,state:"oos",a:"#4a5a8a"},
-  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"B7-33",mg:"10 mg",price:0,state:"soon",a:"#5a6b3a"},
-  {g:"supplies",cat:{en:"Supplies",es:"Suministros"},name:"Bacteriostatic Water",mg:"30 mL",price:14,old:18,state:"sale",a:"#8b9098"}
+  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"ADAMAX",variants:[{mg:"5 mg",price:58.99},{mg:"10 mg",price:74.99}],mg:"5 mg",price:58.99,state:"cart",a:"#6b4e9e"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"ADIPOTIDE",variants:[{mg:"5 mg",price:116.99},{mg:"10 mg",price:141.99}],mg:"5 mg",price:116.99,state:"cart",a:"#3f8f57"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"AICAR",variants:[{mg:"50 mg",price:58.99},{mg:"100 mg",price:74.99}],mg:"50 mg",price:58.99,state:"cart",a:"#3f8f57"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"ARA-290",variants:[{mg:"10 mg",price:58.99},{mg:"16 mg",price:74.99}],mg:"10 mg",price:58.99,state:"cart",a:"#3f6d7a"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"AOD-9604",variants:[{mg:"5 mg",price:70.99},{mg:"10 mg",price:112.99}],mg:"5 mg",price:70.99,state:"cart",a:"#4a5a8a"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"ACE-031",mg:"1 mg",price:37.99,state:"cart",a:"#6b4e9e"},
+  {g:"cellular",cat:{en:"Cellular",es:"Celular"},name:"ACTH-1-39",mg:"5 mg",price:49.99,state:"cart",a:"#5a6b3a"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"B7-33",mg:"10 mg",price:141.99,state:"cart",a:"#3f6d7a"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"BPC-157",variants:[{mg:"5 mg",price:37.99},{mg:"10 mg",price:45.99}],mg:"5 mg",price:37.99,state:"cart",a:"#3f6d7a"},
+  {g:"supplies",cat:{en:"Supplies",es:"Suministros"},name:"BAC-WATER",variants:[{mg:"3 mL",price:8.99},{mg:"10 mL",price:10.99}],mg:"3 mL",price:8.99,state:"cart",a:"#8b9098"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"CAGRILINTIDE",variants:[{mg:"5 mg",price:83.99},{mg:"10 mg",price:149.99}],mg:"5 mg",price:83.99,state:"cart",a:"#3f8f57"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"CAGRISEMA",mg:"5 mg",price:58.99,state:"cart",a:"#3f8f57"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"CJC-1295 W DAC",mg:"5 mg",price:133.99,state:"cart",a:"#6b4e9e"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"CJC-1295 NO DAC",variants:[{mg:"2 mg",price:41.99},{mg:"5 mg",price:54.99},{mg:"10 mg",price:99.99}],mg:"2 mg",price:41.99,state:"cart",a:"#6b4e9e"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"CJC + IPA",mg:"10 mg",price:70.99,state:"cart",a:"#6b4e9e"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"CARDIOGEN",mg:"20 mg",price:79.99,state:"cart",a:"#3f6d7a"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"CORTAGEN",mg:"20 mg",price:91.99,state:"cart",a:"#5a6b3a"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"CRYSTAGEN",mg:"20 mg",price:58.99,state:"cart",a:"#5a6b3a"},
+  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"DERMORPHIN",mg:"10 mg",price:66.99,state:"cart",a:"#4a5a8a"},
+  {g:"sleep",cat:{en:"Sleep",es:"Sueño"},name:"DSIP",mg:"5 mg",price:70.99,state:"cart",a:"#4a5a8a"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"DULAGLUTIDE",variants:[{mg:"5 mg",price:112.99},{mg:"10 mg",price:183.99}],mg:"5 mg",price:112.99,state:"cart",a:"#3f8f57"},
+  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"DIHEXA",variants:[{mg:"5 mg",price:45.99},{mg:"10 mg",price:54.99}],mg:"5 mg",price:45.99,state:"cart",a:"#6b4e9e"},
+  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"DEMORPHIN",mg:"2 mg",price:37.99,state:"cart",a:"#4a5a8a"},
+  {g:"cellular",cat:{en:"Cellular",es:"Celular"},name:"EPITHALON",variants:[{mg:"10 mg",price:45.99},{mg:"50 mg",price:99.99}],mg:"10 mg",price:45.99,state:"cart",a:"#6b4e9e"},
+  {g:"cellular",cat:{en:"Cellular",es:"Celular"},name:"EPO",mg:"3000 IU",price:49.99,state:"cart",a:"#5a6b3a"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"FOX04",variants:[{mg:"2 mg",price:91.99},{mg:"10 mg",price:199.99}],mg:"2 mg",price:91.99,state:"cart",a:"#5a6b3a"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"FRAG 17-23",mg:"10 mg",price:49.99,state:"cart",a:"#3f8f57"},
+  {g:"cellular",cat:{en:"Cellular",es:"Celular"},name:"GLUTATHIONE",variants:[{mg:"600 mg",price:33.99},{mg:"1500 mg",price:74.99}],mg:"600 mg",price:33.99,state:"cart",a:"#5a6b3a"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"GHRP-2",variants:[{mg:"5 mg",price:33.99},{mg:"10 mg",price:41.99},{mg:"15 mg",price:45.99}],mg:"5 mg",price:33.99,state:"cart",a:"#4a5a8a"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"GHRP-6",variants:[{mg:"5 mg",price:37.99},{mg:"10 mg",price:45.99}],mg:"5 mg",price:37.99,state:"cart",a:"#4a5a8a"},
+  {g:"hormonal",cat:{en:"Hormonal",es:"Hormonal"},name:"GONADORELIN",mg:"5 mg",price:45.99,state:"cart",a:"#8b4e6b"},
+  {g:"hormonal",cat:{en:"Hormonal",es:"Hormonal"},name:"HCG",variants:[{mg:"1000 IU",price:37.99},{mg:"2000 IU",price:45.99},{mg:"5000 IU",price:62.99},{mg:"10000 IU",price:116.99}],mg:"1000 IU",price:37.99,state:"cart",a:"#8b4e6b"},
+  {g:"hormonal",cat:{en:"Hormonal",es:"Hormonal"},name:"HMG",mg:"75 IU",price:49.99,state:"cart",a:"#8b4e6b"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"HGH",variants:[{mg:"6 IU",price:41.99},{mg:"8 IU",price:45.99},{mg:"10 IU",price:54.99},{mg:"12 IU",price:62.99},{mg:"15 IU",price:70.99},{mg:"24 IU",price:99.99}],mg:"6 IU",price:41.99,state:"cart",a:"#6b4e9e"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"HGH FRAG",variants:[{mg:"5 mg",price:70.99},{mg:"10 mg",price:120.99},{mg:"12 mg",price:129.99},{mg:"15 mg",price:149.99}],mg:"5 mg",price:70.99,state:"cart",a:"#4a5a8a"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"HEXARELIN",mg:"5 mg",price:83.99,state:"cart",a:"#4a5a8a"},
+  {g:"cellular",cat:{en:"Cellular",es:"Celular"},name:"HUMANIN",mg:"10 mg",price:183.99,state:"cart",a:"#5a6b3a"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"IPAMORELIN",variants:[{mg:"5 mg",price:41.99},{mg:"10 mg",price:49.99}],mg:"5 mg",price:41.99,state:"cart",a:"#6b4e9e"},
+  {g:"hormonal",cat:{en:"Hormonal",es:"Hormonal"},name:"KISSPEPTIN",variants:[{mg:"5 mg",price:45.99},{mg:"10 mg",price:58.99}],mg:"5 mg",price:45.99,state:"cart",a:"#8b4e6b"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"LIRAGLUTIDE",variants:[{mg:"5 mg",price:62.99},{mg:"10 mg",price:116.99},{mg:"30 mg",price:258.99}],mg:"5 mg",price:62.99,state:"cart",a:"#3f8f57"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"LL-37",mg:"5 mg",price:74.99,state:"cart",a:"#3f6d7a"},
+  {g:"hormonal",cat:{en:"Hormonal",es:"Hormonal"},name:"MELANOTAN 1",mg:"10 mg",price:49.99,state:"cart",a:"#8b4e6b"},
+  {g:"hormonal",cat:{en:"Hormonal",es:"Hormonal"},name:"MELANOTAN 2",mg:"10 mg",price:49.99,state:"cart",a:"#8b4e6b"},
+  {g:"supplies",cat:{en:"Supplies",es:"Suministros"},name:"TX100",mg:"100 IU",price:74.99,state:"cart",a:"#8b9098"},
+  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"CEREBROLYSIN",mg:"60 mg",price:58.99,state:"cart",a:"#4a5a8a"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"MGF",mg:"2 mg",price:49.99,state:"cart",a:"#4a5a8a"},
+  {g:"cellular",cat:{en:"Cellular",es:"Celular"},name:"MOTSC",variants:[{mg:"10 mg",price:66.99},{mg:"15 mg",price:91.99},{mg:"20 mg",price:108.99},{mg:"40 mg",price:158.99}],mg:"10 mg",price:66.99,state:"cart",a:"#5a6b3a"},
+  {g:"cellular",cat:{en:"Cellular",es:"Celular"},name:"NAD+",variants:[{mg:"100 mg",price:45.99},{mg:"500 mg",price:54.99},{mg:"1000 mg",price:66.99}],mg:"100 mg",price:45.99,state:"cart",a:"#5a6b3a"},
+  {g:"hormonal",cat:{en:"Hormonal",es:"Hormonal"},name:"OXYTOCIN",variants:[{mg:"5 mg",price:45.99},{mg:"10 mg",price:54.99}],mg:"5 mg",price:45.99,state:"cart",a:"#8b4e6b"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"PEG-MGF",mg:"2 mg",price:58.99,state:"cart",a:"#4a5a8a"},
+  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"PE-22-28",mg:"10 mg",price:66.99,state:"cart",a:"#4a5a8a"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"PNC-27",mg:"5 mg",price:58.99,state:"cart",a:"#3f6d7a"},
+  {g:"hormonal",cat:{en:"Hormonal",es:"Hormonal"},name:"PT-141",mg:"10 mg",price:49.99,state:"cart",a:"#8b4e6b"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"RETATRUTIDE",variants:[{mg:"5 mg",price:49.99},{mg:"10 mg",price:70.99},{mg:"15 mg",price:95.99},{mg:"20 mg",price:112.99},{mg:"30 mg",price:134.99},{mg:"60 mg",price:199.99}],mg:"5 mg",price:49.99,state:"cart",a:"#3f8f57"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"SEMAGLUTIDE",variants:[{mg:"5 mg",price:33.99},{mg:"10 mg",price:41.99},{mg:"15 mg",price:45.99},{mg:"20 mg",price:54.99},{mg:"30 mg",price:83.99}],mg:"5 mg",price:33.99,state:"cart",a:"#3f8f57"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"SERMORELIN",variants:[{mg:"5 mg",price:58.99},{mg:"10 mg",price:83.99}],mg:"5 mg",price:58.99,state:"cart",a:"#6b4e9e"},
+  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"SNAP-8",mg:"10 mg",price:124.99,state:"cart",a:"#4a5a8a"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"KPV",variants:[{mg:"5 mg",price:41.99},{mg:"10 mg",price:45.99}],mg:"5 mg",price:41.99,state:"cart",a:"#5a6b3a"},
+  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"SELANK",variants:[{mg:"5 mg",price:37.99},{mg:"10 mg",price:45.99}],mg:"5 mg",price:37.99,state:"cart",a:"#6b4e9e"},
+  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"SEMAX",variants:[{mg:"5 mg",price:37.99},{mg:"10 mg",price:45.99}],mg:"5 mg",price:37.99,state:"cart",a:"#6b4e9e"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"SS-31",variants:[{mg:"10 mg",price:62.99},{mg:"50 mg",price:183.99}],mg:"10 mg",price:62.99,state:"cart",a:"#3f6d7a"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"TB-500",variants:[{mg:"5 mg",price:62.99},{mg:"10 mg",price:108.99}],mg:"5 mg",price:62.99,state:"cart",a:"#3f6d7a"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"TESAMORELIN",variants:[{mg:"5 mg",price:74.99},{mg:"10 mg",price:133.99},{mg:"20 mg",price:199.99}],mg:"5 mg",price:74.99,state:"cart",a:"#6b4e9e"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"TIRZEPATIDE",variants:[{mg:"5 mg",price:41.99},{mg:"10 mg",price:49.99},{mg:"15 mg",price:58.99},{mg:"20 mg",price:74.99},{mg:"30 mg",price:99.99},{mg:"40 mg",price:116.99},{mg:"50 mg",price:139.99},{mg:"60 mg",price:149.99},{mg:"100 mg",price:174.99},{mg:"120 mg",price:216.99}],mg:"5 mg",price:41.99,state:"cart",a:"#3f8f57"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"THYMALIN",mg:"10 mg",price:54.99,state:"cart",a:"#5a6b3a"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"THY ALPHA-1",variants:[{mg:"5 mg",price:70.99},{mg:"10 mg",price:108.99}],mg:"5 mg",price:70.99,state:"cart",a:"#5a6b3a"},
+  {g:"hormonal",cat:{en:"Hormonal",es:"Hormonal"},name:"TRIPTORELIN",mg:"2 mg",price:41.99,state:"cart",a:"#8b4e6b"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"IGF-1 LR3",variants:[{mg:"100 mcg",price:41.99},{mg:"1 mg",price:141.99}],mg:"100 mcg",price:41.99,state:"cart",a:"#6b4e9e"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"FST-344",mg:"1 mg",price:174.99,state:"cart",a:"#6b4e9e"},
+  {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"GDF-8",mg:"1 mg",price:124.99,state:"cart",a:"#6b4e9e"},
+  {g:"supplies",cat:{en:"Supplies",es:"Suministros"},name:"LIPO-C",mg:"10 mL",price:58.99,state:"cart",a:"#8b9098"},
+  {g:"supplies",cat:{en:"Supplies",es:"Suministros"},name:"MIC",mg:"10 mg",price:74.99,state:"cart",a:"#8b9098"},
+  {g:"supplies",cat:{en:"Supplies",es:"Suministros"},name:"LEMON BOTTLE",mg:"10 mL",price:58.99,state:"cart",a:"#8b9098"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"VIP",variants:[{mg:"5 mg",price:62.99},{mg:"10 mg",price:99.99}],mg:"5 mg",price:62.99,state:"cart",a:"#3f6d7a"},
+  {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"MAZDUTIDE",mg:"10 mg",price:158.99,state:"cart",a:"#3f8f57"},
+  {g:"supplies",cat:{en:"Supplies",es:"Suministros"},name:"KLOW",mg:"80 mg",price:89.99,state:"cart",a:"#8b9098"},
+  {g:"supplies",cat:{en:"Supplies",es:"Suministros"},name:"GLOW",mg:"70 mg",price:74.99,state:"cart",a:"#8b9098"},
+  {g:"cellular",cat:{en:"Cellular",es:"Celular"},name:"GHKCU",variants:[{mg:"50 mg",price:33.99},{mg:"100 mg",price:42.99}],mg:"50 mg",price:33.99,state:"cart",a:"#5a6b3a"},
 ];
 var steps=[
   {num:"01",t:{en:"Receiving",es:"Recepción"},p:{en:"Raw materials are sourced from trusted suppliers and logged into a secure chain-of-custody system.",es:"Las materias primas se obtienen de proveedores confiables y se registran en un sistema seguro de cadena de custodia."},ic:'<path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>'},
@@ -729,7 +811,7 @@ var steps=[
   {num:"04",t:{en:"Sterility",es:"Esterilidad"},p:{en:"Sterility testing helps ensure each batch is free from bacteria, yeast, fungi, and other contaminants.",es:"Las pruebas de esterilidad ayudan a garantizar que cada lote esté libre de bacterias, levaduras, hongos y otros contaminantes."},ic:'<path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/>'},
   {num:"05",t:{en:"Data",es:"Datos"},p:{en:"Results are reviewed by our research team to verify compliance and release each documented batch.",es:"Los resultados son revisados por nuestro equipo para verificar el cumplimiento y liberar cada lote documentado."},ic:'<path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 14h6M9 18h6"/>'}
 ];
-var GROUPS=["all","recovery","growth","metabolic","cellular","sleep","supplies"];
+var GROUPS=["all","growth","recovery","metabolic","cognitive","cellular","hormonal","sleep","supplies"];
 
 var T={
  en:{
@@ -745,7 +827,7 @@ var T={
   f_l1:"Per Vial", f_l2:"Purity", f_l3:"Verified", f_btn:"Shop Now",
   b1:"Research<br>Use Only", b2:"Store<br>Refrigerated", b3:"Quality<br>Assured", b4:"Tested for<br>Excellence",
   cat_eye:"Advanced Research Compounds", cat_h:"Shop All", cat_p:"99% purity \u00B7 Third-party verified \u00B7 For laboratory research use only",
-  grp:{all:"All",recovery:"Recovery",growth:"Growth",metabolic:"Metabolic",cellular:"Cellular",sleep:"Sleep",supplies:"Supplies"},
+  grp:{all:"All",growth:"Growth",recovery:"Recovery",metabolic:"Metabolic",cognitive:"Cognitive",cellular:"Cellular",hormonal:"Hormonal",sleep:"Sleep",supplies:"Supplies"},
   st:{cart:"Add To Cart",opts:"Select Options",notify:"Notify Me",added:"Added \u2713",oos:"Out of Stock",sale:"Sale!",soonf:"Coming Soon"},
   pr_eye:"Inside the Research Lab", pr_h:"Every Step. Every Batch.", pr_p:"Science you can trust",
   pr_q:"Behind every vial is a process built on <b>integrity, transparency, and relentless standards.</b>",
@@ -775,7 +857,7 @@ var T={
   f_l1:"Por Vial", f_l2:"Pureza", f_l3:"Verificado", f_btn:"Comprar Ahora",
   b1:"Uso de<br>Investigación", b2:"Conservar<br>Refrigerado", b3:"Calidad<br>Garantizada", b4:"Probado con<br>Excelencia",
   cat_eye:"Compuestos de Investigación Avanzada", cat_h:"Tienda", cat_p:"99% de pureza \u00B7 Verificado por terceros \u00B7 Solo para uso de investigación en laboratorio",
-  grp:{all:"Todos",recovery:"Recuperación",growth:"Crecimiento",metabolic:"Metabólico",cellular:"Celular",sleep:"Sueño",supplies:"Suministros"},
+  grp:{all:"Todos",growth:"Crecimiento",recovery:"Recuperación",metabolic:"Metabólico",cognitive:"Cognitivo",cellular:"Celular",hormonal:"Hormonal",sleep:"Sueño",supplies:"Suministros"},
   st:{cart:"Añadir",opts:"Ver Opciones",notify:"Avísenme",added:"Añadido \u2713",oos:"Agotado",sale:"¡Oferta!",soonf:"Próximamente"},
   pr_eye:"Dentro del Laboratorio", pr_h:"Cada Paso. Cada Lote.", pr_p:"Ciencia en la que puede confiar",
   pr_q:"Detrás de cada vial hay un proceso construido sobre <b>integridad, transparencia y estándares implacables.</b>",
@@ -833,9 +915,10 @@ function priceHTML(p){var t=T[LANG];
   if(p.range) return '<span class="range">'+money(p.range[0])+' – '+money(p.range[1])+'</span>';
   if(p.state==="soon") return '<span class="range" style="color:var(--text-soft)">'+t.st.soonf+'</span>';
   if(p.old) return '<span class="old">'+money(p.old)+'</span>'+money(p.price);
+  if(p.variants&&p.variants.length>1) return '<span class="from">From </span>'+money(p.variants[0].price);
   return money(p.price);}
 function cardHTML(p,idx){var t=T[LANG];
-  var media=p.photo?'<img src="'+PHOTO+'" alt="Revora '+p.name+'">':vial(p.a);
+  var media=vial(p.a);
   var blur=(p.state==="oos"||p.state==="soon")?" blur":"";
   var flag="";
   if(p.state==="sale")flag='<div class="flag sale">'+t.st.sale+'</div>';
@@ -845,11 +928,20 @@ function cardHTML(p,idx){var t=T[LANG];
   if(p.state==="cart"||p.state==="sale")btn='<button class="act cart" onclick="addToCart('+idx+',this)">'+t.st.cart+'</button>';
   else if(p.state==="opts")btn='<button class="act opts" onclick="addToCart('+idx+',this)">'+t.st.opts+'</button>';
   else btn='<button class="act notify">'+t.st.notify+'</button>';
+  var varHTML='';
+  if(p.variants&&p.variants.length>1){
+    varHTML='<div class="var-sel"><button class="var-btn" onclick="toggleVars(this,'+idx+')">'+p.mg+'</button><div class="var-opts">';
+    p.variants.forEach(function(v){var sel=v.mg===p.mg?' sel':'';
+      varHTML+='<div class="var-opt'+sel+'" onclick="selVariant('+idx+',\''+v.mg+'\','+v.price+',this)"><span>'+v.mg+'</span><span class="v-price">'+money(v.price)+'</span></div>';});
+    varHTML+='</div></div>';
+  }
   return '<article class="card rv in"><div class="tile'+blur+'">'+flag
     +'<div class="tile-img">'+media+'</div>'+btn+'</div>'
     +'<div class="card-meta"><div class="cat">'+p.cat[LANG]+'</div>'
-    +'<h3>'+p.name+'</h3><div class="mg">'+p.mg+'</div>'
+    +'<h3>'+p.name+'</h3>'+varHTML
     +'<div class="price">'+priceHTML(p)+'</div></div></article>';}
+function toggleVars(btn,idx){var opts=btn.nextElementSibling;var isOpen=opts.classList.contains('open');document.querySelectorAll('.var-opts.open').forEach(function(o){o.classList.remove('open');document.querySelectorAll('.var-btn.open').forEach(function(b){b.classList.remove('open');});});if(!isOpen){btn.classList.add('open');opts.classList.add('open');}}
+function selVariant(idx,mg,price,el){var p=products[idx];p.mg=mg;p.price=price;var card=el.closest('.card-meta');var btn=card.querySelector('.var-btn');btn.textContent=mg;card.querySelector('.var-btn').classList.remove('open');el.closest('.var-opts').classList.remove('open');card.querySelectorAll('.var-opt').forEach(function(o){o.classList.remove('sel');});el.classList.add('sel');var priceEl=card.querySelector('.price');if(priceEl){priceEl.innerHTML=money(price);}renderCart();}
 function renderChips(){var t=T[LANG];
   document.getElementById('chips').innerHTML=GROUPS.map(function(g){
     return '<button class="chip'+(g===FILTER?' on':'')+'" onclick="setFilter(\''+g+'\')">'+t.grp[g]+'</button>';}).join('');}
