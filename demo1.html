@@ -222,7 +222,7 @@
   .card-meta{padding-top:16px}
   .card-meta .cat{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#8b9098;font-family:"Raleway",sans-serif;font-weight:700;margin-bottom:5px}
   html[data-theme="dark"] .card-meta .cat{color:#8b9098}
-  .card-meta h3{font-size:17px;font-weight:800;font-family:"Montserrat",sans-serif;line-height:1.25;letter-spacing:.04em;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .card-meta h3{font-size:17px;font-weight:800;font-family:"Montserrat",sans-serif;line-height:1.25;letter-spacing:.04em}
   .card-meta .mg{font-size:12px;color:var(--text-soft);margin-top:1px}
   .card-meta .price{font-size:22px;font-weight:700;color:var(--text);margin-top:8px}
   .card-meta .price .old{font-size:15px;font-weight:400;color:var(--text-soft);text-decoration:line-through;margin-right:8px}
@@ -789,9 +789,9 @@ var products=[
   {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"SNAP-8",mg:"10 mg",price:124.99,state:"cart",a:"#4a5a8a"},
   {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"KPV",variants:[{mg:"5 mg",price:41.99},{mg:"10 mg",price:45.99}],mg:"5 mg",price:41.99,state:"cart",a:"#5a6b3a"},
   {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"SELANK",variants:[{mg:"5 mg",price:37.99},{mg:"10 mg",price:45.99}],mg:"5 mg",price:37.99,state:"cart",a:"#6b4e9e"},
-  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"SEMAX",variants:[{mg:"5 mg",price:37.99},{mg:"10 mg",price:45.99}],mg:"5 mg",price:37.99,state:"cart",a:"#6b4e9e"},
+  {g:"cognitive",cat:{en:"Cognitive",es:"Cognitivo"},name:"SEMAX",variants:[{mg:"5 mg",price:37.99},{mg:"10 mg",price:45.99}],mg:"5 mg",price:37.99,state:"cart",a:"#2563eb"},
   {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"SS-31",variants:[{mg:"10 mg",price:62.99},{mg:"50 mg",price:183.99}],mg:"10 mg",price:62.99,state:"cart",a:"#3f6d7a"},
-  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"TB-500",variants:[{mg:"5 mg",price:62.99},{mg:"10 mg",price:108.99}],mg:"5 mg",price:62.99,state:"cart",a:"#3f6d7a"},
+  {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"TB-500",variants:[{mg:"5 mg",price:62.99},{mg:"10 mg",price:108.99}],mg:"5 mg",price:62.99,state:"cart",a:"#2563eb"},
   {g:"growth",cat:{en:"Growth",es:"Crecimiento"},name:"TESAMORELIN",variants:[{mg:"5 mg",price:74.99},{mg:"10 mg",price:133.99},{mg:"20 mg",price:199.99}],mg:"5 mg",price:74.99,state:"cart",a:"#6b4e9e"},
   {g:"metabolic",cat:{en:"Metabolic",es:"Metabólico"},name:"TIRZEPATIDE",variants:[{mg:"5 mg",price:41.99},{mg:"10 mg",price:49.99},{mg:"15 mg",price:58.99},{mg:"20 mg",price:74.99},{mg:"30 mg",price:99.99},{mg:"40 mg",price:116.99},{mg:"50 mg",price:139.99},{mg:"60 mg",price:149.99},{mg:"100 mg",price:174.99},{mg:"120 mg",price:216.99}],mg:"5 mg",price:41.99,state:"cart",a:"#3f8f57"},
   {g:"recovery",cat:{en:"Recovery",es:"Recuperación"},name:"THYMALIN",mg:"10 mg",price:54.99,state:"cart",a:"#5a6b3a"},
@@ -943,7 +943,7 @@ function cardHTML(p,idx){var t=T[LANG];
   return '<article class="card rv in"><div class="tile'+blur+'">'+flag
     +'<div class="tile-img">'+media+'</div>'+btn+'</div>'
     +'<div class="card-meta"><div class="cat">'+p.cat[LANG]+'</div>'
-    +'<h3 style="background:linear-gradient(90deg,'+p.a+' 0%,'+p.a+' 55%,#ea580c 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">'+p.name+'</h3>'
+    +'<h3 style="color:'+p.a+';-webkit-text-fill-color:'+p.a">'+p.name+'</h3>'
     +'<div class="spec-row" style="border-color:'+p.a+';opacity:0.8"><div class="spec-box" style="border-right-color:'+p.a+'">'+p.mg+'</div><div class="spec-box">99% PURITY</div></div>'
     +varHTML
     +'<div class="price">'+priceHTML(p)+'</div></div></article>';}
