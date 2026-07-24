@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revora Research — Demo Selection</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#080808;color:#f0f0f0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;-webkit-font-smoothing:antialiased}
+.label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#7c3aed;margin-bottom:16px}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,7vw,56px);font-weight:300;text-align:center;margin-bottom:8px;letter-spacing:-1px}
+.sub{font-size:13px;color:#666;margin-bottom:60px;text-align:center;letter-spacing:1px;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:560px}
+@media(max-width:480px){.grid{grid-template-columns:1fr;max-width:320px}}
+.card{border:1px solid #1e1e1e;padding:28px 24px;cursor:pointer;transition:all .25s;text-decoration:none;display:block;background:#0f0f0f}
+.card:hover{border-color:#7c3aed;background:#140e24;transform:translateY(-2px)}
+.card-num{font-size:9px;letter-spacing:3px;color:#7c3aed;margin-bottom:12px;text-transform:uppercase}
+.card-name{font-size:16px;font-weight:500;color:#f0f0f0;margin-bottom:4px}
+.card-desc{font-size:11px;color:#555;line-height:1.6}
+.card-arrow{font-size:18px;color:#333;margin-top:16px;transition:.2s;display:block}
+.card:hover .card-arrow{color:#7c3aed}
+footer{margin-top:60px;font-size:10px;color:#333;letter-spacing:2px;text-transform:uppercase;text-align:center}
+</style>
+</head>
+<body>
+<div class="label">JF Web Studios · Client Demo</div>
+<h1>Revora Research</h1>
+<p class="sub">Select a Design Variant</p>
+<div class="grid">
+  <a href="demo1.html" class="card">
+    <div class="card-num">Demo 01</div>
+    <div class="card-name">White Edition</div>
+    <div class="card-desc">Clean white, age gate, cart, light/dark toggle</div>
+    <span class="card-arrow">→</span>
+  </a>
+  <a href="demo2.html" class="card">
+    <div class="card-num">Demo 02</div>
+    <div class="card-name">Dark Edition</div>
+    <div class="card-desc">Same build, dark mode default, deep black</div>
+    <span class="card-arrow">→</span>
+  </a>
+  <a href="demo3.html" class="card">
+    <div class="card-num">Demo 03</div>
+    <div class="card-name">Deep Violet</div>
+    <div class="card-desc">White base, richer purple brand throughout</div>
+    <span class="card-arrow">→</span>
+  </a>
+  <a href="demo4.html" class="card">
+    <div class="card-num">Demo 04</div>
+    <div class="card-name">Clinical Teal</div>
+    <div class="card-desc">Dark default, cyan/teal science accent</div>
+    <span class="card-arrow">→</span>
+  </a>
+</div>
+<footer>© 2026 Revora Research · Precision. Researched. Evolved.</footer>
+</body>
+</html>
