@@ -6,7 +6,7 @@
 <title>Revora Research — Advanced Research Compounds</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Raleway:wght@400;600;700;800;900&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --violet:#6b4e9e;--violet-lt:#8a6fc0;--red:#e0393e;--green:#3f8f57;
@@ -176,7 +176,7 @@
   .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 22px}
   /* ruo card: image tile with overlapping button, name+price BELOW tile */
   .card{display:flex;flex-direction:column}
-  .tile{position:relative;background:var(--card);border-radius:14px;display:flex;flex-direction:column;align-items:center;padding:20px 18px;overflow:hidden;transition:transform .3s}
+  .tile{position:relative;background:#ffffff;border-radius:14px;display:flex;flex-direction:column;align-items:center;padding:20px 18px;overflow:hidden;transition:transform .3s;box-shadow:0 4px 24px rgba(0,0,0,.13)}
   .card:hover .tile{transform:translateY(-4px)}
   .flag{position:absolute;top:0;left:0;z-index:4;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 15px}
   .flag.sale{background:var(--red);color:#fff;border-radius:14px 0 12px 0}
@@ -220,13 +220,18 @@
   .act.notify:hover{background:var(--violet);color:#fff}
   .act.added{background:var(--green);border-color:var(--green);color:#fff}
   .card-meta{padding-top:16px}
-  .card-meta .cat{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--violet);margin-bottom:5px}
-  html[data-theme="dark"] .card-meta .cat{color:var(--violet-lt)}
-  .card-meta h3{font-size:17px;font-weight:600;color:var(--text);line-height:1.25}
+  .card-meta .cat{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#8b9098;font-family:"Raleway",sans-serif;font-weight:700;margin-bottom:5px}
+  html[data-theme="dark"] .card-meta .cat{color:#8b9098}
+  .card-meta h3{font-size:17px;font-weight:800;font-family:"Montserrat",sans-serif;background:linear-gradient(90deg,#2563eb 0%,#2563eb 40%,#ea580c 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.25;letter-spacing:.04em}
   .card-meta .mg{font-size:12px;color:var(--text-soft);margin-top:1px}
   .card-meta .price{font-size:22px;font-weight:700;color:var(--text);margin-top:8px}
   .card-meta .price .old{font-size:15px;font-weight:400;color:var(--text-soft);text-decoration:line-through;margin-right:8px}
   .card-meta .price .range{font-size:18px}
+  /* Spec boxes — matches real Revora label */
+  .spec-row{display:flex;gap:0;margin:10px 0 6px;border:1px solid #d1d5db;border-radius:3px;overflow:hidden}
+  .spec-box{flex:1;padding:5px 0;text-align:center;font-family:"Montserrat",sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;color:#374151;text-transform:uppercase;background:#fff}
+  .spec-box:first-child{border-right:1px solid #d1d5db}
+  .card-meta .price{font-size:20px;font-weight:700;color:#111827;margin-top:2px}
 
   /* ===== PROCESS ===== */
   .process{background:var(--sec-dark-bg);color:var(--sec-dark-text);padding:110px 0}
@@ -938,7 +943,9 @@ function cardHTML(p,idx){var t=T[LANG];
   return '<article class="card rv in"><div class="tile'+blur+'">'+flag
     +'<div class="tile-img">'+media+'</div>'+btn+'</div>'
     +'<div class="card-meta"><div class="cat">'+p.cat[LANG]+'</div>'
-    +'<h3>'+p.name+'</h3>'+varHTML
+    +'<h3>'+p.name+'</h3>'
+    +'<div class="spec-row"><div class="spec-box">'+p.mg+'</div><div class="spec-box">99% PURITY</div></div>'
+    +varHTML
     +'<div class="price">'+priceHTML(p)+'</div></div></article>';}
 function toggleVars(btn,idx){var opts=btn.nextElementSibling;var isOpen=opts.classList.contains('open');document.querySelectorAll('.var-opts.open').forEach(function(o){o.classList.remove('open');document.querySelectorAll('.var-btn.open').forEach(function(b){b.classList.remove('open');});});if(!isOpen){btn.classList.add('open');opts.classList.add('open');}}
 function selVariant(idx,mg,price,el){var p=products[idx];p.mg=mg;p.price=price;var card=el.closest('.card-meta');var btn=card.querySelector('.var-btn');btn.textContent=mg;card.querySelector('.var-btn').classList.remove('open');el.closest('.var-opts').classList.remove('open');card.querySelectorAll('.var-opt').forEach(function(o){o.classList.remove('sel');});el.classList.add('sel');var priceEl=card.querySelector('.price');if(priceEl){priceEl.innerHTML=money(price);}renderCart();}
